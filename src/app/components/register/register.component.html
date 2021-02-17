@@ -1,0 +1,172 @@
+<app-layout>
+
+    <div class="container-fluid background-gradient py-5">
+
+        <div class="row align-items-center justify-content-center py-5" style="min-height: 100vh;">
+
+            <div class="col-11 col-sm-8 col-md-6 col-lg-10 border-0">
+
+                <div class="card border-0 shadow">
+                    
+                    <div class="row bg-white" style="--bs-gutter-x: 0;">
+
+                        <div class="col-12 col-lg-7 background-gradient p-5 d-none d-lg-block">
+
+                            <div class="d-flex align-items-center h-100">
+                                <img
+                                    src="assets/images/register.svg"
+                                    alt="Banner register kamphoto"
+                                    width="100%"
+                                >
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-12 col-lg-5 p-3">
+
+                            <div class="pt-3 pb-4 text-center">
+                                <h1 class="card-title">
+                                    <strong>Registrate</strong>
+                                </h1>
+                                <p class="card-subtitle text-muted">Crea una cuenta y comparte tu mejores momentos.</p>
+                            </div>
+
+                            <form class="p-0 m-0" [formGroup]="registerForm" (ngSubmit)="register($event)" novalidate>
+
+                                <!-- Nickname -->
+                                <div class="form-group">
+                                    <label
+                                        for="nickname"
+                                        class="custom-field outlined"
+                                        [ngClass]="{ error : isInvalidField('nickname') }"
+                                    >
+                                        <input
+                                            autocomplete="off"
+                                            name="nickname"
+                                            id="nickname"
+                                            formControlName="nickname"
+                                        >
+                                        <small class="placeholder">Nickname</small>
+                                    </label>
+                                    <small
+                                        class="form-text {{ isInvalidField('nickname') ? 'text-danger' : 'text-muted' }}"
+                                    >
+                                        {{ isInvalidField('nickname') ? getErrorMessage('nickname') : 'Escriba su nickname.' }}
+                                    </small>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label
+                                        for="email"
+                                        class="custom-field outlined"
+                                        [ngClass]="{ error : isInvalidField('email') }"
+                                    >
+                                        <input
+                                            autocomplete="off"
+                                            name="email"
+                                            id="email"
+                                            formControlName="email"
+                                        >
+                                        <small class="placeholder">Correo electrónico</small>
+                                    </label>
+                                    <small
+                                        class="form-text {{ isInvalidField('email') ? 'text-danger' : 'text-muted' }} "
+                                    >
+                                        {{ isInvalidField('email') ? getErrorMessage('email') : 'Escriba su correo electrónico.' }}
+                                    </small>
+                                </div>
+
+                                <!-- Contraseña -->
+                                <div class="form-group">
+                                    <label
+                                        for="password"
+                                        class="custom-field outlined"
+                                        [ngClass]="{ error : isInvalidField('password') }"
+                                    >
+                                        <input
+                                            autocomplete="off"
+                                            name="password"
+                                            type="password"
+                                            id="password"
+                                            formControlName="password"
+
+                                        >
+                                        <small class="placeholder">Contraseña</small>
+                                    </label>
+                                    <small
+                                        class="form-text {{ isInvalidField('password') ? 'text-danger' : ( validPassword() ? 'text-muted' : 'text-danger' ) }}"
+                                    >
+                                        {{ isInvalidField('password') ? getErrorMessage('password') : ( validPassword() ? 'Escriba su contraseña.' : 'Las contraseñas deben coincidir.' ) }}
+                                    </small>
+                                </div>
+
+                                <!-- Confirmar contraseña -->
+                                <div class="form-group">
+                                    <label
+                                        for="confirm_password"
+                                        class="custom-field outlined"
+                                        [ngClass]="{ error : isInvalidField('confirm_password') }"
+                                    >
+                                        <input
+                                            type="text"
+                                            name="confirm_password"
+                                            type="password"
+                                            id="confirm_password"
+                                            formControlName="confirm_password"
+                                        >
+                                        <small class="placeholder">Confirme su contraseña</small>
+                                    </label>
+                                    <small
+                                        class="form-text {{ isInvalidField('confirm_password') ? 'text-danger' : ( validPassword() ? 'text-muted' : 'text-danger' ) }}"
+                                    >
+                                        {{ isInvalidField('confirm_password') ? getErrorMessage('confirm_password') : ( validPassword() ? 'Confirme su contraseña.' : 'Las contraseñas deben coincidir.' ) }}
+                                    </small>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="btn bg-purple w-100 mt-3"
+                                >
+                                    Crear una cuenta
+                                </button>
+
+                                <!-- Registrarse usando redes sociales -->
+                                <div>
+                                    <p class="text-center my-4">O registrate usando</p>
+    
+                                    <div class="row d-flex justify-content-around">
+    
+                                        <button type="button" class="btn btn-outline-primary" (click)="loginWithFacebook()">
+                                            Facebook
+                                        </button>
+    
+                                        <button type="button" class="btn btn-outline-danger" (click)="loginWithGoogle()">
+                                            Google
+                                        </button>
+    
+                                    </div>
+                                </div>
+
+                                <!-- Términos y condiciones -->
+                                <div class="text-center mt-4 pb-3">
+                                    <small>
+                                        Al registrarte, estas aceptando los 
+                                        <a routerLink="/terminos-y-condiciones">Términos y condiciones</a>,
+                                        y la <a routerLink="/politicas-de-privacidad-y-proteccion-de-datos">Política de privacidad y protección de datos</a>
+                                        de Angular Team 15 - COMFECO.
+                                    </small>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</app-layout>

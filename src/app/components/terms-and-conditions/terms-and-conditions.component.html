@@ -1,0 +1,43 @@
+<!-- <app-layout> -->
+
+    <div class="container mt-5">
+
+        <h1 class="text-center mb-5">Términos y Condiciones {{ company }}</h1>
+
+        <div class="text-justify">
+
+            <p>
+                Esta página web es propiedad y está operado por {{ company }}.
+                Estos Términos establecen los términos y condiciones bajo los cuales tu puedes usar nuestra página web y servicios ofrecidos por nosotros.
+            </p>
+
+            <p>Esta página web ofrece a los visitantes:</p>
+
+            <ul>
+                <li *ngFor="let service of services">
+                    {{ service }}
+                </li>
+            </ul>
+
+            <p>
+                Al acceder o usar la página web de nuestro servicio, usted aprueba que haya leído, entendido y aceptado estar sujeto a estos Términos:
+            </p>
+
+            <ul>
+                <li *ngFor="let term of terms">
+                    {{ term }}
+                </li>
+            </ul>
+
+            <p>
+                Para usar nuestra página web y / o recibir nuestros servicios, debes tener al menos
+                {{ minAge }} años de edad, o la mayoría de edad legal en tu jurisdicción, y poseer la autoridad
+                legal, el derecho y la libertad para participar en estos Términos como un acuerdo vinculante.
+                No tienes permitido utilizar esta página web y / o recibir servicios si hacerlo está prohibido en tu país o en virtud de cualquier ley o regulación aplicable a tu caso.
+            </p>
+
+        </div>
+
+    </div>
+
+<!-- </app-layout> -->

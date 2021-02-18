@@ -11,6 +11,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +25,7 @@ import { SignInPage } from './pages/sign-in/sign-in.page';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
+    TermsAndConditionsComponent,
     PrivacyPolicyComponent,
     SignInPage
   ],

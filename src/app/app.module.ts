@@ -47,7 +47,12 @@ import { SignInPage } from './pages/sign-in/sign-in.page';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [
     {
@@ -65,12 +70,7 @@ import { SignInPage } from './pages/sign-in/sign-in.page';
           }
         ]
       } as SocialAuthServiceConfig,
-    }
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule
+    },
   ],
   bootstrap: [AppComponent]
 })

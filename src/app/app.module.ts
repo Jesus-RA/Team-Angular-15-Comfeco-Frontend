@@ -15,6 +15,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
     NavbarComponent,
     FooterComponent,
     RegisterComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

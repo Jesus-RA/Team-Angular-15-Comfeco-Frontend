@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SocialAuthService, SocialUser } from 'angularx-social-login';
 import { SocialLoginService } from '../../services/social-login.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-register',
@@ -12,19 +14,16 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  user: SocialUser
-  loggedIn: boolean
-
   private isValidNickname = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\S{7,15}$/
   private isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
   private isValidPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,}$/
 
   registerForm : FormGroup
+  loading = false
 
   constructor( 
 
     private http: HttpClient,
-    private authService:SocialAuthService,
     private socialLoginService:SocialLoginService,
     private router:Router
 
@@ -51,7 +50,7 @@ export class RegisterComponent implements OnInit {
   }
 
   /**
-   * Verifica que el formulario sea válido y realiza la petición
+   * Verifica que el formulario sea válido y envía la petición para registrar al usuario con los datos proporcionados.
    * @param event Evento disparado al enviar el formulario 'submit'
    */
   register(event : Event){
@@ -59,12 +58,34 @@ export class RegisterComponent implements OnInit {
     event.preventDefault()
 
     if( this.registerForm.valid && this.validPassword() ){
-      console.log("Hola mundo")
-      this.http.get('https://my-portfolio.digital')
-        .subscribe(data => {
-          console.log(data)
-          this.redirectToHome()
+
+      this.loading = true
+
+      this.http.post(`${environment.auth_api}/register`, this.registerForm.value)
+        .subscribe({
+
+          next: (response) => {
+
+            this.loading = false
+  
+            this.showToastAlert(response['message'], 'success', 5000, true)
+              .then( () =>  this.router.navigate(['/login']) )
+
+          },
+          error: (error) => {
+
+            this.loading = false
+
+            if(error.status === 403){
+              
+              this.showToastAlert(error.error.message, 'warning', 2000)
+
+            }
+
+          }
+
         })
+
     }else{
       this.registerForm.markAllAsTouched()
     }
@@ -136,27 +157,96 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('password').value == this.registerForm.get('confirm_password').value
   }
 
-
+  /**
+   * Utiliza el servicio de LoginService para obtener un token de autenticación de Google y lo envía al backend 
+   */
   loginWithGoogle():void{
+
     this.socialLoginService.googleLogin()
       .then(data => {
-        console.log(data)
-        // this.redirectToHome()
+
+        const params = new HttpParams().set('token', data['idToken'])
+
+        this.http.post(`${environment.auth_api}/google`, params)
+          .subscribe({
+
+            next: (response) => {
+
+              console.log(response)
+
+              this.showToastAlert(response['message'], 'success', 5000, true)
+                .then( () => this.router.navigate(['/home']) )
+
+            },
+            error: (error) => {
+              console.warn(error)
+              // error.error.message
+              this.showToastAlert('Lo sentimos ha ocurrido un error, vuelva a intentarlo más tarde.', 'error', 2000)
+
+            }
+
+          })
+
       })
-      .catch(error => console.log(error))
+      .catch(console.log)
   }
 
+  /**
+   * Utiliza el servicio de LoginService para obtener un token de autenticación de Facebook y lo envía al backend 
+   */
   loginWithFacebook():void{
+
     this.socialLoginService.facebookLogin()
       .then(data => {
-        console.log(data)
-        this.redirectToHome()
+
+        const params = new HttpParams().set('token', data['authToken'])
+
+        this.http.post(`${environment.auth_api}/facebook`, params)
+          .subscribe({
+
+            next: response => {
+
+              console.log(response)
+
+              this.showToastAlert(response['message'], 'success', 5000, true)
+                .then( () => this.router.navigate(['/home']) )
+
+            },
+            error: error => {
+
+              console.log(error)
+
+              this.showToastAlert(error.error.message, 'error', 2000)
+
+            }
+
+          })
+
       })
       .catch(error => console.log(error))
+
   }
 
-  redirectToHome():void{
-    this.router.navigateByUrl('/home')
+  /**
+   * Muestra una alerta de tipo toast.
+   * @param text Texto de la alerta.
+   * @param icon Icono a mostrar.
+   * @param timer Tiempo que durará visible la alerta.
+   * @param showTimerBar Indica si se debe mostrar la barra de tiempo en la parte inferior de la alerta.
+   * @returns Una promesa del tipo SweetAlertResult
+   */
+  showToastAlert(text:string, icon:string, timer:number = 0, showTimerBar:boolean = false):Promise<any>{
+    
+    return Swal.fire({
+      text: text,
+      icon: icon,
+      toast: true,
+      position: 'top-right',
+      showConfirmButton: false,
+      timer: timer,
+      timerProgressBar: showTimerBar,
+    })
+
   }
 
 }

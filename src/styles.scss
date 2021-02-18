@@ -37,3 +37,12 @@ $team15comfeco-theme: mat-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$primary : #7F00FF;
+$gradient-1: #E100FF;
+
+.background-gradient {
+    background: $primary;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $gradient-1, $primary);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $gradient-1, $primary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

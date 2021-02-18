@@ -8,11 +8,11 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path:"login", component: SignInPage },
   { path:"register", component: RegisterComponent },
   { path:"terminos-y-condiciones", component: TermsAndConditionsComponent },
   { path:"politica-de-privacidad-y-proteccion-de-datos", component: PrivacyPolicyComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path:"**", pathMatch:"full", redirectTo:"home" }
 ];
 

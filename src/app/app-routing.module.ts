@@ -4,7 +4,8 @@ import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path:"login", component: LoginComponent },
-  { path:"**", pathMatch:"full", redirectTo:"home" }
+  { path:"**", pathMatch:"full", redirectTo:"home" },
+  { path: "forgot-password", loadChildren: () => import("../app/pages/forgot-password/forgot-password.module").then(m => m.ForgotPasswordModule) }
 ];
 
 @NgModule({

@@ -12,6 +12,12 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(request: ILoginRequest): Observable<ILoginResponse> {
-    return this.http.post<ILoginResponse>(`${environment.api}/auth/login`, request);
+    const options = {
+        headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    };
+    let body = `email=${request.email}&password=${request.password}`;
+    return this.http.post<ILoginResponse>(`${environment.api}/auth/login`, body, options);
   }
 }

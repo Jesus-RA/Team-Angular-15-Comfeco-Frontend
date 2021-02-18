@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
           Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/),
         ],
       ],
-      password: ['', [Validators.required, Validators.pattern(/[a-z0-9]{6}$/)]],
+      // password: ['', [Validators.required, Validators.pattern(/[a-z0-9]{6}$/)]],
+      password: ['', [Validators.required, Validators.pattern(/^[A-z\d_@.#$=!%^)(\]:\*;\?\/\,}{'\|<>\[&\+-]*$/)]]
     });
   }
 
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   send(): void {
-    this.signIn.emit(this.emailField.value)
+    this.signIn.emit(this.group.value)
   }
 
 }

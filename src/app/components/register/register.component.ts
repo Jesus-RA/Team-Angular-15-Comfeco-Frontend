@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
 
       this.loading = true
 
-      this.http.post(`${environment.auth_api}/register`, this.registerForm.value)
+      this.http.post(`${environment.api}/auth/register`, this.registerForm.value)
         .subscribe({
 
           next: (response) => {
@@ -167,7 +167,7 @@ export class RegisterComponent implements OnInit {
 
         const params = new HttpParams().set('token', data['idToken'])
 
-        this.http.post(`${environment.auth_api}/google`, params)
+        this.http.post(`${environment.api}/auth/google`, params)
           .subscribe({
 
             next: (response) => {
@@ -201,7 +201,7 @@ export class RegisterComponent implements OnInit {
 
         const params = new HttpParams().set('token', data['authToken'])
 
-        this.http.post(`${environment.auth_api}/facebook`, params)
+        this.http.post(`${environment.api}/auth/facebook`, params)
           .subscribe({
 
             next: response => {

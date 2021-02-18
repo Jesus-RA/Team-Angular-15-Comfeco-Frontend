@@ -1,10 +1,17 @@
 // Import modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
 
 // Import routes
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +23,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { LoginComponent } from './components/login/login.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignInPage } from './pages/sign-in/sign-in.page';
 
 @NgModule({
   declarations: [
@@ -25,6 +37,10 @@ import { LoadingComponent } from './components/loading/loading.component';
     FooterComponent,
     RegisterComponent,
     LoadingComponent,
+    LoginComponent,
+    TermsAndConditionsComponent,
+    PrivacyPolicyComponent,
+    SignInPage
   ],
   imports: [
     BrowserModule,
@@ -50,6 +66,11 @@ import { LoadingComponent } from './components/loading/loading.component';
         ]
       } as SocialAuthServiceConfig,
     }
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,33 @@
+<app-layout>
+
+  <!-- <div class="alert alert-dark text-center">Hola mundo, bienvenido al login</div> -->
+
+  <div class="container-fluid background-gradient">
+    <div class="row align-items-center justify-content-center" style="min-height: 100vh">
+      <div class="col-11 col-sm-8 col-md-6 col-lg-8">
+        <div class="card border-0 bg-white shadow">
+          <div class="row m-0" style="--bs-gutter-x: 0">
+            <div class="col-12 col-md-7 background-gradient p-5 d-none d-lg-block">
+              <img src="assets/images/login.svg" width="100%" alt="Login banner kamphoto">
+              <p class="text-white text-center m-0 p-0 my-4">
+                <strong>C#MFECO</strong> | Todos los derechos reservados
+              </p>
+            </div>
+            <div class="col-12 col-lg-5 px-3">
+              <div class="py-3">
+                <h2 class="card-title">
+                  <strong>Iniciar sesion</strong>
+                </h2>
+                <p class="card-subtitle">Inicia sesion y accede a este gran evento!!</p>
+              </div>
+              <div class="login-content">
+                <app-login (signIn)=login($event)></app-login>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-layout>

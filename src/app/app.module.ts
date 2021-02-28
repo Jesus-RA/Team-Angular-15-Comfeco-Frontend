@@ -18,23 +18,20 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Import components
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { LoginComponent } from './components/login/login.component';
-import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
-import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInPage } from './pages/sign-in/sign-in.page';
+
+// Import Modules
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
-    NavbarComponent,
-    FooterComponent,
     RegisterComponent,
     LoadingComponent,
     LoginComponent,
@@ -52,7 +49,8 @@ import { SignInPage } from './pages/sign-in/sign-in.page';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    SharedModule,
   ],
   providers: [
     {
@@ -72,6 +70,6 @@ import { SignInPage } from './pages/sign-in/sign-in.page';
       } as SocialAuthServiceConfig,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

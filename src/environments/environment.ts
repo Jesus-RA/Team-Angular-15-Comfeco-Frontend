@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://team-angular-15-comfeco.herokuapp.com/api'
+  api: 'https://team-angular-15-comfeco.herokuapp.com/api/v1'
 
 };
 

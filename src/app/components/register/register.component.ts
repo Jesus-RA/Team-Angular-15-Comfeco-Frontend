@@ -77,9 +77,7 @@ export class RegisterComponent implements OnInit {
             this.loading = false
 
             if(error.status === 403){
-              
               this.showToastAlert(error.error.message, 'warning', 2000)
-
             }
 
           }

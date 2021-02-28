@@ -10,7 +10,7 @@ import { SocialAuthService } from 'angularx-social-login';
 export class NavbarComponent implements OnInit {
 
   user: SocialUser
-  loggedIn: boolean
+  loggedIn: boolean = true
 
   constructor(private authService:SocialAuthService) { }
 

@@ -12,17 +12,8 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav ml-auto" *ngIf="loggedIn">
-
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="/home">
-                        Home
-                    </a>
-                </li>
-
-            </ul>
             
+            <!-- Guest menu -->
             <ul class="navbar-nav ml-auto" *ngIf="!loggedIn">
 
                 <li class="nav-item" routerLinkActive="active">
@@ -31,6 +22,45 @@
 
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+
+            </ul>
+
+            <!-- Auth user menu -->
+            <ul class="navbar-nav ml-auto align-items-center" *ngIf="loggedIn">
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/inicio">Inicio</a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/comunidades">Comunidades</a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/talleres">Talleres</a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/creadores-de-contenido">Creadores de contenido</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdic25RTBSm7NJq7uIebP93c4tNjfGVDoBUg&usqp=CAU"
+                            alt="JesúsRA"
+                            width="40"
+                            height="40"
+                            class="rounded-circle"
+                        >
+                        JesúsRA
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Mi perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                    </div>
                 </li>
 
             </ul>

@@ -11,7 +11,7 @@
                 </h1>
             </aside>
 
-            <section class="col-md-6">
+            <section class="col-md-6 my-5 my-md-0">
 
                 <div class="text-center">
 
@@ -48,16 +48,15 @@
                 <!-- Carousel de sponsors -->
                 <h2 class="mt-5">Sponsors</h2>
                 <carousel
-                    class="px-5"
-                    height="80"
-                    cellWidth="80"
+                    [height]="height"
+                    cellWidth="90"
                     arrowsTheme="dark"
-                    cellsToShow="8"
-                    [loop]="true"
+                    [cellsToShow]="cellsToShow"
+                    loop="true"
                 >
-                    <div class="carousel-cell" *ngFor="let sponsor of sponsors">
+                    <div class="carousel-cell px-1" *ngFor="let sponsor of sponsors">
 
-                        <div data-toggle="tooltip" data-placement="top" [title]="sponsor.name">
+                        <div class="rounded-circle shadow-sm border border-light" data-toggle="tooltip" data-placement="top" [title]="sponsor.name">
                             <a [href]="sponsor.link" target="_blank">
                                 <img [src]="sponsor.image" alt="" class="rounded-circle">
                             </a>
@@ -66,6 +65,10 @@
                     </div>
 
                 </carousel>
+
+                <!-- Countdown -->
+                <h2 class="mt-5 text-center">¡Preparate, lo bueno está por venir!</h2>
+                <app-countdown></app-countdown>
 
             </section>
 

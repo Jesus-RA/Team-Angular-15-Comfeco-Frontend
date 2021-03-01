@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentCreator } from 'src/app/interfaces/content-creator.interface';
 import { Sponsor } from 'src/app/interfaces/sponsor.interface';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
@@ -123,10 +124,57 @@ export class HomeComponent implements OnInit {
       link: ''
     },
   ]
+  cellsToShow: number
+  height: number
 
-  constructor() { }
+  constructor(public breakpointObserver: BreakpointObserver) {
+
+    this.setupSponsorCarouselForEachBreakpoint()
+
+  }
 
   ngOnInit(): void {
+  }
+
+  setupSponsorCarouselForEachBreakpoint(){
+
+    this.breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Large, Breakpoints.Medium, Breakpoints.HandsetLandscape])
+      .subscribe( (state:BreakpointState) => {
+
+        // xsmall
+        if(this.breakpointObserver.isMatched('(max-width: 599.98px)')){
+
+          this.height = 110
+          this.cellsToShow = 3
+        }
+        // small
+        if(this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 959.98px)')){
+
+          this.height = 105
+          this.cellsToShow = 3
+        }
+        // small landscape
+        if(this.breakpointObserver.isMatched('(max-width: 959.98px) and (orientation: landscape)')){
+
+          this.height = 140
+          this.cellsToShow = 4
+        }
+        // medium
+        if(this.breakpointObserver.isMatched('(min-width: 960px) and (max-width: 1279.98px)')){
+
+          this.height = 110
+          this.cellsToShow = 4
+
+        }
+        // large
+        if(this.breakpointObserver.isMatched('(min-width: 1280px) and (max-width: 1919.98px)')){
+          this.height = 90
+          this.cellsToShow = 7
+        }
+
+      })
+
   }
 
 }

@@ -5,6 +5,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { LayoutComponent } from 'src/app/components/layout/layout.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { LayoutComponent } from 'src/app/components/layout/layout.component';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MatIconModule,
+    MatBadgeModule,
   ],
   exports: [
     LayoutComponent,

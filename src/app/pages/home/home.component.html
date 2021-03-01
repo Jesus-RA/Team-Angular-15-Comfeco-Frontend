@@ -1,10 +1,12 @@
 <app-layout>
 
-    <div class="container-fluid mt-5 border border-danger">
+    <div class="container-fluid my-5">
         
         <div class="row">
 
-            <div class="col-md-6">
+            <aside class="col-md-3"></aside>
+
+            <section class="col-md-6">
 
                 <div class="text-center">
 
@@ -20,8 +22,26 @@
         
                 </div>
 
-            </div>
 
+                <carousel
+                    height="400"
+                    loop="true"
+                    autoplay="true"
+                    autoplayInterval="3000"
+                    arrowsTheme="dark"
+                >
+    
+                    <div class="carousel-cell" *ngFor="let creator of creators">
+                        
+                        <app-content-creator-card [content_creator]="creator" ></app-content-creator-card>
+                
+                    </div>
+    
+                </carousel>
+
+            </section>
+
+            <aside class="col-md-3"></aside>
 
         </div>
 

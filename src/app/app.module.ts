@@ -12,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
+import { SharedModule } from './modules/shared/shared.module';
+
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 // Import routes
 import { AppRoutingModule } from './app-routing.module';
@@ -26,9 +29,6 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInPage } from './pages/sign-in/sign-in.page';
 
-// Import Modules
-import { SharedModule } from './modules/shared/shared.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,7 @@ import { SharedModule } from './modules/shared/shared.module';
     LoginComponent,
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
-    SignInPage
+    SignInPage,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +51,7 @@ import { SharedModule } from './modules/shared/shared.module';
     MatInputModule,
     MatIconModule,
     SharedModule,
+    IvyCarouselModule,
   ],
   providers: [
     {

@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'inicio' },
   { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: '', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
+  { path: 'perfil', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule) },
   { path:"**", pathMatch:"full", redirectTo:"inicio" }
 ];
 

@@ -1,0 +1,114 @@
+<app-layout>
+
+    <div class="container-fluid mt-5" style="height: 100vh;">
+
+        <!-- Submenú -->
+        <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link btn btn-outline-primary py-lg-3 mx-lg-3" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">
+                    <fa-icon [icon]="faUser" class="mr-2"></fa-icon>
+                    Mi perfil
+                </a>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link btn btn-outline-warning py-lg-3 mx-lg-3" id="pills-badges-tab" data-toggle="pill" href="#pills-badges" role="tab" aria-controls="pills-badges" aria-selected="false">
+                    <fa-icon [icon]="faMedal" class="mr-2"></fa-icon>
+                    Insignias
+                </a>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link btn btn-outline-dark py-lg-3 mx-lg-3" id="pills-groups-tab" data-toggle="pill" href="#pills-groups" role="tab" aria-controls="pills-groups" aria-selected="false">
+                    <fa-icon [icon]="faUsers" class="mr-2"></fa-icon>
+                    Grupos
+                </a>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link btn btn-outline-info py-lg-3 mx-lg-3" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="false">
+                    <fa-icon [icon]="faCalendarWeek" class="mr-2"></fa-icon>
+                    Eventos
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content container-fluid mt-5" id="pills-tabContent">
+
+            <!-- Tab Perfil -->
+            <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                
+                <div class="row justify-content-between">
+
+                    <!-- Información del perfil -->
+                    <section class="col-md-3 border border-dark">
+                        Información del perfil
+                    </section>
+        
+                    <!-- Contenido central -->
+                    <section class="col-lg-5 border border-success">
+        
+                        <!-- Insignias -->
+                        <div>
+                            <h2>Insignias</h2>
+        
+                            <div class="row justify-content-around">
+        
+                                <div class="col-lg-2 text-center p-0">
+                                    <img src="https://www.comfeco.com/icons/code-icon.svg" alt="" class="rounded-circle border border-light shadow-lg" width="100" height="100">
+                                </div>
+        
+                                <div class="col-lg-2 text-center p-0">
+                                    <img src="https://www.comfeco.com/icons/code-icon.svg" alt="" class="rounded-circle border border-light shadow-lg" width="100" height="100">
+                                </div>
+        
+                                <div class="col-lg-2 text-center p-0">
+                                    <img src="https://www.comfeco.com/icons/code-icon.svg" alt="" class="rounded-circle border border-light shadow-lg" width="100" height="100">
+                                </div>
+        
+                                <div class="col-lg-2 text-center p-0">
+                                    <img src="https://www.comfeco.com/icons/code-icon.svg" alt="" class="rounded-circle border border-light shadow-lg" width="100" height="100">
+                                </div>
+        
+                            </div>
+        
+                        </div>
+        
+                        <!-- Actividad reciente -->
+                        <div class="p-5 border border-dark mt-5">
+                            
+                        </div>
+        
+                    </section>
+        
+                    <!-- Eventos -->
+                    <section class="col-md-3 border border-dark">
+                        Eventos
+                    </section>
+        
+                </div>
+
+            </div>
+
+            <!-- Tab Insignias -->
+            <div class="tab-pane fade" id="pills-badges" role="tabpanel" aria-labelledby="pills-badges-tab">
+                <app-badges></app-badges>
+            </div>
+
+            <!-- Tab Grupos -->
+            <div class="tab-pane fade" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
+                <app-groups></app-groups>
+            </div>
+
+            <!-- Tab Eventos -->
+            <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-events-tab">
+                <app-events></app-events>
+            </div>
+
+        </div>
+
+    </div>
+
+</app-layout>

@@ -9,27 +9,29 @@ import { AppRoutingModule } from './routes/app-routing.module';
 
 // Imports main component.
 import { AppComponent } from './bootstrap/app.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
+
+// Imports layouts.
+import { DefaultLayoutModule } from './layouts/default-layout/default-layout.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent
-  ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule,
+
+    // Routings
     AppRoutingModule,
+    
+    // Layouts.
+    DefaultLayoutModule,
+
+    // Forms.
     FormsModule,
     ReactiveFormsModule,
+
+    // Http
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

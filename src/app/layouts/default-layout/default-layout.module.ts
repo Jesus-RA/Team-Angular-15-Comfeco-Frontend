@@ -11,6 +11,9 @@ import { DefaultLayoutComponent } from './component/default-layout.component';
 // Imports pages.
 import { HomePageComponent } from 'src/app/pages/home-page/home-page.component';
 
+// Imports shared.
+import { DefaultSharedModule } from 'src/app/shared/default-shared.module';
+
 @NgModule({
   declarations: [
     DefaultLayoutComponent,
@@ -18,6 +21,7 @@ import { HomePageComponent } from 'src/app/pages/home-page/home-page.component';
   ],
   imports: [
     CommonModule,
+    DefaultSharedModule,
     DefaultRoutingModule
   ]
 })

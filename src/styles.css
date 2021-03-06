@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-purple {
+    background-color: #7f3bb2;
+    color: white;
+}
+
+.text-purple {
+    color: #7f3bb2;
+}

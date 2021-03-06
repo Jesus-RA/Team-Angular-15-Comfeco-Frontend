@@ -12,6 +12,7 @@ import { AppComponent } from './bootstrap/app.component';
 
 // Imports layouts.
 import { DefaultLayoutModule } from './layouts/default-layout/default-layout.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -29,7 +30,9 @@ import { DefaultLayoutModule } from './layouts/default-layout/default-layout.mod
     ReactiveFormsModule,
 
     // Http
-    HttpClientModule
+    HttpClientModule,
+
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

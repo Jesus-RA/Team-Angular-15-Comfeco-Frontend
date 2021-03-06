@@ -1,7 +1,9 @@
+// Imports modules.
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { UserService } from '../../services/user.service';
+// Imports services.
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-forgot-password',

@@ -1,1 +1,70 @@
-<p>register-form works!</p>
+<form>
+    <div class="row p-0 m-0">
+        <div class="col-12 col-lg-6">
+            <div class="form-group">
+                <label for="nickname" class="custom-field outlined">
+                        <input
+                        autocomplete="off"
+                        name="nickname"
+                        id="nickname"
+                        autofocus
+                        required
+                        >
+                        <small class="placeholder">Nickname</small>
+                </label>
+                <small class="form-text text-muted">Escriba su nickname.</small>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="form-group">
+                <label for="email" class="custom-field outlined">
+                        <input
+                        autocomplete="off"
+                        name="email"
+                        id="email"
+                        autofocus
+                        required
+                        >
+                        <small class="placeholder">Correo electronico</small>
+                </label>
+                <small class="form-text text-muted">Escriba su correo electronico.</small>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label for="confirm_password" class="custom-field outlined">
+                    <input
+                        autocomplete="off"
+                        type="password"
+                        name="confirm_password"
+                        id="confirm_password"
+                        required
+                    >
+                    <small class="placeholder">Contraseña</small>
+                </label>
+                <small class="form-text text-muted">Escriba su contraseña.</small>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label for="password" class="custom-field outlined">
+                    <input
+                        autocomplete="off"
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                    >
+                    <small class="placeholder">Contraseña</small>
+                </label>
+                <small class="form-text text-muted">Escriba su contraseña.</small>
+            </div>
+        </div>
+    </div>
+
+    <button
+        type="submit"
+        mat-raised-button
+        class="bg-primary text-white w-100"
+    >Crear cuenta</button>
+</form>

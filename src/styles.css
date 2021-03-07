@@ -14,6 +14,12 @@ body {
     background: linear-gradient(to right, #a044ff, #6a3093);
 }
 
+.font-cyan {
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+}
+
 .bg-purple {
     background-color: #7f3bb2;
     color: white;

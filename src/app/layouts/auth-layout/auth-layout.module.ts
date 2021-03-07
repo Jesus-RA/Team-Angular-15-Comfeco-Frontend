@@ -11,6 +11,7 @@ import { AuthLayoutComponent } from "./component/auth-layout.component";
 // Imports pages.
 import { RegisterPageComponent } from 'src/app/pages/register-page/register-page.component';
 import { LoginPageComponent } from 'src/app/pages/login-page/login-page.component';
+import { ForgotPasswordPageComponent } from 'src/app/pages/forgot-password-page/forgot-password-page.component';
 
 // Imports shared
 import { AuthSharedModule } from "../../shared/auth-shared.module";
@@ -22,7 +23,8 @@ import { AuthSharedModule } from "../../shared/auth-shared.module";
 
     // Pages
     RegisterPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ForgotPasswordPageComponent
   ],
   imports: [
     CommonModule,

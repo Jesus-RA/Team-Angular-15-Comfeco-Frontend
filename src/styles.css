@@ -7,6 +7,10 @@ body {
     font-family: system-ui, Roboto, "Helvetica Neue", sans-serif;
 }
 
+.spacer {
+    flex: 1 1 auto;
+}
+
 /* Fonts */
 .font-purple {
     background: #6a3093;

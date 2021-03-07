@@ -15,7 +15,7 @@ import { DefaultLayoutModule } from './layouts/default-layout/default-layout.mod
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 
 @NgModule({
-  declarations: [ AppComponent, ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule,
 

@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from "../component/auth-layout.component";
 // Imports pages.
 import { LoginPageComponent } from 'src/app/pages/login-page/login-page.component';
 import { RegisterPageComponent } from 'src/app/pages/register-page/register-page.component';
+import { ForgotPasswordPageComponent } from 'src/app/pages/forgot-password-page/forgot-password-page.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: "register",
         component: RegisterPageComponent
+      },
+      {
+        path: "forgotPassword",
+        component: ForgotPasswordPageComponent
       }
     ]
   }

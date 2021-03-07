@@ -1,6 +1,7 @@
 // Imports modules.
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from "@angular/router";
 
 // Imports components.
 import { NavbarComponent } from "../components/navbar/navbar.component";
@@ -14,6 +15,7 @@ import { AngularMaterial } from "../material/material";
   ],
   imports: [
     CommonModule,
+    RouterModule,
     AngularMaterial
   ],
   exports: [

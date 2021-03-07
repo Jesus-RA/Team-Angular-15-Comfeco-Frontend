@@ -1,5 +1,5 @@
 // Imports modules.
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
@@ -12,7 +12,7 @@ import { AppComponent } from './bootstrap/app.component';
 
 // Imports layouts.
 import { DefaultLayoutModule } from './layouts/default-layout/default-layout.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -24,10 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
     // Layouts.
     DefaultLayoutModule,
-
-    // Forms.
-    FormsModule,
-    ReactiveFormsModule,
+    AuthLayoutModule,
 
     // Http
     HttpClientModule,

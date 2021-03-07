@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 // Imports components.
 import { RegisterFormComponent } from '../components/register-form/register-form.component';
 import { LoginFormComponent } from '../components/login-form/login-form.component';
+import { HeaderFormComponent } from '../components/header-form/header-form.component';
 
 // Imports material.
 import { AngularMaterial } from "../material/material";
@@ -14,7 +15,8 @@ import { AngularMaterial } from "../material/material";
 @NgModule({
   declarations: [
     RegisterFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    HeaderFormComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { AngularMaterial } from "../material/material";
 
     // Components
     RegisterFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    HeaderFormComponent
   ]
 })
 export class AuthSharedModule {}

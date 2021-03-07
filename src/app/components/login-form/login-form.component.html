@@ -1,1 +1,34 @@
-<p>login-form works!</p>
+<form>
+    <div class="form-group">
+        <label for="email" class="custom-field outlined">
+             <input
+                autocomplete="off"
+                name="email"
+                id="email"
+                autofocus
+                required
+             >
+             <small class="placeholder">Correo electronico</small>
+        </label>
+        <small class="form-text text-muted">Escriba su correo electronico.</small>
+   </div>
+    <div class="form-group">
+        <label for="password" class="custom-field outlined">
+            <input
+                autocomplete="off"
+                type="password"
+                name="password"
+                id="password"
+                required
+            >
+            <small class="placeholder">Contraseña</small>
+        </label>
+        <small class="form-text text-muted">Escriba su contraseña.</small>
+    </div>
+
+    <button
+        type="submit"
+        mat-raised-button
+        class="bg-purple text-white w-100"
+    >Iniciar sesion</button>
+</form>

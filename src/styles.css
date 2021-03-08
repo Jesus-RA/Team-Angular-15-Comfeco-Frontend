@@ -111,8 +111,18 @@ body {
     color: #DD5E5D;
 }
 
-.custom-field.error input {
-    background: none;
-    border: 2px solid #DD5E5D;
-    transition: border-color 0.3s ease;
+/* success */
+.custom-field.success {
+    color: #009432;
+}
+
+.custom-field.success input:valid,
+.custom-field.success input:focus {
+    border-color: #009432;
+    transition-delay: 0.1s;
+}
+
+.custom-field.success input:valid + .placeholder,
+.custom-field.success input:focus + .placeholder {
+    color: #009432;
 }

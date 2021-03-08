@@ -9,6 +9,7 @@ import { RegisterFormComponent } from '../components/register-form/register-form
 import { LoginFormComponent } from '../components/login-form/login-form.component';
 import { HeaderFormComponent } from '../components/header-form/header-form.component';
 import { ModalConfirmEmailComponent } from '../components/modal-confirm-email/modal-confirm-email.component';
+import { ModalMessageComponent } from '../components/modal-message/modal-message.component';
 
 // Imports material.
 import { AngularMaterial } from "../material/material";
@@ -18,7 +19,8 @@ import { AngularMaterial } from "../material/material";
     RegisterFormComponent,
     LoginFormComponent,
     HeaderFormComponent,
-    ModalConfirmEmailComponent
+    ModalConfirmEmailComponent,
+    ModalMessageComponent
   ],
   imports: [
     CommonModule,
@@ -28,12 +30,14 @@ import { AngularMaterial } from "../material/material";
   ],
   exports: [
     AngularMaterial,
+    ReactiveFormsModule,
 
     // Components
     RegisterFormComponent,
     LoginFormComponent,
     HeaderFormComponent,
-    ModalConfirmEmailComponent
+    ModalConfirmEmailComponent,
+    ModalMessageComponent
   ]
 })
 export class AuthSharedModule {}

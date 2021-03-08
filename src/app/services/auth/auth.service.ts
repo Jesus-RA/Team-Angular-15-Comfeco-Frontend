@@ -29,4 +29,9 @@ export class AuthService {
     const path: string = `${ this.url }/register`;
     return this.http.post(path, data);
   }
+
+  forgotPassword(email: string): Observable<object> {
+    const path: string = `${ this.url }/password/forgot`;
+    return this.http.post(path, { email });
+  }
 }

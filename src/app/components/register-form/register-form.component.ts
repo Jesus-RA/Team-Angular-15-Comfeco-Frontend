@@ -13,7 +13,7 @@ import { FormsValidators } from "src/app/rules/FormsValidators";
 import { AuthService } from "src/app/services/auth/auth.service";
 
 // Imports components.
-import { ModalConfirmEmailComponent } from '../modal-confirm-email/modal-confirm-email.component';
+import { ModalMessageComponent } from '../modal-message/modal-message.component';
 
 @Component({
   selector: 'app-register-form',
@@ -37,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll("input");
     const writeError = new WriteErrorsForm;
-    writeError.validate(inputs);
+    writeError.validate(Array.from(inputs));
   }
 
   submit(): void {
@@ -56,10 +56,13 @@ export class RegisterFormComponent implements OnInit {
   }
   
   private successRequest(data: any): void {
-    this.dialog.open(ModalConfirmEmailComponent, {
+    this.dialog.open(ModalMessageComponent, {
       disableClose: true,
       width: "400px",
-      data: data.message
+      data: {
+        text: data.message,
+        image: "/assets/icons/accountCreatedSuccess.svg"
+      }
     });
     this.register.reset();
   }

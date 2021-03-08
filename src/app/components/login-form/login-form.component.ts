@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.inputs = document.querySelectorAll("input");
-    this.writeError.validate(this.inputs);
+    this.writeError.validate(Array.from(this.inputs));
   }
 
   submit(): void {

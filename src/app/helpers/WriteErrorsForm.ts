@@ -1,9 +1,17 @@
 import { rules } from "../config/rules";
 
 export class WriteErrorsForm {
-    validate(inputs: NodeListOf<HTMLInputElement>): void {
+    validate(inputs: HTMLInputElement[]): void {
         inputs.forEach(input => {
-            input.addEventListener("input", event => {
+            input.addEventListener("input", () => {
+                const { type } = input.dataset;
+                if (!type) return;
+
+                const result: string | boolean = rules[type](input.value);
+                this.writeError(input, result);
+            });
+
+            input.addEventListener("blur", () => {
                 const { type } = input.dataset;
                 if (!type) return;
 

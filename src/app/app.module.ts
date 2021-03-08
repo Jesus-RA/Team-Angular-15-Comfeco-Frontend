@@ -14,6 +14,10 @@ import { AppComponent } from './bootstrap/app.component';
 import { DefaultLayoutModule } from './layouts/default-layout/default-layout.module';
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 
+// Imports services.
+import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
+
 @NgModule({
   declarations: [ AppComponent ],
   imports: [
@@ -31,7 +35,10 @@ import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UserService
+  ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}

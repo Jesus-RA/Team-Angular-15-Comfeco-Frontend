@@ -4,11 +4,12 @@
             <div class="form-group">
                 <label for="nickname" class="custom-field outlined">
                         <input
-                        autocomplete="off"
-                        name="nickname"
-                        id="nickname"
-                        autofocus
-                        required
+                            data-type="nickname"
+                            autocomplete="off"
+                            name="nickname"
+                            id="nickname"
+                            autofocus
+                            required
                         >
                         <small class="placeholder">Nickname</small>
                 </label>
@@ -19,11 +20,12 @@
             <div class="form-group">
                 <label for="email" class="custom-field outlined">
                         <input
-                        autocomplete="off"
-                        name="email"
-                        id="email"
-                        autofocus
-                        required
+                            autocomplete="off"
+                            data-type="email"
+                            name="email"
+                            id="email"
+                            autofocus
+                            required
                         >
                         <small class="placeholder">Correo electronico</small>
                 </label>
@@ -32,12 +34,13 @@
         </div>
         <div class="col-12">
             <div class="form-group">
-                <label for="confirm_password" class="custom-field outlined">
+                <label for="password" class="custom-field outlined">
                     <input
+                        data-type="password"
                         autocomplete="off"
                         type="password"
-                        name="confirm_password"
-                        id="confirm_password"
+                        name="password"
+                        id="password"
                         required
                     >
                     <small class="placeholder">Contraseña</small>
@@ -47,12 +50,13 @@
         </div>
         <div class="col-12">
             <div class="form-group">
-                <label for="password" class="custom-field outlined">
+                <label for="confirm_password" class="custom-field outlined">
                     <input
+                        name="confirm_password"
+                        id="confirm_password"
+                        data-type="password"
                         autocomplete="off"
                         type="password"
-                        name="password"
-                        id="password"
                         required
                     >
                     <small class="placeholder">Contraseña</small>

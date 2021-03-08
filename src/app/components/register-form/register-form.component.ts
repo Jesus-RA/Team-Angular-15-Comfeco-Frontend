@@ -1,6 +1,7 @@
 // Imports modules.
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 
 // Imports helpers.
 import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
@@ -10,6 +11,9 @@ import { FormsValidators } from "src/app/rules/FormsValidators";
 
 // Imports services.
 import { AuthService } from "src/app/services/auth/auth.service";
+
+// Imports components.
+import { ModalConfirmEmailComponent } from '../modal-confirm-email/modal-confirm-email.component';
 
 @Component({
   selector: 'app-register-form',
@@ -25,7 +29,10 @@ export class RegisterFormComponent implements OnInit {
   });
   private writeError: WriteErrorsForm = new WriteErrorsForm;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll("input");
@@ -49,7 +56,11 @@ export class RegisterFormComponent implements OnInit {
   }
   
   private successRequest(data: any): void {
-    console.log("Data: ", data);
+    this.dialog.open(ModalConfirmEmailComponent, {
+      disableClose: true,
+      width: "400px",
+      data: data.message
+    });
     this.register.reset();
   }
 

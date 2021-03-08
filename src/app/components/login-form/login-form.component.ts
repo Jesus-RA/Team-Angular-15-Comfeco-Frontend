@@ -45,8 +45,18 @@ export class LoginFormComponent implements OnInit {
   }
 
   private failureRequest(error: any): void {
-    this.inputs.forEach(input => {
-      this.writeError.writeError(input, error.message);
-    });
+    const { name, message } = error;
+
+    if (name === "UnverifiedEmail") {
+      const input = document.getElementById("email") as HTMLInputElement;
+      this.writeError.writeError(input, message);
+      return;
+    }
+
+    if (name === "CredentialsIncorrect") {
+      this.inputs.forEach(input => {
+        this.writeError.writeError(input, message);
+      });
+    }
   }
 }

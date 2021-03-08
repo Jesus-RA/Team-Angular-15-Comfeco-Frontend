@@ -16,7 +16,14 @@ export class HeaderFormComponent {
 
   async google(): Promise<void> {
     const res = await this.authService.signInGoogle();
+    res.subscribe(
+      data => console.log(data),
+      err => console.error(err)
+    );
+  }
 
+  async facebook(): Promise<void> {
+    const res = await this.authService.signInFacebook();
     res.subscribe(
       data => console.log(data),
       err => console.error(err)

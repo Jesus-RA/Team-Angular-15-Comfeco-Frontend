@@ -1,5 +1,5 @@
 // Imports modules.
-import { GoogleLoginProvider, SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from "angularx-social-login";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private authService: SocialAuthService
+    private socialAuth: SocialAuthService
   ) {}
 
   login(email: string, password: string): Observable<object> {
@@ -40,8 +40,14 @@ export class AuthService {
   }
 
   async signInGoogle(): Promise<Observable<object>> {
-    const data = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    const data = await this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID);
     const path: string = `${ this.url }/google`;
     return this.http.post(path, { token: data.idToken });
+  }
+
+  async signInFacebook(): Promise<Observable<object>> {
+    const res: SocialUser = await this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID);
+    const path: string = `${ this.url }/facebook`;
+    return this.http.post(path, { token: res.authToken });
   }
 }

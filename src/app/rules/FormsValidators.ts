@@ -9,4 +9,18 @@ export class FormsValidators {
             return typeof result !== "string" ? null : { nickname: control.value };
         }
     }
+
+    static email() {
+        return (control: AbstractControl): { [key: string]: any } | null => {
+            const result: string | boolean = rules.email(control.value);
+            return typeof result !== "string" ? null : { email: control.value };
+        }
+    }
+
+    static password() {
+        return (control: AbstractControl): { [key: string]: any } | null => {
+            const result: string | boolean = rules.password(control.value);
+            return typeof result !== "string" ? null : { password: control.value };
+        }
+    }
 }

@@ -1,7 +1,12 @@
-<form>
+<form
+    [formGroup]="register"
+    (ngSubmit)="submit()"
+    novalidate
+>
     <div class="form-group">
         <label for="email" class="custom-field outlined">
             <input
+                formControlName="email"
                 autocomplete="off"
                 data-type="email"
                 name="email"
@@ -16,6 +21,7 @@
     <div class="form-group">
         <label for="password" class="custom-field outlined">
             <input
+                formControlName="password"
                 data-type="password"
                 autocomplete="off"
                 type="password"
@@ -28,5 +34,10 @@
         <small class="form-text text-muted">Escriba su contraseña.</small>
     </div>
 
-    <button type="submit" mat-raised-button class="bg-purple text-white w-100">Iniciar sesion</button>
+    <button
+        class="bg-purple text-white w-100"
+        [disabled]="register.invalid"
+        mat-raised-button
+        type="submit"
+    >Iniciar sesion</button>
 </form>

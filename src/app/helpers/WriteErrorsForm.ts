@@ -13,7 +13,7 @@ export class WriteErrorsForm {
         });
     }
 
-    private writeError(input: HTMLInputElement, result: string | boolean): void {
+    writeError(input: HTMLInputElement, result: string | boolean): void {
         const { parentElement } = input;
         const small = parentElement.nextSibling as HTMLElement;
         small.classList.remove("text-muted");

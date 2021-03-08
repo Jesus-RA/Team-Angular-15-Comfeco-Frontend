@@ -1,4 +1,5 @@
 // Imports modules.
+import { GoogleLoginProvider, SocialAuthService } from "angularx-social-login";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -18,7 +19,10 @@ interface IPayloadRegister {
 export class AuthService {
   private readonly url: string = `${ environment.url }/auth`;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: SocialAuthService
+  ) {}
 
   login(email: string, password: string): Observable<object> {
     const path: string = `${ this.url }/login`;
@@ -33,5 +37,11 @@ export class AuthService {
   forgotPassword(email: string): Observable<object> {
     const path: string = `${ this.url }/password/forgot`;
     return this.http.post(path, { email });
+  }
+
+  async signInGoogle(): Promise<Observable<object>> {
+    const data = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    const path: string = `${ this.url }/google`;
+    return this.http.post(path, { token: data.idToken });
   }
 }

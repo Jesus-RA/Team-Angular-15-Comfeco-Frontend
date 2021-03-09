@@ -1,6 +1,7 @@
 // Imports modules.
-import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 // Imports helpers.
 import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
@@ -24,7 +25,10 @@ export class LoginFormComponent implements OnInit {
   private writeError: WriteErrorsForm = new WriteErrorsForm;
   private inputs: NodeListOf<HTMLInputElement>;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.inputs = document.querySelectorAll("input");
@@ -35,13 +39,14 @@ export class LoginFormComponent implements OnInit {
     const { email, password } = this.register.value;
     
     this.authService.login(email, password).subscribe(
-      this.successRequest,
-      error => this.failureRequest(error.error)
+      res => this.successRequest(res),
+      err => this.failureRequest(err.error)
     );
   }
 
   private successRequest(data: any): void {
     console.log("Data: ", data);
+    this.router.navigate(["/app"]);
   }
 
   private failureRequest(error: any): void {

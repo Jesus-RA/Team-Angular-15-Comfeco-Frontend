@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 
 // Imports helpers.
 import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
+import { LocalStorage } from "src/app/helpers/LocalStorage";
 
 // Imports rules.
 import { FormsValidators } from 'src/app/rules/FormsValidators';
@@ -27,7 +28,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private localStorage: LocalStorage<{}>
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +47,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   private successRequest(data: any): void {
-    console.log("Data: ", data);
+    this.localStorage.insert(this.localStorage.TEAMANGULAR15_ACCESS_TOKEN, data.tokens);
+    this.localStorage.insert(this.localStorage.TEAMANGULAR15_USER, data.user);
     this.router.navigate(["/app"]);
   }
 

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 // Imports environments.
 import { environment } from 'src/environments/environment';
+import { LocalStorage } from "src/app/helpers/LocalStorage";
 
 interface IPayloadRegister {
   nickname: string;
@@ -18,10 +19,11 @@ interface IPayloadRegister {
 })
 export class AuthService {
   private readonly url: string = `${ environment.url }/auth`;
-
+  
   constructor(
     private http: HttpClient,
-    private socialAuth: SocialAuthService
+    private socialAuth: SocialAuthService,
+    private localStorage: LocalStorage<{}>
   ) {}
 
   login(email: string, password: string): Observable<object> {
@@ -49,5 +51,9 @@ export class AuthService {
     const res: SocialUser = await this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID);
     const path: string = `${ this.url }/facebook`;
     return this.http.post(path, { token: res.authToken });
+  }
+
+  signOut(): void {
+    this.localStorage.clear();
   }
 }

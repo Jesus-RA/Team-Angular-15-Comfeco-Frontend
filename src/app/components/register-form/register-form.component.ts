@@ -22,10 +22,10 @@ import { ModalMessageComponent } from '../modal-message/modal-message.component'
 })
 export class RegisterFormComponent implements OnInit {
   register: FormGroup = new FormGroup({
-    nickname: new FormControl("", [FormsValidators.nickname]),
-    email: new FormControl("", [FormsValidators.email]),
-    password: new FormControl("", [FormsValidators.password]),
-    confirmPassword: new FormControl("", [FormsValidators.password])
+    nickname: new FormControl("", [FormsValidators.nickname()]),
+    email: new FormControl("", [FormsValidators.email()]),
+    password: new FormControl("", [FormsValidators.password()]),
+    confirmPassword: new FormControl("", [FormsValidators.password()])
   });
   private writeError: WriteErrorsForm = new WriteErrorsForm;
 

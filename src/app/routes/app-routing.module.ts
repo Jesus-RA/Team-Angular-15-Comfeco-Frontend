@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: "auth",
     loadChildren: () => import("src/app/layouts/auth-layout/auth-layout.module").then(module => module.AuthLayoutModule)
+  },
+  {
+    path: "app",
+    loadChildren: () => import("src/app/layouts/app-layout/app-layout.module").then(module => module.AppLayoutModule)
   }
 ];
 

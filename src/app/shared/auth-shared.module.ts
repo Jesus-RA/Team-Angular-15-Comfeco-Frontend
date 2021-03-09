@@ -8,8 +8,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RegisterFormComponent } from '../components/register-form/register-form.component';
 import { LoginFormComponent } from '../components/login-form/login-form.component';
 import { HeaderFormComponent } from '../components/header-form/header-form.component';
-import { ModalConfirmEmailComponent } from '../components/modal-confirm-email/modal-confirm-email.component';
-import { ModalMessageComponent } from '../components/modal-message/modal-message.component';
 
 // Imports material.
 import { AngularMaterial } from "../material/material";
@@ -18,9 +16,7 @@ import { AngularMaterial } from "../material/material";
   declarations: [
     RegisterFormComponent,
     LoginFormComponent,
-    HeaderFormComponent,
-    ModalConfirmEmailComponent,
-    ModalMessageComponent
+    HeaderFormComponent
   ],
   imports: [
     CommonModule,
@@ -29,15 +25,10 @@ import { AngularMaterial } from "../material/material";
     AngularMaterial
   ],
   exports: [
-    AngularMaterial,
-    ReactiveFormsModule,
-
     // Components
     RegisterFormComponent,
     LoginFormComponent,
-    HeaderFormComponent,
-    ModalConfirmEmailComponent,
-    ModalMessageComponent
+    HeaderFormComponent
   ]
 })
 export class AuthSharedModule {}

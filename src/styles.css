@@ -33,6 +33,11 @@ body {
     color: #7f3bb2;
 }
 
+.bg-blue {
+    background-color: #009ef5;
+    color: white;
+}
+
 /* Fields */
 .custom-field {
     position: relative;

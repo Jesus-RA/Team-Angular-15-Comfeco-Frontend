@@ -22,6 +22,7 @@ import { AppComponent } from './bootstrap/app.component';
 // Imports layouts.
 import { DefaultLayoutModule } from './layouts/default-layout/default-layout.module';
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
+import { AppLayoutModule } from "./layouts/app-layout/app-layout.module";
 
 // Imports services.
 import { UserService } from './services/user/user.service';
@@ -38,6 +39,7 @@ import { AuthService } from './services/auth/auth.service';
     // Layouts.
     DefaultLayoutModule,
     AuthLayoutModule,
+    AppLayoutModule,
 
     // Social login
     SocialLoginModule,

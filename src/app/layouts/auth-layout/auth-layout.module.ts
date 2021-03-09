@@ -14,6 +14,7 @@ import { LoginPageComponent } from 'src/app/pages/login-page/login-page.componen
 import { ForgotPasswordPageComponent } from 'src/app/pages/forgot-password-page/forgot-password-page.component';
 
 // Imports shared
+import { GlobalSharedModule } from "src/app/shared/global-shared.module";
 import { AuthSharedModule } from "../../shared/auth-shared.module";
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AuthSharedModule } from "../../shared/auth-shared.module";
   imports: [
     CommonModule,
     AuthRoutingModule,
+    GlobalSharedModule,
     AuthSharedModule
   ]
 })

@@ -14,12 +14,14 @@ import { EventsSectionComponent } from '../components/events-section/events-sect
 
 // Imports material
 import { AngularMaterial } from "../material/material";
+import { ProfileSectionsComponent } from '../components/profile-sections/profile-sections.component';
 
 @NgModule({
   declarations: [
     NavbarAppComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
+    ProfileSectionsComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
     EventsSectionComponent
@@ -38,6 +40,7 @@ import { AngularMaterial } from "../material/material";
     NavbarAppComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
+    ProfileSectionsComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
     EventsSectionComponent

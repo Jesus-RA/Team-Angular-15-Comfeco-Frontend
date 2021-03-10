@@ -13,6 +13,7 @@ import { AppPageComponent } from "src/app/pages/app-page/app-page.component";
 import { WorkshopsPageComponent } from 'src/app/pages/workshops-page/workshops-page.component';
 import { ComunitiesPageComponent } from 'src/app/pages/comunities-page/comunities-page.component';
 import { CreatorsContentPageComponent } from 'src/app/pages/creators-content-page/creators-content-page.component';
+import { ProfilePageComponent } from 'src/app/pages/profile-page/profile-page.component';
 
 // Imports shared
 import { GlobalSharedModule } from "src/app/shared/global-shared.module";
@@ -22,6 +23,7 @@ import { AppSharedModule } from "src/app/shared/app-shared.module";
   declarations: [
     AppLayoutComponent,
     AppPageComponent,
+    ProfilePageComponent,
     WorkshopsPageComponent,
     ComunitiesPageComponent,
     CreatorsContentPageComponent

@@ -13,6 +13,7 @@ import { AppPageComponent } from "src/app/pages/app-page/app-page.component";
 import { WorkshopsPageComponent } from 'src/app/pages/workshops-page/workshops-page.component';
 import { ComunitiesPageComponent } from 'src/app/pages/comunities-page/comunities-page.component';
 import { CreatorsContentPageComponent } from 'src/app/pages/creators-content-page/creators-content-page.component';
+import { ProfilePageComponent } from 'src/app/pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
         path: "",
         canActivate: [AuthGuard],
         component: AppPageComponent
+      },
+      {
+        path: "profile",
+        canActivate: [AuthGuard],
+        component: ProfilePageComponent
       },
       {
         path: "workshops",

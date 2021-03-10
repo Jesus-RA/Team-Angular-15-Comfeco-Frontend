@@ -6,13 +6,15 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 // Imports components.
 import { NavbarAppComponent } from "../components/navbar-app/navbar-app.component";
+import { UserPresentationComponent } from '../components/user-presentation/user-presentation.component';
 
 // Imports material
 import { AngularMaterial } from "../material/material";
 
 @NgModule({
   declarations: [
-    NavbarAppComponent
+    NavbarAppComponent,
+    UserPresentationComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,9 @@ import { AngularMaterial } from "../material/material";
     AngularMaterial,
     ReactiveFormsModule,
 
-    NavbarAppComponent
+    // Compoennts
+    NavbarAppComponent,
+    UserPresentationComponent
   ]
 })
 export class AppSharedModule {}

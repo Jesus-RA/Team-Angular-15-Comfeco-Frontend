@@ -9,13 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private localStorage: LocalStorage<{}>,
+    private storage: LocalStorage<{}>,
     private router: Router
   ) {}
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const data = localStorage.getItem(this.localStorage.TEAMANGULAR15_ACCESS_TOKEN);
+    const data = this.storage.get(this.storage.TEAMANGULAR15_ACCESS_TOKEN);
     if (!data) {
+      this.storage.clear();
       this.router.navigate(["/auth/login"]);
       return false;
     }

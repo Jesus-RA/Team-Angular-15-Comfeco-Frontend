@@ -1,7 +1,7 @@
 <div>
     <button mat-flat-button [matMenuTriggerFor]="menu">
         <img src="/assets/icons/google.svg" width="20px" height="20px" alt="">
-        <span class="ml-2 mr-3">IvanZ123</span>
+        <span class="ml-2 mr-3">{{ user.nickname }}</span>
         <mat-icon>expand_more</mat-icon>
     </button>
     <mat-menu #menu="matMenu">

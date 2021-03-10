@@ -3,7 +3,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUs
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 // Imports environments.
 import { environment } from 'src/environments/environment';
@@ -25,7 +25,7 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
     private socialAuth: SocialAuthService,
-    private localStorage: LocalStorage<{}>
+    private storage: LocalStorage<any>
   ) {}
 
   login(email: string, password: string): Observable<object> {
@@ -55,8 +55,22 @@ export class AuthService {
     return this.http.post(path, { token: res.authToken });
   }
 
+  get currentUser(): Observable<object> {
+    const user = this.storage.get(this.storage.TEAMANGULAR15_USER);
+    const path: string = `${ environment.url }/users/me`;
+
+    if (user) return of(user);
+
+    // Send request to server.
+    const res = this.http.get(path);
+    res.subscribe(data => {
+      this.storage.insert(this.storage.TEAMANGULAR15_USER, data);
+    });
+    return res;
+  }
+
   signOut(): void {
-    this.localStorage.clear();
+    this.storage.clear();
     this.router.navigate(["/auth/login"]);
   }
 }

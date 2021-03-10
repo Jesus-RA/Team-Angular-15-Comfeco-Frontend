@@ -1,7 +1,7 @@
 // Imports modules.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import {
   SocialAuthServiceConfig,
@@ -27,6 +27,7 @@ import { AppLayoutModule } from "./layouts/app-layout/app-layout.module";
 // Imports services.
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -65,6 +66,11 @@ import { AuthService } from './services/auth/auth.service';
           }
         ]
       } as SocialAuthServiceConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
     },
     AuthService,
     UserService

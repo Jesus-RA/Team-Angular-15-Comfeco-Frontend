@@ -3,9 +3,15 @@
         <div class="col-12">
             <!-- Images -->
             <div class="container-images mb-5">
+                <div class="container-menu d-flex py-2">
+                    <span class="spacer"></span>
+                    <button mat-mini-fab class="bg-white text-dark mx-2" title="Configuraciones">
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </div>
                 <div class="container-banner">
                     <img
-                        src="https://i.pinimg.com/originals/ae/f8/ee/aef8ee3342902cb9a09ee05c7a4e86cf.png"
+                        src="https://source.unsplash.com/random/1600x900"
                         style="object-fit: cover;"
                         alt="Banner image"
                         height="320px"
@@ -14,7 +20,7 @@
                 </div>
                 <div class="container-avatar">
                     <img
-                        src="https://res.cloudinary.com/dlkfpx8lb/image/upload/v1615020354/teamangular15/picture_profiles/fwidznedxvw5erluf4fv.jpg"
+                        [src]="user.avatar"
                         alt="Profile picture"
                         height="100%"
                         width="100%"
@@ -25,11 +31,11 @@
 
             <div class="container-text text-center">
                 <h1>
-                    <strong>IvanZ123</strong>
+                    <strong>{{ user.nickname }}</strong>
                 </h1>
-                <p class="text-muted">Frontend Developer/DevOps</p>
+                <p class="text-muted">{{ user.instructor?.knowledgeArea }}</p>
                 <small class="text-center w-50 d-block mx-auto">
-                    Soy Frontend Developer, tengo dos años de experiencia desarrollando aplicaciones web con múltiples lenguaje de programación, distintos frameworks, bases de datos y servicios en la nube. Si deseas conocer mis trabajos.
+                    {{ user.instructor?.biography }}
                 </small>
             </div>
         </div>

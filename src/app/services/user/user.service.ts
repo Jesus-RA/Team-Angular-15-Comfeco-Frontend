@@ -1,7 +1,6 @@
 // Imports modules.
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 // Imports environments.
 import { environment } from "src/environments/environment";

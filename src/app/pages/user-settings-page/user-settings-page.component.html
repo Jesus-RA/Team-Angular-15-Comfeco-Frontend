@@ -9,12 +9,17 @@
                     <p class="text-muted m-0 p-0">En esta seccion podras editar tu perfil a tu gusto.</p>
                 </div>
                 <div class="card-body pt-0">
-                    <form>
+                    <form [formGroup]="user" novalidate>
                         <div class="row">
                             <div class="col-12 col-lg-6 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Nickname</mat-label>
-                                    <input matInput placeholder="Nickname">
+                                    <input
+                                        formControlName="nickname"
+                                        placeholder="Nickname"
+                                        autocomplete="off"
+                                        matInput
+                                    >
                                     <mat-hint>Escriba su nickname</mat-hint>
                                 </mat-form-field>
                             </div>
@@ -22,7 +27,12 @@
                             <div class="col-12 col-lg-6 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Pais</mat-label>
-                                    <input matInput placeholder="Pais">
+                                    <input
+                                        formControlName="country"
+                                        placeholder="Pais"
+                                        autocomplete="off"
+                                        matInput
+                                    >
                                     <mat-hint>Escriba el nombre de su pais.</mat-hint>
                                 </mat-form-field>
                             </div>
@@ -30,9 +40,9 @@
                             <div class="col-12 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Selecciones su sexo</mat-label>
-                                    <mat-select>
-                                      <mat-option value="Male">Masculino</mat-option>
-                                      <mat-option value="Female">Femenino</mat-option>
+                                    <mat-select formControlName="gender">
+                                      <mat-option value="Masculino">Masculino</mat-option>
+                                      <mat-option value="Fememino">Femenino</mat-option>
                                     </mat-select>
                                 </mat-form-field>
                             </div>
@@ -40,7 +50,12 @@
                             <div class="col-12 col-lg-6 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Github</mat-label>
-                                    <input matInput placeholder="Github">
+                                    <input
+                                        formControlName="githubLink"
+                                        placeholder="Github"
+                                        autocomplete="off"
+                                        matInput
+                                    >
                                     <mat-hint>Ingrese su Github.</mat-hint>
                                 </mat-form-field>
                             </div>
@@ -48,7 +63,12 @@
                             <div class="col-12 col-lg-6 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Twitter</mat-label>
-                                    <input matInput placeholder="Twitter">
+                                    <input
+                                        formControlName="twitterLink"
+                                        placeholder="Twitter"
+                                        autocomplete="off"
+                                        matInput
+                                    >
                                     <mat-hint>Ingrese su Twitter.</mat-hint>
                                 </mat-form-field>
                             </div>
@@ -56,7 +76,12 @@
                             <div class="col-12 col-lg-6 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Facebook</mat-label>
-                                    <input matInput placeholder="Facebook">
+                                    <input
+                                        formControlName="facebookLink"
+                                        placeholder="Facebook"
+                                        autocomplete="off"
+                                        matInput
+                                    >
                                     <mat-hint>Ingrese su Facebook.</mat-hint>
                                 </mat-form-field>
                             </div>
@@ -64,7 +89,12 @@
                             <div class="col-12 col-lg-6 py-2">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Linkedin</mat-label>
-                                    <input matInput placeholder="Linkedin">
+                                    <input
+                                        formControlName="linkedinLink"
+                                        placeholder="Linkedin"
+                                        autocomplete="off"
+                                        matInput
+                                    >
                                     <mat-hint>Ingrese su Linkedin.</mat-hint>
                                 </mat-form-field>
                             </div>

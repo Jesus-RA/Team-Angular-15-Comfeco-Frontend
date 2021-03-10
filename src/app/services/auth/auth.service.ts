@@ -2,6 +2,7 @@
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from "angularx-social-login";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
+import { Router } from "@angular/router";
 import { Observable } from 'rxjs';
 
 // Imports environments.
@@ -22,6 +23,7 @@ export class AuthService {
   
   constructor(
     private http: HttpClient,
+    private router: Router,
     private socialAuth: SocialAuthService,
     private localStorage: LocalStorage<{}>
   ) {}
@@ -55,5 +57,6 @@ export class AuthService {
 
   signOut(): void {
     this.localStorage.clear();
+    this.router.navigate(["/auth/login"]);
   }
 }

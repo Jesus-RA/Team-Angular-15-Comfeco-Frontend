@@ -1,0 +1,17 @@
+<div>
+    <button mat-flat-button [matMenuTriggerFor]="menu">
+        <img src="/assets/icons/google.svg" width="20px" height="20px" alt="">
+        <span class="ml-2 mr-3">IvanZ123</span>
+        <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button routerLink="/app/profile" mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            <span>Mi perfil</span>
+        </button>
+        <button (click)="signOut()" mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar sesion</span>
+        </button>
+    </mat-menu>
+</div>

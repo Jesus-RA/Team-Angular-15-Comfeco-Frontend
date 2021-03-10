@@ -15,6 +15,7 @@ import { EventsSectionComponent } from '../components/events-section/events-sect
 // Imports material
 import { AngularMaterial } from "../material/material";
 import { ProfileSectionsComponent } from '../components/profile-sections/profile-sections.component';
+import { UserStickerComponent } from '../components/user-sticker/user-sticker.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProfileSectionsComponent } from '../components/profile-sections/profile
     UserPresentationComponent,
     MyProfileSectionComponent,
     ProfileSectionsComponent,
+    UserStickerComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
     EventsSectionComponent
@@ -41,6 +43,7 @@ import { ProfileSectionsComponent } from '../components/profile-sections/profile
     UserPresentationComponent,
     MyProfileSectionComponent,
     ProfileSectionsComponent,
+    UserStickerComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
     EventsSectionComponent

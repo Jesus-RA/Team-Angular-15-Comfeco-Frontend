@@ -14,6 +14,7 @@ import { WorkshopsPageComponent } from 'src/app/pages/workshops-page/workshops-p
 import { ComunitiesPageComponent } from 'src/app/pages/comunities-page/comunities-page.component';
 import { CreatorsContentPageComponent } from 'src/app/pages/creators-content-page/creators-content-page.component';
 import { ProfilePageComponent } from 'src/app/pages/profile-page/profile-page.component';
+import { UserSettingsPageComponent } from 'src/app/pages/user-settings-page/user-settings-page.component';
 
 // Imports shared
 import { GlobalSharedModule } from "src/app/shared/global-shared.module";
@@ -24,6 +25,7 @@ import { AppSharedModule } from "src/app/shared/app-shared.module";
     AppLayoutComponent,
     AppPageComponent,
     ProfilePageComponent,
+    UserSettingsPageComponent,
     WorkshopsPageComponent,
     ComunitiesPageComponent,
     CreatorsContentPageComponent

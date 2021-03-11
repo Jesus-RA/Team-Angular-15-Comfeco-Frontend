@@ -17,6 +17,7 @@ import { AngularMaterial } from "../material/material";
 import { ProfileSectionsComponent } from '../components/profile-sections/profile-sections.component';
 import { UserStickerComponent } from '../components/user-sticker/user-sticker.component';
 import { UserFieldsFormComponent } from '../components/user-fields-form/user-fields-form.component';
+import { NotificationComponent } from '../components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserFieldsFormComponent } from '../components/user-fields-form/user-fie
     MyProfileSectionComponent,
     ProfileSectionsComponent,
     UserStickerComponent,
+    NotificationComponent,
     UserFieldsFormComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
@@ -46,6 +48,7 @@ import { UserFieldsFormComponent } from '../components/user-fields-form/user-fie
     MyProfileSectionComponent,
     ProfileSectionsComponent,
     UserFieldsFormComponent,
+    NotificationComponent,
     UserStickerComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,

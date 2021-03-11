@@ -18,6 +18,7 @@ import { ProfileSectionsComponent } from '../components/profile-sections/profile
 import { UserStickerComponent } from '../components/user-sticker/user-sticker.component';
 import { UserFieldsFormComponent } from '../components/user-fields-form/user-fields-form.component';
 import { NotificationComponent } from '../components/notification/notification.component';
+import { DangerZoneComponent } from '../components/danger-zone/danger-zone.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NotificationComponent } from '../components/notification/notification.c
     ProfileSectionsComponent,
     UserStickerComponent,
     NotificationComponent,
+    DangerZoneComponent,
     UserFieldsFormComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
@@ -49,6 +51,7 @@ import { NotificationComponent } from '../components/notification/notification.c
     ProfileSectionsComponent,
     UserFieldsFormComponent,
     NotificationComponent,
+    DangerZoneComponent,
     UserStickerComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,

@@ -1,6 +1,7 @@
 // Imports modules.
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 // Imports helpers.
 import { LocalStorage } from 'src/app/helpers/LocalStorage';
@@ -8,6 +9,9 @@ import { LocalStorage } from 'src/app/helpers/LocalStorage';
 // Imports services.
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
+
+// Imports component.
+import { NotificationComponent } from "src/app/components/notification/notification.component";
 
 @Component({
   selector: 'app-user-fields-form',
@@ -29,7 +33,8 @@ export class UserFieldsFormComponent {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private storage: LocalStorage<any>
+    private storage: LocalStorage<any>,
+    private snackbar: MatSnackBar
   ) {
     this.setUser();
   }
@@ -59,5 +64,18 @@ export class UserFieldsFormComponent {
   private successRequest(res: any): void {
     const { user } = res;
     this.storage.insert(this.storage.TEAMANGULAR15_USER, user);
+    this.showNotification();
+  }
+
+  private showNotification(): void {
+    this.snackbar.openFromComponent(NotificationComponent, {
+      duration: 3000,
+      panelClass: ["bg-warning"],
+      horizontalPosition: "center",
+      data: {
+        icon: "edit",
+        message: "Su perfil ha sido modificado con exito."
+      }
+    });
   }
 }

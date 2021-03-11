@@ -12,7 +12,7 @@
 }
 
 .container-banner {
-    height: 320px;
+    height: 250px;
 }
 
 .container-banner img::before {
@@ -32,12 +32,11 @@
     position: absolute;
     border-radius: 50%;
     bottom: -40px;
-    right: 0px;
-    left: 0px;
-    width: 150px;
-    height: 150px;
+    padding: 3px;
+    left: 25px;
+    width: 120px;
+    height: 120px;
     border: 5px solid white;
-    margin: auto;
 }
 
 .container-social-media {
@@ -54,4 +53,18 @@
 
 .container-text h1 {
     font-size: 35px;
+}
+
+@media screen and (min-width: 768px) {
+    .container-avatar {
+        right: 0;
+        left: 0;
+        margin: auto;
+        height: 150px;
+        width: 150px;
+    }
+
+    .container-banner {
+        height: 320px;
+    }
 }

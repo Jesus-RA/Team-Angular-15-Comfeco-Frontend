@@ -7,9 +7,11 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatInputModule } from "@angular/material/input";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 export const AngularMaterial = [
     MatFormFieldModule,
+    MatSnackBarModule,
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,

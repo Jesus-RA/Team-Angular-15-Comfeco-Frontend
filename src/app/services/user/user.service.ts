@@ -2,6 +2,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable, of } from "rxjs";
+
+// Imports helpers.
 import { LocalStorage } from "src/app/helpers/LocalStorage";
 
 // Imports environments.
@@ -17,6 +19,11 @@ export class UserService {
     private http: HttpClient,
     private storage: LocalStorage<any>
   ) {}
+
+  update(id: string, data: any): Observable<object> {
+    const path: string = `${ this.url }/${ id }`;
+    return this.http.put(path, data);
+  }
 
   get currentUser(): Observable<object> {
     const user = this.storage.get(this.storage.TEAMANGULAR15_USER);

@@ -31,6 +31,18 @@
                         width="100%"
                     >
                 </div>
+
+                <div class="container-social-media">
+                    <a
+                        *ngFor="let item of socialMedia"
+                        [style]="{ display: item.link ? 'inline-block' : 'none' }"
+                        href="{{ item.link }}"
+                        target="_blank"
+                        class="px-2"
+                    >
+                        <img src="{{ item.img }}" width="25px">
+                    </a>
+                </div>
             </div>
             <!-- #End images -->
 

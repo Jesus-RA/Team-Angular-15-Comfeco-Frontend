@@ -40,6 +40,13 @@
     margin: auto;
 }
 
+.container-social-media {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+
 .container-avatar img {
     border-radius: 50%;
     object-fit: cover;

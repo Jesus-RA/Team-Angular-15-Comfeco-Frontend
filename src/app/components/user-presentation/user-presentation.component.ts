@@ -1,8 +1,12 @@
 // Imports modules.
 import { Component } from '@angular/core';
+import { MatDialog } from "@angular/material/dialog";
 
 // Imports services.
 import { AuthService } from 'src/app/services/auth/auth.service';
+
+// Imports components.
+import { ModalFileUploadComponent } from "src/app/components/modal-file-upload/modal-file-upload.component";
 
 @Component({
   selector: 'app-user-presentation',
@@ -13,7 +17,14 @@ export class UserPresentationComponent {
   user: any = {};
   socialMedia: any[] = [];
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private modal: MatDialog
+  ) {
+    this.watchStateUser();
+  }
+
+  private watchStateUser(): void {
     this.authService.currentUser.subscribe(user => {
       this.user = user;
       this.user.avatar = this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${ this.user.nickname }&size=150&rounded=true&background=random`;
@@ -40,5 +51,11 @@ export class UserPresentationComponent {
         link: user.linkedinLink
       }
     ];
+  }
+
+  changeAvatar(): void {
+    this.modal.open(ModalFileUploadComponent, {
+      width: "500px"
+    });
   }
 }

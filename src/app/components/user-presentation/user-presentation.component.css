@@ -39,6 +39,12 @@
     border: 5px solid white;
 }
 
+#edit-avatar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 .container-social-media {
     position: absolute;
     bottom: 0;

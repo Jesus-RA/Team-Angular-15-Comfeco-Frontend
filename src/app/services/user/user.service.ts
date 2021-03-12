@@ -29,4 +29,9 @@ export class UserService {
     const user = this.storage.get(this.storage.TEAMANGULAR15_USER);
     return user ? of(user) : this.http.get(`${ this.url }/${ user._id }`);
   }
+
+  changeAvatar(userId: string, formdata: FormData): Observable<object> {
+    const path: string = `${ this.url }/${ userId }/avatar`;
+    return this.http.patch(path, formdata);
+  }
 }

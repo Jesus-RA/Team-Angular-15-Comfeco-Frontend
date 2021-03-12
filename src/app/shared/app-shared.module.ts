@@ -19,6 +19,7 @@ import { UserStickerComponent } from '../components/user-sticker/user-sticker.co
 import { UserFieldsFormComponent } from '../components/user-fields-form/user-fields-form.component';
 import { NotificationComponent } from '../components/notification/notification.component';
 import { DangerZoneComponent } from '../components/danger-zone/danger-zone.component';
+import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-file-upload.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DangerZoneComponent } from '../components/danger-zone/danger-zone.compo
     UserStickerComponent,
     NotificationComponent,
     DangerZoneComponent,
+    ModalFileUploadComponent,
     UserFieldsFormComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,
@@ -52,6 +54,7 @@ import { DangerZoneComponent } from '../components/danger-zone/danger-zone.compo
     UserFieldsFormComponent,
     NotificationComponent,
     DangerZoneComponent,
+    ModalFileUploadComponent,
     UserStickerComponent,
     BadgesSectionComponent,
     GroupsSectionComponent,

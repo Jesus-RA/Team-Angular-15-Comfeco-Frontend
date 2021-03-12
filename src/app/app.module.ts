@@ -27,6 +27,7 @@ import { AppLayoutModule } from "./layouts/app-layout/app-layout.module";
 // Imports services.
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
+import { UploadService } from './services/upload/upload.service';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 
 @NgModule({
@@ -73,7 +74,8 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
       multi: true
     },
     AuthService,
-    UserService
+    UserService,
+    UploadService
   ],
   bootstrap: [ AppComponent ]
 })

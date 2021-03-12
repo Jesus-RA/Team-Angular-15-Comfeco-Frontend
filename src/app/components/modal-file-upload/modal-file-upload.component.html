@@ -1,5 +1,5 @@
 <mat-dialog-content>
-    <form>
+    <form novalidate (submit)="upload()" id="fileForm">
         <div class="text-center py-5">
             <label for="archive">
                 <img
@@ -10,11 +10,11 @@
                 >
             </label>
             <input
-                class="d-none"
-                type="file"
-                name="archive"
                 accept="image/*"
+                class="d-none"
+                name="archive"
                 id="archive"
+                type="file"
                 max="1"
             >
         </div>

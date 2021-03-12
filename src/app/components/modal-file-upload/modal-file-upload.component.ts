@@ -1,3 +1,4 @@
+// Imports modules.
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-file-upload.component.css']
 })
 export class ModalFileUploadComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  upload(): boolean {
+    const form = document.getElementById("fileForm") as HTMLFormElement | null;
+    if (!form) return false;
+
+    const formdata: FormData = new FormData(form);
+
+    return false;
   }
-
 }

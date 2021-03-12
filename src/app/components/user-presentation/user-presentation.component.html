@@ -37,15 +37,22 @@
                         height="100%"
                         width="100%"
                     >
-                    <button
-                        class="bg-purple text-white"
-                        (click)="changeAvatar()"
-                        id="edit-avatar"
-                        mat-mini-fab
-                        color="warn"
-                    >
-                        <mat-icon>edit</mat-icon>
-                    </button>
+                    <div id="edit-avatar">
+                        <label for="avatar">
+                            <a mat-mini-fab color="warn">
+                                <mat-icon>edit</mat-icon>
+                            </a>
+                        </label>
+                        <input
+                            (change)="changeAvatar($event)"
+                            accept="image/*"
+                            class="d-none"
+                            name="avatar"
+                            type="file"
+                            id="avatar"
+                            max="1"
+                        >
+                    </div>
                 </div>
 
                 <div class="container-social-media d-none d-md-block">

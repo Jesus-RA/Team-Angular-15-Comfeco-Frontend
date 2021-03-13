@@ -69,6 +69,11 @@ export class AuthService {
     return res;
   }
 
+  changeEmail(email: string, password: string): Observable<object> {
+    const path: string = `${ this.url }/requestEmailChange`;
+    return this.http.post(path, { email, password });
+  }
+
   signOut(): void {
     this.storage.clear();
     this.router.navigate(["/auth/login"]);

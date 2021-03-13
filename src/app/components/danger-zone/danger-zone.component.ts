@@ -1,6 +1,6 @@
 // Imports modules.
-import { Component } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
+import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 
 // Imports helpers.
@@ -11,6 +11,7 @@ import { AuthService } from "src/app/services/auth/auth.service";
 
 // Imports components.
 import { ModalMessageComponent } from "src/app/components/modal-message/modal-message.component";
+import { CredentialsModalComponent } from "../credentials-modal/credentials-modal.component";
 
 @Component({
   selector: 'app-danger-zone',
@@ -36,9 +37,11 @@ export class DangerZoneComponent {
   }
 
   changeEmail(): void {
-    if (confirm("Modificaras el email de tu cuenta ¿Deseas continuar?")) {
-      this.openDialog("/assets/icons/mailbox.svg", "Se te ha enviado un link a tu correo electronico para que puedas modificar tu cuenta.");
-    }
+    this.dialog.open(CredentialsModalComponent, {
+      width: "350px",
+      disableClose: true,
+      data: {}
+    });
   }
 
   forgotPassword(): void {

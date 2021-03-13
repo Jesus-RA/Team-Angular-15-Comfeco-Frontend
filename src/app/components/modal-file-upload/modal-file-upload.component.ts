@@ -1,7 +1,7 @@
 // Imports modules.
-import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { Component, Inject } from '@angular/core';
 
 // Imports services.
 import { UploadService } from "src/app/services/upload/upload.service";
@@ -15,6 +15,8 @@ import { NotificationComponent } from "src/app/components/notification/notificat
   styleUrls: ['./modal-file-upload.component.css']
 })
 export class ModalFileUploadComponent {
+  status: boolean = false;
+
   constructor(
     private uploadService: UploadService,
     @Inject(MAT_DIALOG_DATA) private data: { route: string },
@@ -32,9 +34,7 @@ export class ModalFileUploadComponent {
 
     reader.addEventListener("loadend", () => {
       const image = document.getElementById("image-preview") as HTMLImageElement | null;
-      if (image) {
-        image.src = reader.result as string;
-      }
+      if (image) image.src = reader.result as string;
     });
 
     reader.readAsDataURL(file);
@@ -45,6 +45,7 @@ export class ModalFileUploadComponent {
     if (!form) return false;
 
     const formdata: FormData = new FormData(form);
+    this.status = true;
 
     this.uploadService.upload(this.data.route, formdata).subscribe(
       res => this.successReqChangeUpload(res),
@@ -55,6 +56,7 @@ export class ModalFileUploadComponent {
   }
 
   private successReqChangeUpload(data: any): void {
+    this.status = false;
     this.dialogRef.close(data.picture.url);
     this.showMessage("edit", data.message, "warning");
   }
@@ -65,5 +67,9 @@ export class ModalFileUploadComponent {
       panelClass: [`bg-${ status }`],
       data: { icon, message }
     });
+  }
+
+  close(): void {
+    this.dialogRef.close();
   }
 }

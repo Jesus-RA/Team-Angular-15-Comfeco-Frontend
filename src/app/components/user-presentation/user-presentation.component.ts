@@ -60,10 +60,12 @@ export class UserPresentationComponent {
   changeAvatar(): void {
     const dialogRef = this.dialog.open(ModalFileUploadComponent, {
       width: "500px",
+      disableClose: true,
       data: { route: `/${ this.user._id }/avatar` }
     });
 
     dialogRef.afterClosed().subscribe((result: string) => {
+      if (!result) return;
       this.user.avatar = result;
       this.userStorage.insert(this.userStorage.TEAMANGULAR15_USER, this.user);
     });
@@ -72,12 +74,12 @@ export class UserPresentationComponent {
   changeBanner(): void {
     const dialogRef = this.dialog.open(ModalFileUploadComponent, {
       width: "500px",
-      data: {
-        route: `/${ this.user._id }/banner`
-      }
+      disableClose: true,
+      data: { route: `/${ this.user._id }/banner` }
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
       this.user.banner = result;
       this.userStorage.insert(this.userStorage.TEAMANGULAR15_USER, this.user);
     });

@@ -30,12 +30,27 @@
             </mat-form-field>
         </div>
 
-        <div class="col-12 py-2">
+        <div class="col-12 col-lg-6 py-2">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Selecciones su sexo</mat-label>
                 <mat-select formControlName="gender">
                   <mat-option value="Masculino">Masculino</mat-option>
                   <mat-option value="Fememino">Femenino</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 col-lg-6 py-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Seleccione sus areas de conocimiento</mat-label>
+                <mat-select multiple formControlName="knowledgeAreas">
+                    <mat-option value="Frontend Developer">Frontend Developer</mat-option>
+                    <mat-option value="Backend Developer">Backend Developer</mat-option>
+                    <mat-option value="DevOps">DevOps</mat-option>
+                    <mat-option value="Video Games Developer">Video Games Developer</mat-option>
+                    <mat-option value="UI/UX">UI/UX</mat-option>
+                    <mat-option value="Database Developer">Database Developer</mat-option>
+                    <mat-option value="Cloud Computing">Cloud Computing</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -89,6 +104,19 @@
                     matInput
                 >
                 <mat-hint>Ingrese su Linkedin.</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 py-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Biografia</mat-label>
+                <textarea
+                    formControlName="biography"
+                    maxlength="140"
+                    matInput
+                    #input
+                ></textarea>
+                <mat-hint>Maximo {{ input.value?.length || 0 }}/140.</mat-hint>
             </mat-form-field>
         </div>
     </div>

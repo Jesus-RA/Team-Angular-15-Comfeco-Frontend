@@ -1,3 +1,7 @@
+p {
+    font-size: 16px !important;
+}
+
 .container-images {
     width: 100%;
     position: relative;

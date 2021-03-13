@@ -25,6 +25,8 @@ export class UserFieldsFormComponent {
     country: new FormControl(""),
     gender: new FormControl(""),
     githubLink: new FormControl(""),
+    biography: new FormControl(""),
+    knowledgeAreas: new FormControl(""),
     twitterLink: new FormControl(""),
     facebookLink: new FormControl(""),
     linkedinLink: new FormControl("")
@@ -46,6 +48,8 @@ export class UserFieldsFormComponent {
         nickname: user.nickname,
         country: user.country || "",
         gender: user.gender || "",
+        biography: user.biography || "",
+        knowledgeAreas: user.knowledgeAreas || "",
         githubLink: user.githubLink || "",
         twitterLink: user.twitterLink || "",
         facebookLink: user.facebookLink || "",

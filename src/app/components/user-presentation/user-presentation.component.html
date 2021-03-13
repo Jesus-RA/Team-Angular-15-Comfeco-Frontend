@@ -66,10 +66,12 @@
                 <h1>
                     <strong>{{ user.nickname }}</strong>
                 </h1>
-                <p class="text-muted">{{ user.instructor?.knowledgeArea }}</p>
-                <p class="text-center w-50 d-block mx-auto">
-                    {{ user.instructor?.biography }}
-                </p>
+                <div class="row justify-content-md-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <p class="text-muted">{{ user.knowledgeAreas }}</p>
+                        <p>{{ user.biography }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

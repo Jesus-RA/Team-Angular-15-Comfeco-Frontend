@@ -6,14 +6,14 @@
                 <div class="container-menu d-flex py-2">
                     <span class="spacer"></span>
                     <button
-                        class="bg-white text-dark"
+                        class="bg-white text-purple mx-2"
                         (click)="changeBanner()"
                         mat-mini-fab
                     >
-                        <mat-icon>camera</mat-icon>
+                        <mat-icon>photo_camera</mat-icon>
                     </button>
                     <button
-                        class="bg-white text-dark mx-2"
+                        class="bg-white text-purple mx-2"
                         routerLink="/app/settings"
                         title="Configuraciones"
                         mat-mini-fab
@@ -39,9 +39,9 @@
                     >
                     <div id="edit-avatar">
                         <button
-                        (click)="changeAvatar()"
-                        mat-mini-fab
-                        color="warn"
+                            (click)="changeAvatar()"
+                            class="bg-purple"
+                            mat-mini-fab
                         >
                             <mat-icon>edit</mat-icon>
                         </button>

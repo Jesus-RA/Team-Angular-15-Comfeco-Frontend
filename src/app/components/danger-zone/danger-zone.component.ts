@@ -35,6 +35,12 @@ export class DangerZoneComponent {
     });
   }
 
+  changeEmail(): void {
+    if (confirm("Modificaras el email de tu cuenta ¿Deseas continuar?")) {
+      this.openDialog("/assets/icons/mailbox.svg", "Se te ha enviado un link a tu correo electronico para que puedas modificar tu cuenta.");
+    }
+  }
+
   forgotPassword(): void {
     if (confirm("Con esta accion modificaras tu contraseña, ¿Estas seguro?")) {
       this.authService.forgotPassword(this.user.email).subscribe(
@@ -47,13 +53,14 @@ export class DangerZoneComponent {
   private successRequestForgotPassword(data: any): void {
     this.storage.clear();
 
+    this.openDialog("/assets/icons/shield.svg", data.message);
+  }
+
+  private openDialog(image: string, text: string): void {
     this.dialog.open(ModalMessageComponent, {
       width: "500px",
       disableClose: true,
-      data: {
-        image: "/assets/icons/shield.svg",
-        text: data.message
-      }
+      data: { image, text }
     });
 
     this.dialog.afterAllClosed.subscribe(() => {

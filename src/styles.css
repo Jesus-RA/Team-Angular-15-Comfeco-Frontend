@@ -26,12 +26,12 @@ body {
 }
 
 .bg-purple {
-    background-color: #7f3bb2;
+    background-color: #7f3bb2 !important;
     color: white;
 }
 
 .text-purple {
-    color: #7f3bb2;
+    color: #7f3bb2 !important;
 }
 
 .bg-blue {

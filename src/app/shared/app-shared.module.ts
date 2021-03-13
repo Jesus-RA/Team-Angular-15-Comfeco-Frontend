@@ -20,6 +20,7 @@ import { UserFieldsFormComponent } from '../components/user-fields-form/user-fie
 import { NotificationComponent } from '../components/notification/notification.component';
 import { DangerZoneComponent } from '../components/danger-zone/danger-zone.component';
 import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-file-upload.component';
+import { CredentialsModalComponent } from '../components/credentials-modal/credentials-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-
     ProfileSectionsComponent,
     UserStickerComponent,
     NotificationComponent,
+    CredentialsModalComponent,
     DangerZoneComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
@@ -52,6 +54,7 @@ import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-
     MyProfileSectionComponent,
     ProfileSectionsComponent,
     UserFieldsFormComponent,
+    CredentialsModalComponent,
     NotificationComponent,
     DangerZoneComponent,
     ModalFileUploadComponent,

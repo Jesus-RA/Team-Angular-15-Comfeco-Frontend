@@ -34,4 +34,9 @@ export class UserService {
     const path: string = `${ this.url }/${ userId }/avatar`;
     return this.http.patch(path, formdata);
   }
+
+  changeBanner(userId: string, formdata: FormData): Observable<object> {
+    const path: string = `${ this.url }/${ userId }/banner`;
+    return this.http.patch(path, formdata);
+  }
 }

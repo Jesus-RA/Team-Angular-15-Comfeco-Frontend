@@ -62,11 +62,11 @@ export class UserPresentationComponent {
     const file: File = input.files.item(0);
     
     const formdata: FormData = new FormData();
-    formdata.set("avatar", file);
+    formdata.set("picture", file);
     
     this.userService.changeAvatar(this.user._id, formdata).subscribe(
       res => this.successReqChangeAvatar(res),
-      err => this.failureReChangeAvatar()
+      err => this.failureReqChangeAvatar(err.error)
     );
   }
 
@@ -79,8 +79,21 @@ export class UserPresentationComponent {
     this.showMessage("edit", data.message, "warning");
   }
 
-  private failureReChangeAvatar(): void {
-    this.showMessage("error", "Sucedio un error durante la operacion", "danger");
+  private failureReqChangeAvatar(error: any): void {
+    this.showMessage("error", error.message, "danger");
+  }
+
+  changeBanner(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file: File = input.files.item(0);
+    
+    const formdata: FormData = new FormData();
+    formdata.set("picture", file);
+    
+    this.userService.changeBanner(this.user._id, formdata).subscribe(
+      console.log,
+      console.error
+    );
   }
 
   private showMessage(icon: string, message: string, status: string): void {

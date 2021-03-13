@@ -5,13 +5,24 @@
             <div class="container-images mb-5">
                 <div class="container-menu d-flex py-2">
                     <span class="spacer"></span>
-                    <button
-                        class="bg-white text-dark mx-2"
-                        title="Cambiar foto de portada"
-                        mat-mini-fab
-                    >
-                        <mat-icon>camera</mat-icon>
-                    </button>
+                    <span>
+                        <label for="banner">
+                            <a
+                                class="bg-white text-dark mx-2"
+                                title="Cambiar foto de portada"
+                                mat-mini-fab
+                            >
+                                <mat-icon>camera</mat-icon>
+                            </a>
+                        </label>
+                        <input
+                            (change)="changeBanner($event)"
+                            accept="image/*"
+                            class="d-none"
+                            type="file"
+                            id="banner"
+                        >
+                    </span>
                     <button
                         class="bg-white text-dark mx-2"
                         routerLink="/app/settings"
@@ -23,7 +34,7 @@
                 </div>
                 <div class="container-banner">
                     <img
-                        src="https://picsum.photos/1080/320"
+                        [src]="user.banner ? user.banner : 'https://picsum.photos/1080/320'"
                         style="object-fit: cover;"
                         alt="Banner image"
                         height="100%"

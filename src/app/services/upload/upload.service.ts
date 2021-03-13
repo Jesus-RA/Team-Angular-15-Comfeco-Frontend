@@ -10,12 +10,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UploadService {
-  private readonly url: string = environment.url;
+  private readonly url: string = `${ environment.url }/users`;
 
   constructor(private http: HttpClient) {}
 
   upload(route: string, formdata: FormData): Observable<object> {
-    const path: string = `${ this.url }/${ route }`;
-    return this.http.post(path, formdata);
+    const path: string = this.url + route;
+    return this.http.patch(path, formdata);
   }
 }

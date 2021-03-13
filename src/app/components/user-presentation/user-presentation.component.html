@@ -5,24 +5,13 @@
             <div class="container-images mb-5">
                 <div class="container-menu d-flex py-2">
                     <span class="spacer"></span>
-                    <span>
-                        <label for="banner">
-                            <a
-                                class="bg-white text-dark mx-2"
-                                title="Cambiar foto de portada"
-                                mat-mini-fab
-                            >
-                                <mat-icon>camera</mat-icon>
-                            </a>
-                        </label>
-                        <input
-                            (change)="changeBanner($event)"
-                            accept="image/*"
-                            class="d-none"
-                            type="file"
-                            id="banner"
-                        >
-                    </span>
+                    <button
+                        class="bg-white text-dark"
+                        (click)="changeBanner()"
+                        mat-mini-fab
+                    >
+                        <mat-icon>camera</mat-icon>
+                    </button>
                     <button
                         class="bg-white text-dark mx-2"
                         routerLink="/app/settings"
@@ -49,20 +38,13 @@
                         width="100%"
                     >
                     <div id="edit-avatar">
-                        <label for="avatar">
-                            <a mat-mini-fab color="warn">
-                                <mat-icon>edit</mat-icon>
-                            </a>
-                        </label>
-                        <input
-                            (change)="changeAvatar($event)"
-                            accept="image/*"
-                            class="d-none"
-                            name="avatar"
-                            type="file"
-                            id="avatar"
-                            max="1"
+                        <button
+                        (click)="changeAvatar()"
+                        mat-mini-fab
+                        color="warn"
                         >
+                            <mat-icon>edit</mat-icon>
+                        </button>
                     </div>
                 </div>
 

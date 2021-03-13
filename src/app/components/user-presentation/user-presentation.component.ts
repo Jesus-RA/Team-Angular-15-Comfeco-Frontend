@@ -1,14 +1,15 @@
 // Imports modules.
 import { Component } from '@angular/core';
-import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatDialog } from "@angular/material/dialog";
+
+// Imports helpers.
+import { LocalStorage } from 'src/app/helpers/LocalStorage';
 
 // Imports services.
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { UserService } from 'src/app/services/user/user.service';
 
 // Imports components.
-import { NotificationComponent } from "src/app/components/notification/notification.component";
-import { LocalStorage } from 'src/app/helpers/LocalStorage';
+import { ModalFileUploadComponent } from '../modal-file-upload/modal-file-upload.component';
 
 @Component({
   selector: 'app-user-presentation',
@@ -21,9 +22,8 @@ export class UserPresentationComponent {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService,
-    private storage: LocalStorage<any>,
-    private snackbar: MatSnackBar
+    private userStorage: LocalStorage<any>,
+    private dialog: MatDialog
   ) {
     this.watchStateUser();
   }
@@ -57,50 +57,29 @@ export class UserPresentationComponent {
     ];
   }
 
-  changeAvatar(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file: File = input.files.item(0);
-    
-    const formdata: FormData = new FormData();
-    formdata.set("picture", file);
-    
-    this.userService.changeAvatar(this.user._id, formdata).subscribe(
-      res => this.successReqChangeAvatar(res),
-      err => this.failureReqChangeAvatar(err.error)
-    );
+  changeAvatar(): void {
+    const dialogRef = this.dialog.open(ModalFileUploadComponent, {
+      width: "500px",
+      data: { route: `/${ this.user._id }/avatar` }
+    });
+
+    dialogRef.afterClosed().subscribe((result: string) => {
+      this.user.avatar = result;
+      this.userStorage.insert(this.userStorage.TEAMANGULAR15_USER, this.user);
+    });
   }
 
-  private successReqChangeAvatar(data: any): void {
-    // Update local storage.
-    this.user.avatar = data.avatar.url;
-    this.storage.insert(this.storage.TEAMANGULAR15_USER, this.user);
+  changeBanner(): void {
+    const dialogRef = this.dialog.open(ModalFileUploadComponent, {
+      width: "500px",
+      data: {
+        route: `/${ this.user._id }/banner`
+      }
+    });
 
-    // Show notification.
-    this.showMessage("edit", data.message, "warning");
-  }
-
-  private failureReqChangeAvatar(error: any): void {
-    this.showMessage("error", error.message, "danger");
-  }
-
-  changeBanner(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file: File = input.files.item(0);
-    
-    const formdata: FormData = new FormData();
-    formdata.set("picture", file);
-    
-    this.userService.changeBanner(this.user._id, formdata).subscribe(
-      console.log,
-      console.error
-    );
-  }
-
-  private showMessage(icon: string, message: string, status: string): void {
-    this.snackbar.openFromComponent(NotificationComponent, {
-      duration: 3000,
-      panelClass: [`bg-${ status }`],
-      data: { icon, message }
+    dialogRef.afterClosed().subscribe(result => {
+      this.user.banner = result;
+      this.userStorage.insert(this.userStorage.TEAMANGULAR15_USER, this.user);
     });
   }
 }

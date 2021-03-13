@@ -1,18 +1,22 @@
 <mat-dialog-content>
     <form novalidate (submit)="upload()" id="fileForm">
-        <div class="text-center py-5">
+        <div class="text-center py-3">
             <label for="archive">
                 <img
                     src="/assets/icons/upload.svg"
+                    style="object-fit: cover;"
+                    class="rounded-circle"
+                    id="image-preview"
                     alt="File upload"
-                    height="150px"
-                    width="150px"
+                    height="200px"
+                    width="200px"
                 >
             </label>
             <input
+                (change)="previewImage($event)"
                 accept="image/*"
                 class="d-none"
-                name="archive"
+                name="picture"
                 id="archive"
                 type="file"
                 max="1"

@@ -1,10 +1,10 @@
 // Imports modules.
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
-// Imports helpers.
-import { LocalStorage } from "src/app/helpers/LocalStorage";
+// Imports interfaces.
+import { ImageEditReponse, UserResponse } from "./interfaces/user.interfaces";
 
 // Imports environments.
 import { environment } from "src/environments/environment";
@@ -15,28 +15,20 @@ import { environment } from "src/environments/environment";
 export class UserService {
   private readonly url: string = `${ environment.url }/users`;
 
-  constructor(
-    private http: HttpClient,
-    private storage: LocalStorage<any>
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  update(id: string, data: any): Observable<object> {
+  update(id: string, data: any): Observable<UserResponse> {
     const path: string = `${ this.url }/${ id }`;
-    return this.http.put(path, data);
+    return this.http.put<UserResponse>(path, data);
   }
 
-  get currentUser(): Observable<object> {
-    const user = this.storage.get(this.storage.TEAMANGULAR15_USER);
-    return user ? of(user) : this.http.get(`${ this.url }/${ user._id }`);
-  }
-
-  changeAvatar(userId: string, formdata: FormData): Observable<object> {
+  changeAvatar(userId: string, formdata: FormData): Observable<ImageEditReponse> {
     const path: string = `${ this.url }/${ userId }/avatar`;
-    return this.http.patch(path, formdata);
+    return this.http.patch<ImageEditReponse>(path, formdata);
   }
 
-  changeBanner(userId: string, formdata: FormData): Observable<object> {
+  changeBanner(userId: string, formdata: FormData): Observable<ImageEditReponse> {
     const path: string = `${ this.url }/${ userId }/banner`;
-    return this.http.patch(path, formdata);
+    return this.http.patch<ImageEditReponse>(path, formdata);
   }
 }

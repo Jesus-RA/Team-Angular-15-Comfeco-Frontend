@@ -25,6 +25,7 @@ import { CredentialsModalComponent } from '../components/credentials-modal/crede
 import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-banner.component';
 import { CarouselCreatorsContentComponent } from "../components/carousel-creators-content/carousel-creators-content.component";
 import { CarouselSponsorsComponent } from "../components/carousel-sponsors/carousel-sponsors.component";
+import { CounterComponent } from "../components/counter/counter.component";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CarouselSponsorsComponent } from "../components/carousel-sponsors/carou
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
-    NavbarAppComponent
+    NavbarAppComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule,
@@ -73,7 +75,8 @@ import { CarouselSponsorsComponent } from "../components/carousel-sponsors/carou
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
-    NavbarAppComponent
+    NavbarAppComponent,
+    CounterComponent
   ]
 })
 export class AppSharedModule {}

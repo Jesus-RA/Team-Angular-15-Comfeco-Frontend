@@ -22,6 +22,7 @@ import { DangerZoneComponent } from '../components/danger-zone/danger-zone.compo
 import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-file-upload.component';
 import { CredentialsModalComponent } from '../components/credentials-modal/credentials-modal.component';
 import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-banner.component';
+import { CarouselItemsComponent } from '../components/carousel-items/carousel-items.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-ban
     WelcomeBannerComponent,
     UserStickerComponent,
     NotificationComponent,
+    CarouselItemsComponent,
     CredentialsModalComponent,
     DangerZoneComponent,
     ModalFileUploadComponent,
@@ -58,6 +60,7 @@ import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-ban
     UserFieldsFormComponent,
     CredentialsModalComponent,
     WelcomeBannerComponent,
+    CarouselItemsComponent,
     NotificationComponent,
     DangerZoneComponent,
     ModalFileUploadComponent,

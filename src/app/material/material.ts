@@ -1,5 +1,7 @@
 // Imports modules.
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatButtonModule } from "@angular/material/button";
@@ -12,6 +14,8 @@ import { MatInputModule } from "@angular/material/input";
 
 export const AngularMaterial = [
     MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatSnackBarModule,
     MatButtonModule,

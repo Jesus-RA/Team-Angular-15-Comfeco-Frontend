@@ -2,6 +2,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 
+// Imports interfaces.
+import { User } from 'src/app/services/user/interfaces/user.interfaces';
+
 // Imports helpers.
 import { LocalStorage } from 'src/app/helpers/LocalStorage';
 
@@ -17,12 +20,12 @@ import { ModalFileUploadComponent } from '../modal-file-upload/modal-file-upload
   styleUrls: ['./user-presentation.component.css']
 })
 export class UserPresentationComponent {
-  user: any = {};
+  user: User | null = null;
   socialMedia: any[] = [];
 
   constructor(
     private authService: AuthService,
-    private userStorage: LocalStorage<any>,
+    private userStorage: LocalStorage<User>,
     private dialog: MatDialog
   ) {
     this.watchStateUser();
@@ -36,7 +39,7 @@ export class UserPresentationComponent {
     });
   }
 
-  private setSocialMedia(user: any) {
+  private setSocialMedia(user: User) {
     this.socialMedia = [
       {
         img: "/assets/icons/github.svg",

@@ -7,13 +7,13 @@ import { Observable, of } from 'rxjs';
 
 // Imports environments.
 import { environment } from 'src/environments/environment';
-import { LocalStorage } from "src/app/helpers/LocalStorage";
 
-interface IPayloadRegister {
-  nickname: string;
-  email: string;
-  password: string;
-}
+// Imports interfaces.
+import { LoginResponse, AuthResponse, AuthTokens, IPayloadRegister } from "./interfaces/auth.interfaces";
+import { User } from "../user/interfaces/user.interfaces";
+
+// Imports helpers.
+import { LocalStorage } from "src/app/helpers/LocalStorage";
 
 @Injectable({
   providedIn: 'root'
@@ -22,49 +22,49 @@ export class AuthService {
   private readonly url: string = `${ environment.url }/auth`;
   
   constructor(
-    private http: HttpClient,
-    private router: Router,
+    private storage: LocalStorage<User | AuthTokens>,
     private socialAuth: SocialAuthService,
-    private storage: LocalStorage<any>
+    private http: HttpClient,
+    private router: Router
   ) {}
 
-  login(email: string, password: string): Observable<object> {
+  login(email: string, password: string): Observable<LoginResponse> {
     const path: string = `${ this.url }/login`;
-    return this.http.post(path, { email, password });
+    return this.http.post<LoginResponse>(path, { email, password });
   }
 
-  register(data: IPayloadRegister): Observable<object> {
+  register(data: IPayloadRegister): Observable<AuthResponse> {
     const path: string = `${ this.url }/register`;
-    return this.http.post(path, data);
+    return this.http.post<AuthResponse>(path, data);
   }
 
-  forgotPassword(email: string): Observable<object> {
+  forgotPassword(email: string): Observable<AuthResponse> {
     const path: string = `${ this.url }/password/forgot`;
-    return this.http.post(path, { email });
+    return this.http.post<AuthResponse>(path, { email });
   }
 
-  async signInGoogle(): Promise<Observable<object>> {
+  async signInGoogle(): Promise<Observable<LoginResponse>> {
     const data = await this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID);
     const path: string = `${ this.url }/google`;
-    return this.http.post(path, { token: data.idToken });
+    return this.http.post<LoginResponse>(path, { token: data.idToken });
   }
 
-  async signInFacebook(): Promise<Observable<object>> {
+  async signInFacebook(): Promise<Observable<LoginResponse>> {
     const res: SocialUser = await this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID);
     const path: string = `${ this.url }/facebook`;
-    return this.http.post(path, { token: res.authToken });
+    return this.http.post<LoginResponse>(path, { token: res.authToken });
   }
 
-  get currentUser(): Observable<object> {
-    const user = this.storage.get(this.storage.TEAMANGULAR15_USER);
+  get currentUser(): Observable<User> {
+    const user = this.storage.get(this.storage.TEAMANGULAR15_USER) as User;
     const path: string = `${ environment.url }/users/me`;
 
     if (user) return of(user);
 
     // Send request to server.
-    const res = this.http.get(path);
-    res.subscribe(data => {
-      this.storage.insert(this.storage.TEAMANGULAR15_USER, data);
+    const res = this.http.get<User>(path);
+    res.subscribe(user => {
+      this.storage.insert(this.storage.TEAMANGULAR15_USER, user);
     });
     return res;
   }

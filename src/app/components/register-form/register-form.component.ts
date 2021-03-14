@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 
+// Imports interfaces.
+import { AuthResponse } from 'src/app/services/auth/interfaces/auth.interfaces';
+
 // Imports helpers.
 import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
 
@@ -55,7 +58,7 @@ export class RegisterFormComponent implements OnInit {
     );
   }
   
-  private successRequest(data: any): void {
+  private successRequest(data: AuthResponse): void {
     this.dialog.open(ModalMessageComponent, {
       disableClose: true,
       width: "400px",

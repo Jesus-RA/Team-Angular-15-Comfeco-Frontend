@@ -3,6 +3,9 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
+// Imports interfaces.
+import { AuthTokens, LoginResponse } from "src/app/services/auth/interfaces/auth.interfaces";
+
 // Imports helpers.
 import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
 import { LocalStorage } from "src/app/helpers/LocalStorage";
@@ -12,6 +15,7 @@ import { FormsValidators } from 'src/app/rules/FormsValidators';
 
 // Imports services.
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { User } from "src/app/services/user/interfaces/user.interfaces";
 
 @Component({
   selector: 'app-login-form',
@@ -27,9 +31,9 @@ export class LoginFormComponent implements OnInit {
   private inputs: NodeListOf<HTMLInputElement>;
 
   constructor(
+    private localStorage: LocalStorage<User | AuthTokens>,
     private authService: AuthService,
-    private router: Router,
-    private localStorage: LocalStorage<{}>
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -46,7 +50,7 @@ export class LoginFormComponent implements OnInit {
     );
   }
 
-  private successRequest(data: any): void {
+  private successRequest(data: LoginResponse): void {
     this.localStorage.insert(this.localStorage.TEAMANGULAR15_ACCESS_TOKEN, data.tokens);
     this.localStorage.insert(this.localStorage.TEAMANGULAR15_USER, data.user);
     this.router.navigate(["/app"]);

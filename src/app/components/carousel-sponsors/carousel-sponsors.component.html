@@ -1,1 +1,17 @@
-<p>carousel-sponsors works!</p>
+<div class="card border-0 bg-white">
+    <carousel
+        [arrowsOutside]="true"
+        [cellWidth]="90"
+        [height]="150"
+    >
+        <div
+            *ngFor="let sponsor of sponsors"
+            class="carousel-cell p-2"
+        >
+            <div class="card-image shadow">
+                <img [src]="sponsor.image">
+            </div>
+            <p class="text-muted text-center py-2 m-0">{{ sponsor.title }}</p>
+        </div>
+    </carousel>
+</div>

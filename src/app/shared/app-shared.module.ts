@@ -21,6 +21,7 @@ import { NotificationComponent } from '../components/notification/notification.c
 import { DangerZoneComponent } from '../components/danger-zone/danger-zone.component';
 import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-file-upload.component';
 import { CredentialsModalComponent } from '../components/credentials-modal/credentials-modal.component';
+import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-banner.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CredentialsModalComponent } from '../components/credentials-modal/crede
     UserPresentationComponent,
     MyProfileSectionComponent,
     ProfileSectionsComponent,
+    WelcomeBannerComponent,
     UserStickerComponent,
     NotificationComponent,
     CredentialsModalComponent,
@@ -55,6 +57,7 @@ import { CredentialsModalComponent } from '../components/credentials-modal/crede
     ProfileSectionsComponent,
     UserFieldsFormComponent,
     CredentialsModalComponent,
+    WelcomeBannerComponent,
     NotificationComponent,
     DangerZoneComponent,
     ModalFileUploadComponent,

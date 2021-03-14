@@ -2,9 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 import { FormGroup, FormControl } from "@angular/forms";
-import { AuthService } from 'src/app/services/auth/auth.service';
 
 // Imports services.
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-credentials-modal',
@@ -31,9 +31,17 @@ export class CredentialsModalComponent implements OnInit {
     const { password } = this.credentials.value;
 
     this.authService.changeEmail(this.email, password).subscribe(
-      console.log,
-      console.error
+      res => this.successReq(res),
+      err => this.failureReq(err.error)
     );
+  }
+
+  private successReq(data: any): void {
+    this.dialogRef.close(data);
+  }
+
+  private failureReq(error: any) {
+    console.log(error);
   }
 
   close(): void {

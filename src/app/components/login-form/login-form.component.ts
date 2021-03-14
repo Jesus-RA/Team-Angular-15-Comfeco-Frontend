@@ -61,10 +61,14 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
-    if (name === "CredentialsIncorrect") {
-      this.inputs.forEach(input => {
-        this.writeError.writeError(input, message);
-      });
+    if (name === "EmailDoesNotExist" || name === "UnconfirmedEmail") {
+      const emailInput = document.getElementById("email") as HTMLInputElement;
+      this.writeError.writeError(emailInput, message);
+    }
+
+    if (name === "IncorrectPassword") {
+      const passwordInput = document.getElementById("password") as HTMLInputElement;
+      this.writeError.writeError(passwordInput, message);
     }
   }
 }

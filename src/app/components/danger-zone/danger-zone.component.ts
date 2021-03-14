@@ -37,10 +37,14 @@ export class DangerZoneComponent {
   }
 
   changeEmail(): void {
-    this.dialog.open(CredentialsModalComponent, {
+    const dialogRef = this.dialog.open(CredentialsModalComponent, {
       width: "350px",
-      disableClose: true,
-      data: {}
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(data => {
+      this.storage.clear();
+      this.openDialog("/assets/icons/mail.svg", data.message);
     });
   }
 
@@ -55,7 +59,6 @@ export class DangerZoneComponent {
 
   private successRequestForgotPassword(data: any): void {
     this.storage.clear();
-
     this.openDialog("/assets/icons/shield.svg", data.message);
   }
 

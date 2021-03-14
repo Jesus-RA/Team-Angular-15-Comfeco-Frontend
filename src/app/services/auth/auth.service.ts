@@ -70,7 +70,7 @@ export class AuthService {
   }
 
   changeEmail(email: string, password: string): Observable<object> {
-    const path: string = `${ this.url }/requestEmailChange`;
+    const path: string = `${ this.url }/email/change`;
     return this.http.post(path, { email, password });
   }
 

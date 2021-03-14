@@ -1,7 +1,26 @@
-<div class="card border-0 bg-white shadow">
-    <div class="card-body">
-        <h1>
-            <strong>Hola</strong>
-        </h1>
-    </div>
+<div class="card border-0 bg-white">
+    <carousel
+        [arrowsOutside]="true"
+        [cellWidth]="250"
+        [autoplay]="true"
+        [height]="350"
+        [dots]="true"
+        [loop]="true"
+    >
+        <div
+            *ngFor="let item of creatorsContent"
+            class="carousel-cell p-2"
+        >
+            <div class="card border-0 bg-white shadow">
+                <img
+                    alt="Picture {{ item.name }}"
+                    [src]="item.avatar"
+                    width="100%"
+                >
+                <div class="card-body">
+                    <h2 class="card-title p-0 m-0">{{ item.name }}</h2>
+                </div>
+            </div>
+        </div>
+    </carousel>
 </div>

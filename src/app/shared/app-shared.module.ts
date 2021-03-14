@@ -23,23 +23,27 @@ import { DangerZoneComponent } from '../components/danger-zone/danger-zone.compo
 import { ModalFileUploadComponent } from '../components/modal-file-upload/modal-file-upload.component';
 import { CredentialsModalComponent } from '../components/credentials-modal/credentials-modal.component';
 import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-banner.component';
+import { CarouselCreatorsContentComponent } from "../components/carousel-creators-content/carousel-creators-content.component";
+import { CarouselSponsorsComponent } from "../components/carousel-sponsors/carousel-sponsors.component";
 
 @NgModule({
   declarations: [
-    NavbarAppComponent,
+    CarouselCreatorsContentComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
-    ProfileSectionsComponent,
-    WelcomeBannerComponent,
-    UserStickerComponent,
-    NotificationComponent,
     CredentialsModalComponent,
-    DangerZoneComponent,
+    CarouselSponsorsComponent,
+    ProfileSectionsComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
+    WelcomeBannerComponent,
     BadgesSectionComponent,
+    EventsSectionComponent,
     GroupsSectionComponent,
-    EventsSectionComponent
+    NotificationComponent,
+    UserStickerComponent,
+    DangerZoneComponent,
+    NavbarAppComponent
   ],
   imports: [
     CommonModule,
@@ -54,20 +58,22 @@ import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-ban
     IvyCarouselModule,
 
     // Compoennts
-    NavbarAppComponent,
+    CarouselCreatorsContentComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
-    ProfileSectionsComponent,
-    UserFieldsFormComponent,
     CredentialsModalComponent,
-    WelcomeBannerComponent,
-    NotificationComponent,
-    DangerZoneComponent,
+    CarouselSponsorsComponent,
+    ProfileSectionsComponent,
     ModalFileUploadComponent,
-    UserStickerComponent,
+    UserFieldsFormComponent,
+    WelcomeBannerComponent,
     BadgesSectionComponent,
+    EventsSectionComponent,
     GroupsSectionComponent,
-    EventsSectionComponent
+    NotificationComponent,
+    UserStickerComponent,
+    DangerZoneComponent,
+    NavbarAppComponent
   ]
 })
 export class AppSharedModule {}

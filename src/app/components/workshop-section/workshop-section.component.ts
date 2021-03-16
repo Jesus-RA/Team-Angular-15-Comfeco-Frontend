@@ -1,5 +1,9 @@
 // Imports modules.
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
+
+// Imports interfaces.
+import { Workshop } from 'src/app/services/workshops/interfaces/workshop.interfaces';
+import { WorkshopStiker } from '../workshop-sticker/interfaces/workshopSticker.interfaces';
 
 // Imports helpers.
 import { CalculateDate } from 'src/app/helpers/CalculateDate';
@@ -12,8 +16,8 @@ import { WorkshopsService } from 'src/app/services/workshops/workshops.service';
   templateUrl: './workshop-section.component.html',
   styleUrls: ['./workshop-section.component.css']
 })
-export class WorkshopSectionComponent implements OnChanges {
-  workshops: any[] = [];
+export class WorkshopSectionComponent {
+  workshops: WorkshopStiker[] = [];
 
   constructor(
     private workshopsService: WorkshopsService,
@@ -22,12 +26,8 @@ export class WorkshopSectionComponent implements OnChanges {
     this.getWorkshops();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
-  }
-
   private getWorkshops(): void {
-    this.workshopsService.list().subscribe((res: any) => {
+    this.workshopsService.list().subscribe(res => {
       res.workshops.forEach(workshop => {
         const finishWorkshop: number = new Date(workshop.workshopsEndTime).getTime();
         const currentTime: number = new Date().getTime();
@@ -42,7 +42,7 @@ export class WorkshopSectionComponent implements OnChanges {
     });
   }
 
-  private assignData(data: any, status: boolean) {
+  private assignData(data: Workshop, status: boolean): WorkshopStiker {
     return  {
       picture: data.picture,
       title: data.title,

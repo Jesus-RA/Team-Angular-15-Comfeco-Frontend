@@ -2,7 +2,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+// Imports environments.
 import { environment } from 'src/environments/environment';
+
+// Imports interfaces.
+import { WorkshopGetRes, WorkshopListRes } from './interfaces/workshop.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +17,11 @@ export class WorkshopsService {
 
   constructor(private http: HttpClient) {}
 
-  get(workshopId: string): Observable<object> {
-    return this.http.get(`${ this.url }/${ workshopId }`);
+  get(workshopId: string): Observable<WorkshopGetRes> {
+    return this.http.get<WorkshopGetRes>(`${ this.url }/${ workshopId }`);
   }
 
-  list(): Observable<object> {
-    return this.http.get(this.url);
+  list(): Observable<WorkshopListRes> {
+    return this.http.get<WorkshopListRes>(this.url);
   }
 }

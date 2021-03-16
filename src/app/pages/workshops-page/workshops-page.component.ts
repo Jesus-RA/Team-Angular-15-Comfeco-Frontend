@@ -1,5 +1,7 @@
 // Imports modules.
 import { Component } from '@angular/core';
+
+// Imports services.
 import { WorkshopsService } from 'src/app/services/workshops/workshops.service';
 
 @Component({
@@ -11,6 +13,6 @@ export class WorkshopsPageComponent {
   workshops: any[] = [];
   
   constructor(private workshopsService: WorkshopsService) {
-    this.workshopsService.list().subscribe((res: any) => this.workshops = res.workshops);
+    this.workshopsService.list().subscribe(res => this.workshops = res.workshops);
   }
 }

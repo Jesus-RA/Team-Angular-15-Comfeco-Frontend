@@ -1,1 +1,7 @@
-<p>workshops-page works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-4 p-2" *ngFor="let workshop of workshops">
+            <app-workshop-card [workshop]="workshop"></app-workshop-card>
+        </div>
+    </div>
+</div>

@@ -32,8 +32,8 @@ export class WorkshopSectionComponent implements OnChanges {
         const finishWorkshop: number = new Date(workshop.workshopsEndTime).getTime();
         const currentTime: number = new Date().getTime();
         const { hours, minutes } = this.calculateDate.calculate(currentTime, finishWorkshop);
-        
-        if (hours === 0 && minutes === 0) {
+
+        if (hours <= 0 && minutes <= 0) {
           return this.workshops.push(this.assignData(workshop, true));
         }
 

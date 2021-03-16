@@ -30,6 +30,8 @@ import { WorkshopSectionComponent } from "../components/workshop-section/worksho
 import { WorkshopStickerComponent } from "../components/workshop-sticker/workshop-sticker.component";
 import { WorkshopCardComponent } from "../components/workshop-card/workshop-card.component";
 import { CardContentCreatorComponent } from "../components/card-content-creator/card-content-creator.component";
+import { CommunityStickerComponent } from "../components/community-sticker/community-sticker.component";
+import { CommunityCardComponent } from "../components/community-card/community-card.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CardContentCreatorComponent } from "../components/card-content-creator/
     MyProfileSectionComponent,
     CredentialsModalComponent,
     CarouselSponsorsComponent,
+    CommunityStickerComponent,
     WorkshopStickerComponent,
     WorkshopSectionComponent,
     ProfileSectionsComponent,
@@ -48,6 +51,7 @@ import { CardContentCreatorComponent } from "../components/card-content-creator/
     BadgesSectionComponent,
     EventsSectionComponent,
     GroupsSectionComponent,
+    CommunityCardComponent,
     WorkshopCardComponent,
     NotificationComponent,
     UserStickerComponent,
@@ -73,12 +77,14 @@ import { CardContentCreatorComponent } from "../components/card-content-creator/
     UserPresentationComponent,
     MyProfileSectionComponent,
     CredentialsModalComponent,
+    CommunityStickerComponent,
     CarouselSponsorsComponent,
     ProfileSectionsComponent,
     WorkshopSectionComponent,
     WorkshopStickerComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
+    CommunityCardComponent,
     WelcomeBannerComponent,
     BadgesSectionComponent,
     EventsSectionComponent,

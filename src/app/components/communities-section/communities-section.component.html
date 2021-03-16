@@ -1,1 +1,17 @@
-<p>communities-section works!</p>
+<div class="card border-0 bg-white shadow">
+    <div class="card-header d-flex align-items-center text-muted border-0 bg-white py-2">
+        <mat-icon>supervisor_account</mat-icon>
+        <span class="ml-2">Comunidades</span>
+        <span class="spacer"></span>
+        <button routerLink="/app/comunities" mat-icon-button>
+            <mat-icon>open_in_new</mat-icon>
+        </button>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <div *ngFor="let community of communities">
+                <app-community-sticker [community]="community"></app-community-sticker>
+            </div>
+        </ul>
+    </div>
+</div>

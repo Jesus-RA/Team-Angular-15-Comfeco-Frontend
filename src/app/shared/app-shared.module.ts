@@ -29,10 +29,12 @@ import { CounterComponent } from "../components/counter/counter.component";
 import { WorkshopSectionComponent } from "../components/workshop-section/workshop-section.component";
 import { WorkshopStickerComponent } from "../components/workshop-sticker/workshop-sticker.component";
 import { WorkshopCardComponent } from "../components/workshop-card/workshop-card.component";
+import { CardContentCreatorComponent } from "../components/card-content-creator/card-content-creator.component";
 
 @NgModule({
   declarations: [
     CarouselCreatorsContentComponent,
+    CardContentCreatorComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
     CredentialsModalComponent,
@@ -67,6 +69,7 @@ import { WorkshopCardComponent } from "../components/workshop-card/workshop-card
 
     // Compoennts
     CarouselCreatorsContentComponent,
+    CardContentCreatorComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
     CredentialsModalComponent,

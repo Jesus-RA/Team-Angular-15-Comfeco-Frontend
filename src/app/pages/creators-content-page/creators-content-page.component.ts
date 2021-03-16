@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+// Imports modules.
+import { Component } from '@angular/core';
+
+// Imports services.
+import { ContentCreatorsService } from 'src/app/services/contentCreators/content-creators.service';
+import { ContentCreator } from 'src/app/services/contentCreators/interfaces/contentCreators.interfaces';
 
 @Component({
   selector: 'app-creators-content-page',
   templateUrl: './creators-content-page.component.html',
   styleUrls: ['./creators-content-page.component.css']
 })
-export class CreatorsContentPageComponent implements OnInit {
+export class CreatorsContentPageComponent {
+  items: ContentCreator[] = [];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private contentCreatorService: ContentCreatorsService) {
+    this.contentCreatorService.list().subscribe(res => {
+      this.items = res.contentCreators;
+    });
   }
-
 }

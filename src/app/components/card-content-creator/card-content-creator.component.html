@@ -1,0 +1,25 @@
+<div class="card border-0 bg-white shadow">
+    <div class="container-picture">
+        <img src="https://picsum.photos/1080/350" width="100%" alt="Banner creator content">
+        <div class="container-avatar">
+            <img
+                alt="Picture content creator"
+                class="rounded-circle"
+                [src]="contentCreator.avatar"
+                height="100%"
+                width="100%"
+            >
+        </div>
+    </div>
+    <div class="card-body text-center">
+        <h2 class="card-title m-0">{{ contentCreator.name }}</h2>
+        <p class="card-subtitle text-muted">{{ contentCreator.profession }}</p>
+    </div>
+    <div class="card-footer pt-0 border-0 bg-white">
+        <a
+            class="bg-purple d-block text-white text-decoration-none"
+            [href]="contentCreator.socialMedia"
+            mat-raised-button
+        >Sigueme</a>
+    </div>
+</div>

@@ -32,10 +32,12 @@ import { WorkshopCardComponent } from "../components/workshop-card/workshop-card
 import { CardContentCreatorComponent } from "../components/card-content-creator/card-content-creator.component";
 import { CommunityStickerComponent } from "../components/community-sticker/community-sticker.component";
 import { CommunityCardComponent } from "../components/community-card/community-card.component";
+import { CommunitiesSectionComponent } from "../components/communities-section/communities-section.component";
 
 @NgModule({
   declarations: [
     CarouselCreatorsContentComponent,
+    CommunitiesSectionComponent,
     CardContentCreatorComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
@@ -73,6 +75,7 @@ import { CommunityCardComponent } from "../components/community-card/community-c
 
     // Compoennts
     CarouselCreatorsContentComponent,
+    CommunitiesSectionComponent,
     CardContentCreatorComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,

@@ -26,6 +26,9 @@ import { WelcomeBannerComponent } from '../components/welcome-banner/welcome-ban
 import { CarouselCreatorsContentComponent } from "../components/carousel-creators-content/carousel-creators-content.component";
 import { CarouselSponsorsComponent } from "../components/carousel-sponsors/carousel-sponsors.component";
 import { CounterComponent } from "../components/counter/counter.component";
+import { WorkshopSectionComponent } from "../components/workshop-section/workshop-section.component";
+import { WorkshopStickerComponent } from "../components/workshop-sticker/workshop-sticker.component";
+import { WorkshopCardComponent } from "../components/workshop-card/workshop-card.component";
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { CounterComponent } from "../components/counter/counter.component";
     MyProfileSectionComponent,
     CredentialsModalComponent,
     CarouselSponsorsComponent,
+    WorkshopStickerComponent,
+    WorkshopSectionComponent,
     ProfileSectionsComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
@@ -41,6 +46,7 @@ import { CounterComponent } from "../components/counter/counter.component";
     BadgesSectionComponent,
     EventsSectionComponent,
     GroupsSectionComponent,
+    WorkshopCardComponent,
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
@@ -66,12 +72,15 @@ import { CounterComponent } from "../components/counter/counter.component";
     CredentialsModalComponent,
     CarouselSponsorsComponent,
     ProfileSectionsComponent,
+    WorkshopSectionComponent,
+    WorkshopStickerComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
     WelcomeBannerComponent,
     BadgesSectionComponent,
     EventsSectionComponent,
     GroupsSectionComponent,
+    WorkshopCardComponent,
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,

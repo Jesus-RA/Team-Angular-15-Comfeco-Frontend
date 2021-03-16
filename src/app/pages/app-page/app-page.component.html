@@ -32,22 +32,9 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item p-2" *ngFor="let community of communities">
-                            <div class="d-flex w-100">
-                                <img
-                                    style="object-fit: cover;"
-                                    [src]="community.banner"
-                                    class="rounded-circle"
-                                    alt="Banner community"
-                                    height="45px"
-                                    width="45px"
-                                >
-                                <div class="m-0 px-3">
-                                    <p class="m-0">{{ community.title }}</p>
-                                    <a href="" class="text-purple">Unirme</a>
-                                </div>
-                            </div>
-                        </li>
+                        <div *ngFor="let community of communities">
+                            <app-community-sticker [community]="community"></app-community-sticker>
+                        </div>
                     </ul>
                 </div>
             </div>

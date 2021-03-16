@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+// Imports modules.
+import { Component, Input } from '@angular/core';
+
+// Imports interfaces.
+import { Community } from 'src/app/services/communities/interfaces/community.interfaces';
 
 @Component({
   selector: 'app-community-sticker',
   templateUrl: './community-sticker.component.html',
   styleUrls: ['./community-sticker.component.css']
 })
-export class CommunityStickerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CommunityStickerComponent {
+  @Input() community: Community;
 }

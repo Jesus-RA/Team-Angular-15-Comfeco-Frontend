@@ -30,6 +30,7 @@ import { AuthService } from './services/auth/auth.service';
 import { UploadService } from './services/upload/upload.service';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { WorkshopsService } from './services/workshops/workshops.service';
+import { ContentCreatorsService } from './services/contentCreators/content-creators.service';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -77,7 +78,8 @@ import { WorkshopsService } from './services/workshops/workshops.service';
     AuthService,
     UserService,
     UploadService,
-    WorkshopsService
+    WorkshopsService,
+    ContentCreatorsService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -1,9 +1,12 @@
 // Imports modules.
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 // Imports services.
 import { BadgeService } from 'src/app/services/badge/badge.service';
 import { Badge } from 'src/app/services/badge/interfaces/badge.interfaces';
+import { User } from 'src/app/services/user/interfaces/user.interfaces';
+import { DetailsUser } from '../details-user-section/interfaces/details-user.interfaces';
 
 @Component({
   selector: 'app-profile-sections',
@@ -13,12 +16,24 @@ import { Badge } from 'src/app/services/badge/interfaces/badge.interfaces';
 })
 export class ProfileSectionsComponent implements OnInit {
   badges: Badge[] = [];
+  detailsUser: DetailsUser = {
+    header: { icon: "info", title: "Detalles" },
+    items: []
+  };
 
   constructor(
-    private badgeService: BadgeService
+    private badgeService: BadgeService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.authService.currentUser.subscribe(user => {
+      this.detailsUser.items = [
+        { icon: "male", text: user.gender },
+        { icon: "location_on", text: user.country },
+        { icon: "calendar_today", text: user.birthday.toString() }
+      ];
+    });
     this.badgeService.list().subscribe(res => this.badges = res.badges);
   }
 }

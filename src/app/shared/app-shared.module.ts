@@ -12,9 +12,6 @@ import { MyProfileSectionComponent } from '../components/my-profile-section/my-p
 import { BadgesSectionComponent } from '../components/badges-section/badges-section.component';
 import { GroupsSectionComponent } from '../components/groups-section/groups-section.component';
 import { EventsSectionComponent } from '../components/events-section/events-section.component';
-
-// Imports material
-import { AngularMaterial } from "../material/material";
 import { ProfileSectionsComponent } from '../components/profile-sections/profile-sections.component';
 import { UserStickerComponent } from '../components/user-sticker/user-sticker.component';
 import { UserFieldsFormComponent } from '../components/user-fields-form/user-fields-form.component';
@@ -34,10 +31,17 @@ import { CommunityStickerComponent } from "../components/community-sticker/commu
 import { CommunityCardComponent } from "../components/community-card/community-card.component";
 import { CommunitiesSectionComponent } from "../components/communities-section/communities-section.component";
 import { BadgeCardComponent } from "../components/badge-card/badge-card.component";
+import { RecentActivitiesSectionComponent } from "../components/recent-activities-section/recent-activities-section.component";
+import { DetailsUserSectionComponent } from "../components/details-user-section/details-user-section.component";
+
+// Imports material
+import { AngularMaterial } from "../material/material";
 
 @NgModule({
   declarations: [
     CarouselCreatorsContentComponent,
+    RecentActivitiesSectionComponent,
+    DetailsUserSectionComponent,
     CommunitiesSectionComponent,
     CardContentCreatorComponent,
     UserPresentationComponent,
@@ -77,6 +81,8 @@ import { BadgeCardComponent } from "../components/badge-card/badge-card.componen
 
     // Compoennts
     CarouselCreatorsContentComponent,
+    RecentActivitiesSectionComponent,
+    DetailsUserSectionComponent,
     CommunitiesSectionComponent,
     CardContentCreatorComponent,
     UserPresentationComponent,

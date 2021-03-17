@@ -10,6 +10,7 @@ import { NavbarAppComponent } from "../components/navbar-app/navbar-app.componen
 import { UserPresentationComponent } from '../components/user-presentation/user-presentation.component';
 import { MyProfileSectionComponent } from '../components/my-profile-section/my-profile-section.component';
 import { BadgesSectionComponent } from '../components/badges-section/badges-section.component';
+import { GeneralStickerSectionComponent } from "../components/general-sticker-section/general-sticker-section.component";
 import { GroupsSectionComponent } from '../components/groups-section/groups-section.component';
 import { EventsSectionComponent } from '../components/events-section/events-section.component';
 import { ProfileSectionsComponent } from '../components/profile-sections/profile-sections.component';
@@ -42,6 +43,7 @@ import { AngularMaterial } from "../material/material";
   declarations: [
     CarouselCreatorsContentComponent,
     RecentActivitiesSectionComponent,
+    GeneralStickerSectionComponent,
     DetailsUserSectionComponent,
     CommunitiesSectionComponent,
     CardContentCreatorComponent,
@@ -80,10 +82,11 @@ import { AngularMaterial } from "../material/material";
     AngularMaterial,
     ReactiveFormsModule,
     IvyCarouselModule,
-
-    // Compoennts
+    
+    // Components
     CarouselCreatorsContentComponent,
     RecentActivitiesSectionComponent,
+    GeneralStickerSectionComponent,
     DetailsUserSectionComponent,
     CommunitiesSectionComponent,
     CardContentCreatorComponent,

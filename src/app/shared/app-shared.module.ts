@@ -25,7 +25,6 @@ import { CarouselCreatorsContentComponent } from "../components/carousel-creator
 import { CarouselSponsorsComponent } from "../components/carousel-sponsors/carousel-sponsors.component";
 import { CounterComponent } from "../components/counter/counter.component";
 import { WorkshopSectionComponent } from "../components/workshop-section/workshop-section.component";
-import { WorkshopStickerComponent } from "../components/workshop-sticker/workshop-sticker.component";
 import { WorkshopCardComponent } from "../components/workshop-card/workshop-card.component";
 import { CardContentCreatorComponent } from "../components/card-content-creator/card-content-creator.component";
 import { CommunityCardComponent } from "../components/community-card/community-card.component";
@@ -48,7 +47,6 @@ import { AngularMaterial } from "../material/material";
     MyProfileSectionComponent,
     CredentialsModalComponent,
     CarouselSponsorsComponent,
-    WorkshopStickerComponent,
     WorkshopSectionComponent,
     ProfileSectionsComponent,
     ModalFileUploadComponent,
@@ -91,7 +89,6 @@ import { AngularMaterial } from "../material/material";
     CarouselSponsorsComponent,
     ProfileSectionsComponent,
     WorkshopSectionComponent,
-    WorkshopStickerComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
     GeneralStickerComponent,

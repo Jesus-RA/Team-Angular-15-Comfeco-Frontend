@@ -12,12 +12,22 @@
           </div>
 
           <div class="col-12 col-lg-8 p-2">
-            <div class="card border-0 bg-white shadow">
-              <div class="card-header text-muted d-flex align-items-center w-100 border-0 bg-white">
-                <mat-icon>schedule</mat-icon>
-                <p class="m-0 p-0 px-2">Actividades recientes</p>
+            
+            <div class="container fluid">
+              <div class="card border-0 bg-white shadow">
+                <div class="card-header text-muted d-flex align-items-center w-100 border-0 bg-white">
+                  <mat-icon>schedule</mat-icon>
+                  <p class="m-0 p-0 px-2">Actividades recientes</p>
+                </div>
               </div>
             </div>
+
+            <div *ngIf="myInsigniaSection.stickers.length" class="container-fluid">
+              <app-general-sticker-section
+                [section]="myInsigniaSection"
+              ></app-general-sticker-section>
+            </div>
+            
           </div>
         </div>
       </div>

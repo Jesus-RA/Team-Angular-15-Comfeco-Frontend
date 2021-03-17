@@ -28,9 +28,7 @@ import { WorkshopSectionComponent } from "../components/workshop-section/worksho
 import { WorkshopStickerComponent } from "../components/workshop-sticker/workshop-sticker.component";
 import { WorkshopCardComponent } from "../components/workshop-card/workshop-card.component";
 import { CardContentCreatorComponent } from "../components/card-content-creator/card-content-creator.component";
-import { CommunityStickerComponent } from "../components/community-sticker/community-sticker.component";
 import { CommunityCardComponent } from "../components/community-card/community-card.component";
-import { CommunitiesSectionComponent } from "../components/communities-section/communities-section.component";
 import { BadgeCardComponent } from "../components/badge-card/badge-card.component";
 import { RecentActivitiesSectionComponent } from "../components/recent-activities-section/recent-activities-section.component";
 import { DetailsUserSectionComponent } from "../components/details-user-section/details-user-section.component";
@@ -45,13 +43,11 @@ import { AngularMaterial } from "../material/material";
     RecentActivitiesSectionComponent,
     GeneralStickerSectionComponent,
     DetailsUserSectionComponent,
-    CommunitiesSectionComponent,
     CardContentCreatorComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
     CredentialsModalComponent,
     CarouselSponsorsComponent,
-    CommunityStickerComponent,
     WorkshopStickerComponent,
     WorkshopSectionComponent,
     ProfileSectionsComponent,
@@ -88,12 +84,10 @@ import { AngularMaterial } from "../material/material";
     RecentActivitiesSectionComponent,
     GeneralStickerSectionComponent,
     DetailsUserSectionComponent,
-    CommunitiesSectionComponent,
     CardContentCreatorComponent,
     UserPresentationComponent,
     MyProfileSectionComponent,
     CredentialsModalComponent,
-    CommunityStickerComponent,
     CarouselSponsorsComponent,
     ProfileSectionsComponent,
     WorkshopSectionComponent,

@@ -20,4 +20,9 @@ export class BadgeService {
   list(): Observable<{ badges: Badge[] }> {
     return this.http.get<{ badges: Badge[] }>(this.url);
   }
+
+  getByUserId(userId: string): Observable<{ badges: Badge[] }> {
+    const path: string = `${ environment.url }/users/${ userId }/badges`;
+    return this.http.get<{ badges: Badge[] }>(path);
+  }
 }

@@ -8,9 +8,9 @@
         </button>
     </div>
     <div class="card-body">
-        <app-workshop-sticker
-            *ngFor="let workshop of workshops"
-            [workshop]="workshop"
-        ></app-workshop-sticker>
+        <app-general-sticker
+            *ngFor="let item of items"
+            [sticker]="item"
+        ></app-general-sticker>
     </div>
 </div>

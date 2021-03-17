@@ -36,6 +36,7 @@ import { DetailsUserSectionComponent } from "../components/details-user-section/
 
 // Imports material
 import { AngularMaterial } from "../material/material";
+import { GeneralStickerComponent } from "../components/general-sticker/general-sticker.component";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AngularMaterial } from "../material/material";
     WorkshopSectionComponent,
     ProfileSectionsComponent,
     ModalFileUploadComponent,
+    GeneralStickerComponent,
     UserFieldsFormComponent,
     WelcomeBannerComponent,
     BadgesSectionComponent,
@@ -95,6 +97,7 @@ import { AngularMaterial } from "../material/material";
     WorkshopStickerComponent,
     ModalFileUploadComponent,
     UserFieldsFormComponent,
+    GeneralStickerComponent,
     CommunityCardComponent,
     WelcomeBannerComponent,
     BadgesSectionComponent,

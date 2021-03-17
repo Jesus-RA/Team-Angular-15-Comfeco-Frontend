@@ -33,10 +33,11 @@ import { CommunitiesSectionComponent } from "../components/communities-section/c
 import { BadgeCardComponent } from "../components/badge-card/badge-card.component";
 import { RecentActivitiesSectionComponent } from "../components/recent-activities-section/recent-activities-section.component";
 import { DetailsUserSectionComponent } from "../components/details-user-section/details-user-section.component";
+import { GeneralStickerComponent } from "../components/general-sticker/general-sticker.component";
+import { GeneralSectionComponent } from "../components/general-section/general-section.component";
 
 // Imports material
 import { AngularMaterial } from "../material/material";
-import { GeneralStickerComponent } from "../components/general-sticker/general-sticker.component";
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { GeneralStickerComponent } from "../components/general-sticker/general-s
     WorkshopSectionComponent,
     ProfileSectionsComponent,
     ModalFileUploadComponent,
+    GeneralSectionComponent,
     GeneralStickerComponent,
     UserFieldsFormComponent,
     WelcomeBannerComponent,
@@ -98,6 +100,7 @@ import { GeneralStickerComponent } from "../components/general-sticker/general-s
     ModalFileUploadComponent,
     UserFieldsFormComponent,
     GeneralStickerComponent,
+    GeneralSectionComponent,
     CommunityCardComponent,
     WelcomeBannerComponent,
     BadgesSectionComponent,

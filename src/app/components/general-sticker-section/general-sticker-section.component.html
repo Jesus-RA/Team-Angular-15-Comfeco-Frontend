@@ -1,1 +1,15 @@
-<p>general-sticker-section works!</p>
+<div class="card border-0 bg-white shadow">
+    <div class="card-header border-0 bg-white">
+        <div class="d-flex align-items-center text-muted">
+            <mat-icon>{{ section.header.icon }}</mat-icon>
+            <span class="px-2">{{ section.header.title }}</span>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <app-general-sticker
+            *ngFor="let sticker of section.stickers"
+            [sticker]="sticker"
+        ></app-general-sticker>
+    </div>
+</div>

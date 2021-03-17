@@ -34,7 +34,6 @@ import { BadgeCardComponent } from "../components/badge-card/badge-card.componen
 import { RecentActivitiesSectionComponent } from "../components/recent-activities-section/recent-activities-section.component";
 import { DetailsUserSectionComponent } from "../components/details-user-section/details-user-section.component";
 import { GeneralStickerComponent } from "../components/general-sticker/general-sticker.component";
-import { GeneralSectionComponent } from "../components/general-section/general-section.component";
 
 // Imports material
 import { AngularMaterial } from "../material/material";
@@ -55,7 +54,6 @@ import { AngularMaterial } from "../material/material";
     WorkshopSectionComponent,
     ProfileSectionsComponent,
     ModalFileUploadComponent,
-    GeneralSectionComponent,
     GeneralStickerComponent,
     UserFieldsFormComponent,
     WelcomeBannerComponent,
@@ -100,7 +98,6 @@ import { AngularMaterial } from "../material/material";
     ModalFileUploadComponent,
     UserFieldsFormComponent,
     GeneralStickerComponent,
-    GeneralSectionComponent,
     CommunityCardComponent,
     WelcomeBannerComponent,
     BadgesSectionComponent,

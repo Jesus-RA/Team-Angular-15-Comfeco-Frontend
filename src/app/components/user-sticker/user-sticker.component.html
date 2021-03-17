@@ -1,6 +1,13 @@
 <div>
     <button mat-flat-button [matMenuTriggerFor]="menu">
-        <img src="/assets/icons/google.svg" width="20px" height="20px" alt="">
+        <img
+            style="object-fit: cover;"
+            class="rounded-circle"
+            [src]="user.avatar"
+            alt="User picture"
+            height="25px"
+            width="25px"
+        >
         <span class="ml-2 mr-3">{{ user.nickname }}</span>
         <mat-icon>expand_more</mat-icon>
     </button>

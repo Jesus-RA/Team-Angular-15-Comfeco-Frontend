@@ -28,10 +28,10 @@ import { AppLayoutModule } from "./layouts/app-layout/app-layout.module";
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
 import { UploadService } from './services/upload/upload.service';
-import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { WorkshopsService } from './services/workshops/workshops.service';
-import { ContentCreatorsService } from './services/contentCreators/content-creators.service';
 import { CommunitiesService } from './services/communities/communities.service';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
+import { ContentCreatorsService } from './services/contentCreators/content-creators.service';
 
 @NgModule({
   declarations: [ AppComponent ],

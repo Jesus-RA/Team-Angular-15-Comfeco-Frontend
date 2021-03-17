@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+// Imports modules.
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
-export class ProfilePageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ProfilePageComponent {}

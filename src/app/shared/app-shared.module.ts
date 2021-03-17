@@ -33,6 +33,7 @@ import { CardContentCreatorComponent } from "../components/card-content-creator/
 import { CommunityStickerComponent } from "../components/community-sticker/community-sticker.component";
 import { CommunityCardComponent } from "../components/community-card/community-card.component";
 import { CommunitiesSectionComponent } from "../components/communities-section/communities-section.component";
+import { BadgeCardComponent } from "../components/badge-card/badge-card.component";
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CommunitiesSectionComponent } from "../components/communities-section/c
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
+    BadgeCardComponent,
     NavbarAppComponent,
     CounterComponent
   ],
@@ -96,6 +98,7 @@ import { CommunitiesSectionComponent } from "../components/communities-section/c
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
+    BadgeCardComponent,
     NavbarAppComponent,
     CounterComponent
   ]

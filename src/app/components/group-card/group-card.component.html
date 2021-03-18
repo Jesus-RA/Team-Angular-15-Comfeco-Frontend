@@ -7,11 +7,15 @@
         <mat-chip-list>
             <mat-chip class="bg-{{ group.tag.color }} text-white">{{ group.tag.text }}</mat-chip>
         </mat-chip-list>
-        <div class="container-members pt-2">{{ group.members.length }} Desarrolladores que se han unido.</div>
+        <div class="container-members pt-2 text-{{ group.tag.color }}">{{ group.members.length }} Desarrolladores que se han unido.</div>
         <h3 class="card-title m-0 py-2" style="line-height: 20px;">{{ group.name }}</h3>
         <p class="m-0 text-muted">{{ group.description }}</p>
     </div>
     <div class="card-footer border-0 bg-white pt-0">
-        <button mat-raised-button class="bg-purple w-100">Unirme</button>
+        <button
+            class="bg-purple w-100"
+            (click)="joinGroup(group._id)"
+            mat-raised-button
+        >Unirme</button>
     </div>
 </div>

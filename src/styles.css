@@ -39,6 +39,15 @@ body {
     color: white;
 }
 
+.bg-accent {
+    background-color: #eb3b5a !important;
+    color: white;
+}
+
+.text-accent {
+    color: #eb3b5a;
+}
+
 /* Fields */
 .custom-field {
     position: relative;

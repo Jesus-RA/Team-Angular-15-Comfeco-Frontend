@@ -27,6 +27,12 @@
                 [section]="myInsigniaSection"
               ></app-general-sticker-section>
             </div>
+
+            <div *ngIf="myGroupSection.stickers.length" class="container-fluid px-0">
+              <app-general-sticker-section
+                [section]="myGroupSection"
+              ></app-general-sticker-section>
+            </div>
             
           </div>
         </div>

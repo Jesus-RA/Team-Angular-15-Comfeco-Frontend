@@ -21,6 +21,11 @@ export class GroupService {
     return this.http.get<{ groups: Group[] }>(this.url);
   }
 
+  listByUser(userId: string): Observable<{ groups: Group[] }> {
+    const path: string = `${ environment.url }/users/${ userId }/groups`;
+    return this.http.get<{ groups: Group[] }>(path);
+  }
+
   addMemberToGroup(groupId: string, userId: string): Observable<{ message: string }> {
     const path: string = `${ this.url }/${ groupId }/users`;
     return this.http.post<{ message: string }>(path, { userId });

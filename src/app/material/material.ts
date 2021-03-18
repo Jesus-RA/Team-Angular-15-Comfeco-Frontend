@@ -7,10 +7,11 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatSelectModule } from "@angular/material/select";
+import { MatInputModule } from "@angular/material/input";
+import { MatChipsModule } from "@angular/material/chips";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTabsModule } from "@angular/material/tabs";
-import { MatInputModule } from "@angular/material/input";
 
 export const AngularMaterial = [
     MatProgressBarModule,
@@ -21,6 +22,7 @@ export const AngularMaterial = [
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
+    MatChipsModule,
     MatInputModule,
     MatMenuModule,
     MatIconModule,

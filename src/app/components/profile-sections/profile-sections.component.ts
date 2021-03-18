@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 // Imports services.
 import { BadgeService } from 'src/app/services/badge/badge.service';
 import { Badge } from 'src/app/services/badge/interfaces/badge.interfaces';
+import { GroupService } from 'src/app/services/group/group.service';
+import { Group } from 'src/app/services/group/interfaces/group.interfaces';
 import { DetailsUser } from '../details-user-section/interfaces/details-user.interfaces';
 import { StickerSection } from '../general-sticker-section/interfaces/stickerSection.interfaces';
 
@@ -21,6 +23,8 @@ export class ProfileSectionsComponent implements OnInit {
   };
 
   badges: Badge[] = [];
+  groups: Group[] = [];
+
   detailsUser: DetailsUser = {
     header: { icon: "info", title: "Detalles" },
     items: []
@@ -28,7 +32,8 @@ export class ProfileSectionsComponent implements OnInit {
 
   constructor(
     private badgeService: BadgeService,
-    private authService: AuthService
+    private groupService: GroupService,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -51,5 +56,9 @@ export class ProfileSectionsComponent implements OnInit {
     });
 
     this.badgeService.list().subscribe(res => this.badges = res.badges);
+
+    this.groupService.list().subscribe(({ groups }) => {
+      this.groups = groups;
+    });
   }
 }

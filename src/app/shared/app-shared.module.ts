@@ -35,6 +35,7 @@ import { GeneralStickerComponent } from "../components/general-sticker/general-s
 
 // Imports material
 import { AngularMaterial } from "../material/material";
+import { GroupsContainerComponent } from "../components/groups-container/groups-container.component";
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AngularMaterial } from "../material/material";
     MyProfileSectionComponent,
     CredentialsModalComponent,
     CarouselSponsorsComponent,
+    GroupsContainerComponent,
     WorkshopSectionComponent,
     ProfileSectionsComponent,
     ModalFileUploadComponent,
@@ -87,6 +89,7 @@ import { AngularMaterial } from "../material/material";
     MyProfileSectionComponent,
     CredentialsModalComponent,
     CarouselSponsorsComponent,
+    GroupsContainerComponent,
     ProfileSectionsComponent,
     WorkshopSectionComponent,
     ModalFileUploadComponent,

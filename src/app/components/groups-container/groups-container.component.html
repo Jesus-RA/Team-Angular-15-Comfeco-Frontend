@@ -1,16 +1,28 @@
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12 col-lg-4 p-2">
+            Filtrador
+        </div>
+
+        <div class="col-12 col-lg-8 p-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Buscar</mat-label>
+                <input matInput (input)="search($event)">
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 col-lg-4 p-2">
             <div class="card border-0 bg-white shadow">
                 <div class="card-body">
                     <h1>Hello world</h1>
                 </div>
             </div>
         </div>
+
         <div class="col-12 col-lg-8 p-2">
-            <div class="row">
+            <div class="row" id="section-groups-cards">
                 <div class="col-12 col-lg-6 p-2" *ngFor="let group of groups">
-                    <app-group-card [group]="group"></app-group-card>
+                    <app-group-card [group]="group" id="group-card"></app-group-card>
                 </div>
             </div>
         </div>

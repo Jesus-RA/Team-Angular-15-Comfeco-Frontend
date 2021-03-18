@@ -22,4 +22,20 @@ export class GroupsContainerComponent implements OnInit {
       this.groups = groups;
     });
   }
+
+  search(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const elements = document.querySelectorAll("#group-card") as NodeListOf<HTMLElement>;
+
+    elements.forEach(element => {
+      const keyword: string = input.value.toLocaleLowerCase();
+      const word: string = element.textContent.toLocaleLowerCase();
+      
+      if (word.indexOf(keyword) !== -1) {
+        element.parentElement.style.display = "block";
+      } else {
+        element.parentElement.style.display = "none";
+      }
+    });
+  }
 }

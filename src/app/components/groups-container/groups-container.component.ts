@@ -16,7 +16,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./groups-container.component.css']
 })
 export class GroupsContainerComponent implements OnInit {
-  myGroups: { name: string; id: string }[] = [];
+  myGroups: Group[] = [];
   languages: Set<string>;
   groups: Group[] = [];
   currentGroup: Group;
@@ -33,16 +33,10 @@ export class GroupsContainerComponent implements OnInit {
 
       this.authService.currentUser.subscribe(user => {
         // Filter my groups
-        const myGroups: Group[] = groups.filter(group => {
+        this.myGroups = groups.filter(group => {
           const users: User[] = group.members.filter(member => member._id === user._id);
           if (users.length > 0) return { name: group.name, id: group._id };
         });
-
-        // Mapping my groups
-        this.myGroups = myGroups.map(group => ({ name: group.name, id: group._id }));
-
-        // Show current group
-        this.currentGroup = myGroups[0];
       });
     });
   }

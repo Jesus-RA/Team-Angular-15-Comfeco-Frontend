@@ -21,8 +21,54 @@
 
         <div class="col-12 col-lg-4 p-2">
             <div class="card border-0 bg-white shadow">
+                <div class="card-header border-0 bg-white">
+                    <div class="d-flex align-items-center text-muted">
+                        <mat-icon>supervisor_account</mat-icon>
+                        <span class="ml-3">Mis grupos</span>
+                    </div>
+                </div>
                 <div class="card-body">
-                    <h1>Hello world</h1>
+                    <div class="box-selector">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Selecciona un grupo</mat-label>
+                            <mat-select (selectionChange)="filterMyGroup($event)">
+                                <mat-option
+                                    *ngFor="let item of myGroups"
+                                    [value]="item.id"
+                                >{{ item.name }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="box-group px-2">
+                        <div class="box-group-img text-center">
+                            <img
+                                [src]="currentGroup?.banner"
+                                style="object-fit: cover;"
+                                class="rounded-circle pb-3"
+                                alt="Banner group"
+                                height="150px"
+                                width="150px"
+                            >
+                        </div>
+                        <div class="box-group-title">
+                            <h2 class="card-title m-0">{{ currentGroup?.name }}</h2>
+                            <p class="card-subtitle text-muted m-0">{{ currentGroup?.description }}</p>
+                        </div>
+                        <div class="box-group-members">
+                            <div class="d-flex align-items-center py-2 pt-4 text-muted">
+                                <mat-icon>account_circle</mat-icon>
+                                <span class="ml-3">Miembros del grupo</span>
+                            </div>
+                            <app-general-sticker
+                                *ngFor="let member of currentGroup?.members"
+                                [sticker]="{
+                                    title: member.nickname,
+                                    avatar: member.avatar,
+                                    subtitle: member.email
+                                }"
+                            ></app-general-sticker>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,9 +77,9 @@
             <div class="row" id="section-groups-cards">
                 <div class="col-12 col-lg-6 p-2" *ngFor="let group of groups">
                     <app-group-card
+                        [class]="group.tag.text"
                         [group]="group"
                         id="group-card"
-                        [class]="group.tag.text"
                     ></app-group-card>
                 </div>
             </div>

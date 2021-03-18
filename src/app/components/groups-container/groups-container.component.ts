@@ -1,12 +1,14 @@
 // Imports modules.
+import { MatSelectChange } from '@angular/material/select';
 import { Component, OnInit } from '@angular/core';
 
 // Imports models.
 import { Group } from 'src/app/services/group/interfaces/group.interfaces';
+import { User } from 'src/app/services/user/interfaces/user.interfaces';
 
 // Imports services.
 import { GroupService } from 'src/app/services/group/group.service';
-import { MatSelectChange } from '@angular/material/select';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-groups-container',
@@ -14,16 +16,34 @@ import { MatSelectChange } from '@angular/material/select';
   styleUrls: ['./groups-container.component.css']
 })
 export class GroupsContainerComponent implements OnInit {
+  myGroups: { name: string; id: string }[] = [];
   languages: Set<string>;
   groups: Group[] = [];
+  currentGroup: Group;
 
-  constructor(private groupService: GroupService) {}
+  constructor(
+    private groupService: GroupService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.groupService.list().subscribe(({ groups }) => {
-      const items = groups.map(group => group.tag.text);
-      this.languages = new Set(items);
+      this.languages = new Set(groups.map(group => group.tag.text));
       this.groups = groups;
+
+      this.authService.currentUser.subscribe(user => {
+        // Filter my groups
+        const myGroups: Group[] = groups.filter(group => {
+          const users: User[] = group.members.filter(member => member._id === user._id);
+          if (users.length > 0) return { name: group.name, id: group._id };
+        });
+
+        // Mapping my groups
+        this.myGroups = myGroups.map(group => ({ name: group.name, id: group._id }));
+
+        // Show current group
+        this.currentGroup = myGroups[0];
+      });
     });
   }
 
@@ -47,6 +67,11 @@ export class GroupsContainerComponent implements OnInit {
       const status: boolean = word.indexOf(keyword) !== -1 ? true : false;
       this.conditionRendering(element.parentElement, status);
     });
+  }
+
+  filterMyGroup(event: MatSelectChange) {
+    const groupId = event.value as string;
+    this.currentGroup = this.groups.find(group => group._id === groupId);
   }
 
   private conditionRendering(element: HTMLElement, status: boolean): void {

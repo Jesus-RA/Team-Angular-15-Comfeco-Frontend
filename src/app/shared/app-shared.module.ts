@@ -36,6 +36,7 @@ import { GeneralStickerComponent } from "../components/general-sticker/general-s
 // Imports material
 import { AngularMaterial } from "../material/material";
 import { GroupsContainerComponent } from "../components/groups-container/groups-container.component";
+import { GroupCardComponent } from "../components/group-card/group-card.component";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { GroupsContainerComponent } from "../components/groups-container/groups-
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
+    GroupCardComponent,
     BadgeCardComponent,
     NavbarAppComponent,
     CounterComponent
@@ -104,6 +106,7 @@ import { GroupsContainerComponent } from "../components/groups-container/groups-
     NotificationComponent,
     UserStickerComponent,
     DangerZoneComponent,
+    GroupCardComponent,
     BadgeCardComponent,
     NavbarAppComponent,
     CounterComponent

@@ -5,6 +5,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from 'src/app/services/user/interfaces/user.interfaces';
 import { Badge } from 'src/app/services/badge/interfaces/badge.interfaces';
 import { Group } from 'src/app/services/group/interfaces/group.interfaces';
+import { Event } from 'src/app/services/events/interfaces/events.interfaces';
 import { DetailsUser } from '../details-user-section/interfaces/details-user.interfaces';
 import { StickerSection } from '../general-sticker-section/interfaces/stickerSection.interfaces';
 
@@ -13,7 +14,6 @@ import { BadgeService } from 'src/app/services/badge/badge.service';
 import { GroupService } from 'src/app/services/group/group.service';
 import { EventService } from 'src/app/services/events/event.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { Event } from 'src/app/services/events/interfaces/events.interfaces';
 
 @Component({
   selector: 'app-profile-sections',
@@ -92,5 +92,10 @@ export class ProfileSectionsComponent implements OnInit {
         subtitle: group.description
       });
     });
+  }
+
+  removeEvent(data: { eventId: string }): void {
+    const index: number = this.events.findIndex(event => event._id === data.eventId);
+    this.events.splice(index, 1);
   }
 }

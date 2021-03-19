@@ -1,5 +1,5 @@
 // Imports modules
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, EventEmitter, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -21,6 +21,8 @@ import { ModalMessageComponent } from '../modal-message/modal-message.component'
   styleUrls: ['./event-card.component.css']
 })
 export class EventCardComponent implements OnChanges {
+  @Output() leave = new EventEmitter<{ eventId: string }>();
+
   @Input() event: Event;
 
   private user: User;
@@ -36,7 +38,6 @@ export class EventCardComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     const event = changes.event.currentValue as Event;
     const result: string = event.members.find(member => this.user._id === member);
     this.isParticipating = !!result;
@@ -70,6 +71,32 @@ export class EventCardComponent implements OnChanges {
   }
 
   private leaveEvent(eventId: string): void {
-    console.log(eventId);
+    const dialogRef = this.modal.open(ModalMessageComponent, {
+      disableClose: true,
+      width: "400px",
+      data: {
+        text: `${ this.user.nickname }, quedaras baneado del evento, ¿Deseas continuar?`,
+        image: this.event.banner,
+        modalConfirm: true
+      }
+    });
+
+    dialogRef.beforeClosed().subscribe((data: { confirm: boolean }) => {
+      if (data.confirm) {
+        this.eventService.removeUserFromEvent(eventId, this.user._id).subscribe(
+          res => this.successLeaveEventReq(res.message)
+        );
+      }
+    });
+  }
+
+  private successLeaveEventReq(message: string): void {
+    this.leave.emit({ eventId: this.event._id });
+    
+    this.snackbar.openFromComponent(NotificationComponent, {
+      duration: 3000,
+      panelClass: ["bg-danger"],
+      data: { icon: "check_circle", message }
+    });
   }
 }

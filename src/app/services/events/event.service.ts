@@ -25,4 +25,9 @@ export class EventService {
     const path: string = `${ this.url }/${ eventId }/users`;
     return this.http.post<{ message: string }>(path, { userId });
   }
+
+  removeUserFromEvent(eventId: string, userId: string): Observable<{ message: string }> {
+    const path: string = `${ this.url }/${ eventId }/users/${ userId }`;
+    return this.http.delete<{ message: string }>(path);
+  }
 }

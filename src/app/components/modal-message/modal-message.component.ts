@@ -1,6 +1,12 @@
 // Imports modules.
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+
+export interface ModalConfirm {
+  text: string;
+  image?: string;
+  modalConfirm?: boolean;
+}
 
 @Component({
   selector: 'app-modal-message',
@@ -10,8 +16,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 export class ModalMessageComponent {
   constructor(
     private dialogRef: MatDialogRef<ModalMessageComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { text: string; image: string; }
+    @Inject(MAT_DIALOG_DATA) public data: ModalConfirm
   ) {}
+
+  accept(): void {
+    this.dialogRef.close({ confirm: true });
+  }
+
+  deny(): void {
+    this.dialogRef.close({ confirm: false });
+  }
 
   close(): void {
     this.dialogRef.close();

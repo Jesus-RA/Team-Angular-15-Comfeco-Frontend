@@ -1,6 +1,6 @@
 // Imports modules.
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 // Imports interfaces.
 import { Group } from 'src/app/services/group/interfaces/group.interfaces';
@@ -18,7 +18,7 @@ import { NotificationComponent } from "../notification/notification.component";
   templateUrl: './group-card.component.html',
   styleUrls: ['./group-card.component.css']
 })
-export class GroupCardComponent {
+export class GroupCardComponent implements OnInit {
   @Input() group: Group;
   private user: User;
 
@@ -26,8 +26,10 @@ export class GroupCardComponent {
     private groupService: GroupService,
     private authService: AuthService,
     private snackbar: MatSnackBar
-  ) {
-    authService.currentUser.subscribe(user => this.user = user);
+  ) {}
+  
+  ngOnInit(): void {
+    this.authService.currentUser.subscribe(user => this.user = user);
   }
 
   joinGroup(groupId: string): void {

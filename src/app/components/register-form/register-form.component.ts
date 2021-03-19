@@ -1,7 +1,7 @@
 // Imports modules.
-import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
+import { Component, OnInit } from '@angular/core';
 
 // Imports interfaces.
 import { AuthResponse } from 'src/app/services/auth/interfaces/auth.interfaces';

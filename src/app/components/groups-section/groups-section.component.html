@@ -22,15 +22,22 @@
                 <img
                     [src]="group?.banner"
                     style="object-fit: cover;"
-                    class="rounded-circle pb-3"
+                    class="rounded-circle"
                     alt="Banner group"
                     height="150px"
                     width="150px"
                 >
             </div>
-            <div class="box-group-title">
+            <div class="box-group-title pt-3">
                 <h2 class="card-title m-0">{{ group?.name }}</h2>
                 <p class="card-subtitle text-muted m-0">{{ group?.description }}</p>
+            </div>
+            <div class="box-group-actions py-2">
+                <button
+                    class="bg-danger text-white w-100"
+                    (click)="leaveGroup(group?._id)"
+                    mat-raised-button
+                >Abandonar grupo</button>
             </div>
             <div class="box-group-members">
                 <div class="d-flex align-items-center py-2 pt-4 text-muted">

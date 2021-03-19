@@ -30,4 +30,9 @@ export class GroupService {
     const path: string = `${ this.url }/${ groupId }/users`;
     return this.http.post<{ message: string }>(path, { userId });
   }
+
+  removeUserFromGroup(groupId: string, userId: string): Observable<{ message: string }> {
+    const path: string = `${ this.url }/${ groupId }/users/${ userId }`;
+    return this.http.delete<{ message: string }>(path);
+  }
 }

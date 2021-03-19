@@ -20,4 +20,9 @@ export class EventService {
   list(): Observable<{ events: Event[] }> {
     return this.http.get<{ events: Event[] }>(this.url);
   }
+
+  addUserToEvent(eventId: string, userId: string): Observable<{ message: string }> {
+    const path: string = `${ this.url }/${ eventId }/users`;
+    return this.http.post<{ message: string }>(path, { userId });
+  }
 }

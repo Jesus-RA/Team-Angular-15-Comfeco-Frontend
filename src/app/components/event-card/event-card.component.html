@@ -9,7 +9,11 @@
     <div class="card-footer border-0 bg-white">
       <div class="d-flex">
         <span class="spacer"></span>
-        <button mat-raised-button class="bg-purple">Participar</button>
+        <button
+          class="bg-{{ isParticipating ? 'danger' : 'purple' }} text-white"
+          (click)="participate(event._id, isParticipating)"
+          mat-raised-button
+        >{{ isParticipating ? 'Abandonar' : 'Participar' }}</button>
       </div>
     </div>
 </div>

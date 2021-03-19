@@ -34,6 +34,7 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
 import { ContentCreatorsService } from './services/contentCreators/content-creators.service';
 import { GroupService } from './services/group/group.service';
 import { EventService } from './services/events/event.service';
+import { KnowledgeAreaService } from './services/knowledgeArea/knowledge-area.service';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -85,7 +86,8 @@ import { EventService } from './services/events/event.service';
     ContentCreatorsService,
     CommunitiesService,
     GroupService,
-    EventService
+    EventService,
+    KnowledgeAreaService
   ],
   bootstrap: [ AppComponent ]
 })

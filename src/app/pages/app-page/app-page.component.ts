@@ -16,7 +16,7 @@ import { CommunitiesService } from 'src/app/services/communities/communities.ser
 export class AppPageComponent implements OnInit {
   communitiesSection: StickerSection = {
     header: { icon: "supervisor_account", title: "Comunidades" },
-    link: "/app/comunities",
+    link: "/app/communities",
     stickers: []
   };
 

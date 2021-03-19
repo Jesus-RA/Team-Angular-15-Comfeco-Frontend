@@ -1,11 +1,11 @@
 <div class="card border-0 bg-white shadow">
     <div class="container-picture">
-        <img src="https://picsum.photos/1080/350" width="100%" alt="Banner creator content">
+        <img src="https://picsum.photos/1080/350" width="100%" alt="Banner">
         <div class="container-avatar">
             <img
                 alt="Picture content creator"
-                class="rounded-circle"
                 [src]="contentCreator.avatar"
+                class="rounded-circle"
                 height="100%"
                 width="100%"
             >
@@ -20,6 +20,7 @@
             class="bg-purple d-block text-white text-decoration-none"
             [href]="contentCreator.socialMedia"
             mat-raised-button
+            target="_blank"
         >Sigueme</a>
     </div>
 </div>

@@ -42,7 +42,7 @@ const routes: Routes = [
         component: WorkshopsPageComponent
       },
       {
-        path: "comunities",
+        path: "communities",
         canActivate: [AuthGuard],
         component: ComunitiesPageComponent
       },

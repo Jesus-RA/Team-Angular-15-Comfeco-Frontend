@@ -1,7 +1,5 @@
 // Imports modules
 import { Component, Input, EventEmitter, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
 
 // Imports interfaces.
 import { Event } from 'src/app/services/events/interfaces/events.interfaces';
@@ -11,9 +9,8 @@ import { User } from 'src/app/services/user/interfaces/user.interfaces';
 import { EventService } from 'src/app/services/events/event.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
-// Imports components.
-import { NotificationComponent } from '../notification/notification.component';
-import { ModalMessageComponent } from '../modal-message/modal-message.component';
+// Imports helpers.
+import { Notifier } from 'src/app/helpers/Notifier';
 
 @Component({
   selector: 'app-event-card',
@@ -31,8 +28,7 @@ export class EventCardComponent implements OnChanges {
   constructor(
     private eventService: EventService,
     private authService: AuthService,
-    private snackbar: MatSnackBar,
-    private modal: MatDialog
+    private notifier: Notifier
   ) {
     this.authService.currentUser.subscribe(user => this.user = user);
   }
@@ -49,42 +45,27 @@ export class EventCardComponent implements OnChanges {
 
   private joinEvent(eventId: string): void {
     this.eventService.addUserToEvent(eventId, this.user._id).subscribe(
-      res => this.successJoinReq(res.message),
-      err => this.failureJoinReq(err.error)
+      ({ message }) => this.notifier.showNotification(message, "check_circle", "success"),
+      
+      ({ error }) => this.notifier.showModal({
+        text: error.message,
+        image: this.event.banner
+      })
     );
   }
 
-  private successJoinReq(message: string): void {
-    this.snackbar.openFromComponent(NotificationComponent, {
-      duration: 3000,
-      panelClass: ["bg-success"],
-      data: { icon: "check_circle", message }
-    });
-  }
-
-  private failureJoinReq(error: any): void {
-    this.modal.open(ModalMessageComponent, {
-      width: "400px",
-      disableClose: true,
-      data: { text: error.message, image: this.event.banner }
-    });
-  }
-
   private leaveEvent(eventId: string): void {
-    const dialogRef = this.modal.open(ModalMessageComponent, {
-      disableClose: true,
-      width: "400px",
-      data: {
-        text: `${ this.user.nickname }, quedaras baneado del evento, ¿Deseas continuar?`,
-        image: this.event.banner,
-        modalConfirm: true
-      }
+    const modalRef = this.notifier.showModal({
+      text: `${ this.user.nickname }, quedaras baneado del evento, ¿Deseas continuar?`,
+      image: this.event.banner,
+      modalConfirm: true
     });
 
-    dialogRef.beforeClosed().subscribe((data: { confirm: boolean }) => {
+    modalRef.beforeClosed().subscribe((data: { confirm: boolean }) => {
       if (data.confirm) {
         this.eventService.removeUserFromEvent(eventId, this.user._id).subscribe(
-          res => this.successLeaveEventReq(res.message)
+          res => this.successLeaveEventReq(res.message),
+          err => this.notifier.showNotification(err.error.message, "error", "danger")
         );
       }
     });
@@ -92,11 +73,6 @@ export class EventCardComponent implements OnChanges {
 
   private successLeaveEventReq(message: string): void {
     this.leave.emit({ eventId: this.event._id });
-    
-    this.snackbar.openFromComponent(NotificationComponent, {
-      duration: 3000,
-      panelClass: ["bg-danger"],
-      data: { icon: "check_circle", message }
-    });
+    this.notifier.showNotification(message, "delete_forever", "danger");
   }
 }

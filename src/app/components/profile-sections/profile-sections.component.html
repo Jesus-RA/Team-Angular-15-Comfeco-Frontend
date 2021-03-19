@@ -68,6 +68,9 @@
       </ng-template>
       <div class="container py-3">
         <div class="row">
+          <div *ngIf="!events.length" class="col-12 py-3">
+            <p class="text-center text-muted">No hay eventos disponibles</p>
+          </div>
           <div class="col-12 col-lg-4 p-2" *ngFor="let event of events">
             <app-event-card
               (leave)="removeEvent($event)"

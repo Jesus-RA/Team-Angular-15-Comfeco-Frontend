@@ -1,9 +1,5 @@
 import { ContentCreator } from "../../contentCreators/interfaces/contentCreators.interfaces";
-
-export interface KnowledgeArea {
-    _id: string;
-    name: string;
-}
+import { knowledgeArea } from "../../knowledgeArea/interfaces/knowledgeArea.interfaces";
 
 export interface Workshop {
     _id: string;
@@ -11,7 +7,7 @@ export interface Workshop {
     description?: string;
     picture?: string;
     instructor: ContentCreator;
-    knowledgeArea: KnowledgeArea;
+    knowledgeArea: knowledgeArea;
     workshopTime: Date;
     workshopsEndTime: Date;
     created_at?: Date;

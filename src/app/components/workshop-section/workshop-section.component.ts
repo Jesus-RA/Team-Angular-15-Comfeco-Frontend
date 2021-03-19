@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 
 // Import interface
+import { knowledgeArea } from 'src/app/services/knowledgeArea/interfaces/knowledgeArea.interfaces';
 import { GeneralSticker } from '../general-sticker/interfaces/generaSticker.interfaces';
-import { KnowledgeArea, Workshop } from 'src/app/services/workshops/interfaces/workshop.interfaces';
+import { Workshop } from 'src/app/services/workshops/interfaces/workshop.interfaces';
 
 // Imports helpers.
 import { CalculateDate } from 'src/app/helpers/CalculateDate';
@@ -19,7 +20,7 @@ import { KnowledgeAreaService } from 'src/app/services/knowledgeArea/knowledge-a
   styleUrls: ['./workshop-section.component.css']
 })
 export class WorkshopSectionComponent {
-  knowledgeAreas: KnowledgeArea[] = [];
+  knowledgeAreas: knowledgeArea[] = [];
   items: GeneralSticker[] = [];
 
   constructor(
@@ -44,11 +45,15 @@ export class WorkshopSectionComponent {
   }
 
   filterByKnowledgeArea(event: MatSelectChange): void {
-    const value = event.value as string;
-    console.log(value);
+    this.workshopsService.listByKnowledgeArea(event.value).subscribe(({ workshops }) => {
+      this.assingValuesToStickers(workshops);
+    });
   }
 
   private assingValuesToStickers(workshops: Workshop[]): void {
+    // Reset stickers.
+    this.items = [];
+
     workshops.forEach(workshop => {
       // Preparing variables.
       const finishWorkshop: number = new Date(workshop.workshopsEndTime).getTime();

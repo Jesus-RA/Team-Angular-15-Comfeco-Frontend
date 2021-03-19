@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 // Imports interfaces.
-import { WorkshopGetRes, WorkshopListRes } from './interfaces/workshop.interfaces';
+import { Workshop, WorkshopGetRes, WorkshopListRes } from './interfaces/workshop.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,10 @@ export class WorkshopsService {
 
   list(): Observable<WorkshopListRes> {
     return this.http.get<WorkshopListRes>(this.url);
+  }
+
+  listByKnowledgeArea(knowledgeAreaId: string): Observable<{ workshops: Workshop[] }> {
+    const path: string = `${ environment.url }/knowledgeAreas/${ knowledgeAreaId }/workshops`;
+    return this.http.get<{ workshops: Workshop[] }>(path);
   }
 }

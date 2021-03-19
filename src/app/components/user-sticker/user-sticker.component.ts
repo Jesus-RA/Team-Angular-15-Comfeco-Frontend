@@ -1,6 +1,11 @@
 // Imports modules.
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+
+// Import interface.
+import { User } from 'src/app/services/user/interfaces/user.interfaces';
+
+// Import helper.
+import { GeneratePicture } from 'src/app/helpers/GenerateAvatar';
 
 // Imports services.
 import { AuthService } from "src/app/services/auth/auth.service";
@@ -11,12 +16,21 @@ import { AuthService } from "src/app/services/auth/auth.service";
   styleUrls: ['./user-sticker.component.css']
 })
 export class UserStickerComponent {
-  public user: any = {};
+  public user: User;
 
-  constructor(private authService: AuthService) {
-    this.authService.currentUser.subscribe(user => {
-      this.user = user
-    });
+  constructor(
+    private generatePicture: GeneratePicture,
+    private authService: AuthService
+  ) {
+    this.authService.currentUser.subscribe(user => this.setUser(user));
+  }
+
+  private setUser(user: User): void {
+    // Set user.
+    this.user = user;
+
+    // Set avatar.
+    this.user.avatar = user.avatar ? user.avatar : this.generatePicture.avatar(user.nickname, 30);
   }
 
   signOut(): void {

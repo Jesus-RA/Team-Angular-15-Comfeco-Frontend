@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 // Imports components.
 import { ModalFileUploadComponent } from '../modal-file-upload/modal-file-upload.component';
+import { GeneratePicture } from 'src/app/helpers/GenerateAvatar';
 
 @Component({
   selector: 'app-user-presentation',
@@ -24,8 +25,9 @@ export class UserPresentationComponent {
   socialMedia: any[] = [];
 
   constructor(
-    private authService: AuthService,
+    private generatePicture: GeneratePicture,
     private userStorage: LocalStorage<User>,
+    private authService: AuthService,
     private dialog: MatDialog
   ) {
     this.watchStateUser();
@@ -34,7 +36,7 @@ export class UserPresentationComponent {
   private watchStateUser(): void {
     this.authService.currentUser.subscribe(user => {
       this.user = user;
-      this.user.avatar = this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${ this.user.nickname }&size=150&rounded=true&background=random`;
+      this.user.avatar = this.user.avatar ? this.user.avatar : this.generatePicture.avatar(user.nickname, 150);
       this.setSocialMedia(user);
     });
   }

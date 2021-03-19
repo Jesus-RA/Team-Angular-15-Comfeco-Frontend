@@ -33,6 +33,7 @@ import { CommunitiesService } from './services/communities/communities.service';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { ContentCreatorsService } from './services/contentCreators/content-creators.service';
 import { GroupService } from './services/group/group.service';
+import { EventService } from './services/events/event.service';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -83,7 +84,8 @@ import { GroupService } from './services/group/group.service';
     WorkshopsService,
     ContentCreatorsService,
     CommunitiesService,
-    GroupService
+    GroupService,
+    EventService
   ],
   bootstrap: [ AppComponent ]
 })

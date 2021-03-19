@@ -32,11 +32,12 @@ import { BadgeCardComponent } from "../components/badge-card/badge-card.componen
 import { RecentActivitiesSectionComponent } from "../components/recent-activities-section/recent-activities-section.component";
 import { DetailsUserSectionComponent } from "../components/details-user-section/details-user-section.component";
 import { GeneralStickerComponent } from "../components/general-sticker/general-sticker.component";
+import { GroupsContainerComponent } from "../components/groups-container/groups-container.component";
+import { GroupCardComponent } from "../components/group-card/group-card.component";
+import { EventCardComponent } from "../components/event-card/event-card.component";
 
 // Imports material
 import { AngularMaterial } from "../material/material";
-import { GroupsContainerComponent } from "../components/groups-container/groups-container.component";
-import { GroupCardComponent } from "../components/group-card/group-card.component";
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { GroupCardComponent } from "../components/group-card/group-card.componen
     DangerZoneComponent,
     GroupCardComponent,
     BadgeCardComponent,
+    EventCardComponent,
     NavbarAppComponent,
     CounterComponent
   ],
@@ -107,6 +109,7 @@ import { GroupCardComponent } from "../components/group-card/group-card.componen
     UserStickerComponent,
     DangerZoneComponent,
     GroupCardComponent,
+    EventCardComponent,
     BadgeCardComponent,
     NavbarAppComponent,
     CounterComponent

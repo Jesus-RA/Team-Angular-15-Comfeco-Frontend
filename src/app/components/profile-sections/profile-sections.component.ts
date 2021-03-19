@@ -1,6 +1,5 @@
 // Imports modules.
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
 
 // Imports interfaces.
 import { User } from 'src/app/services/user/interfaces/user.interfaces';
@@ -12,6 +11,9 @@ import { StickerSection } from '../general-sticker-section/interfaces/stickerSec
 // Imports services.
 import { BadgeService } from 'src/app/services/badge/badge.service';
 import { GroupService } from 'src/app/services/group/group.service';
+import { EventService } from 'src/app/services/events/event.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Event } from 'src/app/services/events/interfaces/events.interfaces';
 
 @Component({
   selector: 'app-profile-sections',
@@ -36,11 +38,13 @@ export class ProfileSectionsComponent implements OnInit {
   };
 
   badges: Badge[] = [];
+  events: Event[] = [];
 
   constructor(
     private badgeService: BadgeService,
     private groupService: GroupService,
-    private authService: AuthService,
+    private eventService: EventService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +61,7 @@ export class ProfileSectionsComponent implements OnInit {
     });
 
     this.badgeService.list().subscribe(res => this.badges = res.badges);
+    this.eventService.list().subscribe(({ events }) => this.events = events);
   }
 
   private setDetailsUser({ gender, country, birthday }: User): void {

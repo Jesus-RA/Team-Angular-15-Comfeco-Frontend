@@ -1,7 +1,6 @@
 // Imports modules.
-import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
-import { MatDialog } from "@angular/material/dialog";
+import { Component, OnInit } from '@angular/core';
 
 // Imports rules
 import { FormsValidators } from "src/app/rules/FormsValidators";
@@ -13,7 +12,7 @@ import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
 import { AuthService } from "src/app/services/auth/auth.service";
 
 // Imports components.
-import { ModalMessageComponent } from "src/app/components/modal-message/modal-message.component";
+import { Notifier } from 'src/app/helpers/Notifier';
 
 @Component({
   selector: 'app-forgot-password-page',
@@ -29,7 +28,7 @@ export class ForgotPasswordPageComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private dialog: MatDialog
+    private notifier: Notifier
   ) {}
 
   ngOnInit(): void {
@@ -46,15 +45,10 @@ export class ForgotPasswordPageComponent implements OnInit {
   }
 
   private successRequest(data: any): void {
-    this.dialog.open(ModalMessageComponent, {
-      width: "500px",
-      disableClose: true,
-      data: {
-        text: data.message,
-        image: "/assets/icons/reset-password.svg"
-      }
+    this.notifier.showModal({
+      text: data.message,
+      image: "/assets/icons/reset-password.svg"
     });
-
     this.forgotPassword.reset();
   }
 
@@ -62,7 +56,9 @@ export class ForgotPasswordPageComponent implements OnInit {
     const { name, message } = error;
 
     if ( name === "NonExistentEmail" ) {
-      this.writeError.writeError(this.input, message);
+      return this.writeError.writeError(this.input, message);
     }
+    
+    this.notifier.showNotification(message, "error", "danger");
   }
 }

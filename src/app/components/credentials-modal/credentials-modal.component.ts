@@ -1,17 +1,18 @@
 // Imports modules.
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 import { FormGroup, FormControl } from "@angular/forms";
 
 // Imports services.
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Notifier } from 'src/app/helpers/Notifier';
 
 @Component({
   selector: 'app-credentials-modal',
   templateUrl: './credentials-modal.component.html',
   styleUrls: ['./credentials-modal.component.css']
 })
-export class CredentialsModalComponent implements OnInit {
+export class CredentialsModalComponent {
   credentials: FormGroup = new FormGroup({
     password: new FormControl("")
   });
@@ -19,29 +20,19 @@ export class CredentialsModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<CredentialsModalComponent>,
-    private authService: AuthService
+    private authService: AuthService,
+    private notifier: Notifier
   ) {
     this.authService.currentUser.subscribe((user: any) => this.email = user.email);
-  }
-
-  ngOnInit(): void {
   }
 
   send(): void {
     const { password } = this.credentials.value;
 
     this.authService.changeEmail(this.email, password).subscribe(
-      res => this.successReq(res),
-      err => this.failureReq(err.error)
+      res => this.dialogRef.close(res),
+      ({ error }) => this.notifier.showNotification(error.message, "error", "danger")
     );
-  }
-
-  private successReq(data: any): void {
-    this.dialogRef.close(data);
-  }
-
-  private failureReq(error: any) {
-    console.log(error);
   }
 
   close(): void {

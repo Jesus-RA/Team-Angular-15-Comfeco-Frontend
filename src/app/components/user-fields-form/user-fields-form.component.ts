@@ -1,7 +1,6 @@
 // Imports modules.
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatSnackBar } from "@angular/material/snack-bar";
 
 // Imports helpers.
 import { LocalStorage } from 'src/app/helpers/LocalStorage';
@@ -11,7 +10,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 // Imports component.
-import { NotificationComponent } from "src/app/components/notification/notification.component";
+import { Notifier } from 'src/app/helpers/Notifier';
+import { UserResponse } from 'src/app/services/user/interfaces/user.interfaces';
 
 @Component({
   selector: 'app-user-fields-form',
@@ -37,7 +37,7 @@ export class UserFieldsFormComponent {
     private authService: AuthService,
     private userService: UserService,
     private storage: LocalStorage<any>,
-    private snackbar: MatSnackBar
+    private notifier: Notifier
   ) {
     this.setUser();
   }
@@ -63,25 +63,13 @@ export class UserFieldsFormComponent {
   updateUser(): void {
     this.userService.update(this.user._id, this.form.value).subscribe(
       res => this.successRequest(res),
-      err => console.log(err)
+      err => this.notifier.showNotification(err.error.message, "error", "danger")
     );
   }
 
-  private successRequest(res: any): void {
-    const { user } = res;
+  private successRequest(res: UserResponse): void {
+    const { user, message } = res;
     this.storage.insert(this.storage.TEAMANGULAR15_USER, user);
-    this.showNotification();
-  }
-
-  private showNotification(): void {
-    this.snackbar.openFromComponent(NotificationComponent, {
-      duration: 3000,
-      panelClass: ["bg-warning"],
-      horizontalPosition: "center",
-      data: {
-        icon: "edit",
-        message: "Su perfil ha sido modificado con exito."
-      }
-    });
+    this.notifier.showNotification(message, "edit", "warning");
   }
 }

@@ -1,5 +1,4 @@
 // Imports modules.
-import { MatSnackBar } from "@angular/material/snack-bar";
 import { Component, Input, OnInit } from '@angular/core';
 
 // Imports interfaces.
@@ -11,7 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { GroupService } from 'src/app/services/group/group.service';
 
 // Imports components.
-import { NotificationComponent } from "../notification/notification.component";
+import { Notifier } from "src/app/helpers/Notifier";
 
 @Component({
   selector: 'app-group-card',
@@ -25,7 +24,7 @@ export class GroupCardComponent implements OnInit {
   constructor(
     private groupService: GroupService,
     private authService: AuthService,
-    private snackbar: MatSnackBar
+    private notifier: Notifier
   ) {}
   
   ngOnInit(): void {
@@ -34,24 +33,8 @@ export class GroupCardComponent implements OnInit {
 
   joinGroup(groupId: string): void {
     this.groupService.addMemberToGroup(groupId, this.user._id).subscribe(
-      res => this.successReq(res.message),
-      err => this.failureReq(err.error)
+      ({ message }) => this.notifier.showNotification(message, "check_circle", "success"),
+      ({ error }) => this.notifier.showNotification(error.message, "error", "danger")
     );
-  }
-
-  private successReq(message: string): void {
-    this.openNotification(message, "success", "check_circle");
-  }
-
-  private failureReq(error: any) {
-    this.openNotification(error.message, "danger", "error");
-  }
-
-  private openNotification(message: string, color: string, icon: string): void {
-    this.snackbar.openFromComponent(NotificationComponent, {
-      duration: 3000,
-      panelClass: [`bg-${ color }`],
-      data: { icon, message }
-    });
   }
 }

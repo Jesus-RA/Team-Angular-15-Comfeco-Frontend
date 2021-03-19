@@ -1,6 +1,5 @@
 // Imports modules.
 import { FormGroup, FormControl } from "@angular/forms";
-import { MatDialog } from "@angular/material/dialog";
 import { Component, OnInit } from '@angular/core';
 
 // Imports interfaces.
@@ -8,15 +7,13 @@ import { AuthResponse } from 'src/app/services/auth/interfaces/auth.interfaces';
 
 // Imports helpers.
 import { WriteErrorsForm } from "src/app/helpers/WriteErrorsForm";
+import { Notifier } from "src/app/helpers/Notifier";
 
 // Imports rules.
 import { FormsValidators } from "src/app/rules/FormsValidators";
 
 // Imports services.
 import { AuthService } from "src/app/services/auth/auth.service";
-
-// Imports components.
-import { ModalMessageComponent } from '../modal-message/modal-message.component';
 
 @Component({
   selector: 'app-register-form',
@@ -34,7 +31,7 @@ export class RegisterFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private dialog: MatDialog
+    private notifier: Notifier
   ) {}
 
   ngOnInit(): void {
@@ -59,13 +56,9 @@ export class RegisterFormComponent implements OnInit {
   }
   
   private successRequest(data: AuthResponse): void {
-    this.dialog.open(ModalMessageComponent, {
-      disableClose: true,
-      width: "400px",
-      data: {
-        text: data.message,
-        image: "/assets/icons/accountCreatedSuccess.svg"
-      }
+    this.notifier.showModal({
+      text: data.message,
+      image: "/assets/icons/accountCreatedSuccess.svg"
     });
     this.register.reset();
   }

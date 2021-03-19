@@ -5,12 +5,12 @@ import { Router } from "@angular/router";
 
 // Imports helpers.
 import { LocalStorage } from "src/app/helpers/LocalStorage";
+import { Notifier } from "src/app/helpers/Notifier";
 
 // Imports services.
 import { AuthService } from "src/app/services/auth/auth.service";
 
 // Imports components.
-import { ModalMessageComponent } from "src/app/components/modal-message/modal-message.component";
 import { CredentialsModalComponent } from "../credentials-modal/credentials-modal.component";
 
 @Component({
@@ -25,7 +25,8 @@ export class DangerZoneComponent {
     private storage: LocalStorage<{}>,
     private authService: AuthService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private notifier: Notifier
   ) {
     this.watchStateUser();
   }
@@ -52,7 +53,7 @@ export class DangerZoneComponent {
     if (confirm("Con esta accion modificaras tu contraseña, ¿Estas seguro?")) {
       this.authService.forgotPassword(this.user.email).subscribe(
         res => this.successRequestForgotPassword(res),
-        err => console.error(err)
+        ({ error }) => this.notifier.showNotification(error.message, "error", "danger")
       );
     }
   }
@@ -63,13 +64,9 @@ export class DangerZoneComponent {
   }
 
   private openDialog(image: string, text: string): void {
-    this.dialog.open(ModalMessageComponent, {
-      width: "500px",
-      disableClose: true,
-      data: { image, text }
-    });
+    const dialogRef = this.notifier.showModal({ image, text })
 
-    this.dialog.afterAllClosed.subscribe(() => {
+    dialogRef.afterClosed().subscribe(() => {
       this.router.navigate(["/auth/login"]);
     });
   }

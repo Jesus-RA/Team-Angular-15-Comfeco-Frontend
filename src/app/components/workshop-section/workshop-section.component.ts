@@ -11,6 +11,7 @@ import { CalculateDate } from 'src/app/helpers/CalculateDate';
 
 // Imports services.
 import { WorkshopsService } from 'src/app/services/workshops/workshops.service';
+import { KnowledgeAreaService } from 'src/app/services/knowledgeArea/knowledge-area.service';
 
 @Component({
   selector: 'app-workshop-section',
@@ -18,29 +19,33 @@ import { WorkshopsService } from 'src/app/services/workshops/workshops.service';
   styleUrls: ['./workshop-section.component.css']
 })
 export class WorkshopSectionComponent {
-  knowledgeAreas: Set<KnowledgeArea> = new Set;
+  knowledgeAreas: KnowledgeArea[] = [];
   items: GeneralSticker[] = [];
 
   constructor(
+    private knowledgeAreaService: KnowledgeAreaService,
     private workshopsService: WorkshopsService,
     private calculateDate: CalculateDate
   ) {
+    this.getKnowledgeAreas();
     this.getWorkshops();
+  }
+
+  private getKnowledgeAreas(): void {
+    this.knowledgeAreaService.list().subscribe(({ knowledgeAreas }) => {
+      this.knowledgeAreas = knowledgeAreas;
+    });
   }
 
   private getWorkshops(): void {
     this.workshopsService.list().subscribe(({ workshops }) => {
-      this.assingValuesToKnowledgeAreas(workshops);
       this.assingValuesToStickers(workshops);
     });
   }
 
   filterByKnowledgeArea(event: MatSelectChange): void {
     const value = event.value as string;
-  }
-
-  private assingValuesToKnowledgeAreas(workshops: Workshop[]): void {
-    workshops.forEach(workshop => this.knowledgeAreas.add(workshop.knowledgeArea));
+    console.log(value);
   }
 
   private assingValuesToStickers(workshops: Workshop[]): void {

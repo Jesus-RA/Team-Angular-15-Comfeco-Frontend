@@ -5,5 +5,6 @@ export interface StickerSection {
       icon: string;
       title: string;
     };
+    link?: string;
     stickers: GeneralSticker[];
 }

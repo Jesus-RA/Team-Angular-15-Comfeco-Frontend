@@ -20,6 +20,16 @@
             class="text-purple"
             target="_blank"
         >{{ sticker.link.content }}</a>
-        <span *ngIf="sticker.subtitle" class="text-muted">{{ sticker.subtitle }}</span>
+        <span
+            *ngIf="sticker.subtitle"
+            class="text-muted"
+        >{{ sticker.subtitle }}</span>
+    </div>
+    <span class="spacer"></span>
+    <div *ngIf="sticker.icon" class="container-icons">
+        <mat-icon
+            class="text-{{ sticker.color }}"
+            title="Estado del taller"
+        >{{ sticker.icon }}</mat-icon>
     </div>
 </li>

@@ -1,6 +1,9 @@
 import { ContentCreator } from "../../contentCreators/interfaces/contentCreators.interfaces";
 
-interface KnowledgeArea {}
+export interface KnowledgeArea {
+    _id: string;
+    name: string;
+}
 
 export interface Workshop {
     _id: string;

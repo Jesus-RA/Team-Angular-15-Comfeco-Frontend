@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { StickerSection } from 'src/app/components/general-sticker-section/interfaces/stickerSection.interfaces';
 import { Community } from 'src/app/services/communities/interfaces/community.interfaces';
 
-// Imports services,
+// Imports services.
 import { CommunitiesService } from 'src/app/services/communities/communities.service';
 
 @Component({
@@ -16,6 +16,7 @@ import { CommunitiesService } from 'src/app/services/communities/communities.ser
 export class AppPageComponent implements OnInit {
   communitiesSection: StickerSection = {
     header: { icon: "supervisor_account", title: "Comunidades" },
+    link: "/app/comunities",
     stickers: []
   };
 

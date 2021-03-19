@@ -69,7 +69,7 @@
       <div class="container py-3">
         <div class="row">
           <div class="col-12 col-lg-4 p-2" *ngFor="let event of events">
-
+            <app-event-card [event]="event"></app-event-card>
           </div>
         </div>
       </div>

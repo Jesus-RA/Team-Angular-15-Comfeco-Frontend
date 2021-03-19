@@ -37,6 +37,11 @@ export class ProfileSectionsComponent implements OnInit {
     stickers: []
   };
 
+  myEventSection: StickerSection = {
+    header: { icon: "event", title: "Mis eventos" },
+    stickers: []
+  };
+
   badges: Badge[] = [];
   events: Event[] = [];
 
@@ -57,6 +62,10 @@ export class ProfileSectionsComponent implements OnInit {
 
       this.groupService.listByUser(user._id).subscribe(({ groups }) => {
         this.setMySectionGroups(groups, user.nickname);
+      });
+
+      this.eventService.listByUser(user._id).subscribe(({ events }) => {
+        this.setMyEvenSection(events, user.nickname);
       });
     });
 
@@ -88,8 +97,18 @@ export class ProfileSectionsComponent implements OnInit {
     groups.forEach(group => {
       this.myGroupSection.stickers.push({
         avatar: group.banner,
-        title: `${ nickname }, Ahora formas parte del grupo ${ group.name }`,
+        title: `${ nickname }, ahora formas parte del grupo ${ group.name }`,
         subtitle: group.description
+      });
+    });
+  }
+
+  private setMyEvenSection(events: Event[], nickname: string) {
+    events.forEach(event => {
+      this.myEventSection.stickers.push({
+        subtitle: event.description,
+        avatar: event.banner,
+        title: `${ nickname }, te has sucrito al evento ${ event.name }`
       });
     });
   }

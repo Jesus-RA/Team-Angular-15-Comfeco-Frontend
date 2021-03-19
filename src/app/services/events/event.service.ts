@@ -21,6 +21,11 @@ export class EventService {
     return this.http.get<{ events: Event[] }>(this.url);
   }
 
+  listByUser(userId: string): Observable<{ events: Event[] }> {
+    const path: string = `${ environment.url }/users/${ userId }/events`;
+    return this.http.get<{ events: Event[] }>(path);
+  }
+
   addUserToEvent(eventId: string, userId: string): Observable<{ message: string }> {
     const path: string = `${ this.url }/${ eventId }/users`;
     return this.http.post<{ message: string }>(path, { userId });

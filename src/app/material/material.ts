@@ -1,9 +1,10 @@
 // Imports modules.
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatExpansionModule } from "@angular/material/expansion";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatSelectModule } from "@angular/material/select";
@@ -17,6 +18,7 @@ export const AngularMaterial = [
     MatProgressBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatSnackBarModule,
     MatButtonModule,

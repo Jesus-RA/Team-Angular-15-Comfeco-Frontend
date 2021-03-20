@@ -1,78 +1,47 @@
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <!-- Images -->
-            <div class="container-images mb-5">
-                <div class="container-menu d-flex py-2">
-                    <span class="spacer"></span>
-                    <button
-                        class="bg-white text-purple mx-2"
-                        (click)="changeBanner()"
-                        mat-mini-fab
-                    >
-                        <mat-icon>photo_camera</mat-icon>
-                    </button>
-                    <button
-                        class="bg-white text-purple mx-2"
-                        routerLink="/app/settings"
-                        title="Configuraciones"
-                        mat-mini-fab
-                    >
-                        <mat-icon>settings</mat-icon>
-                    </button>
-                </div>
-                <div class="container-banner">
-                    <img
-                        [src]="user.banner ? user.banner : 'https://picsum.photos/1080/320'"
-                        style="object-fit: cover;"
-                        alt="Banner image"
-                        height="100%"
-                        width="100%"
-                    >
-                </div>
-                <div class="container-avatar">
-                    <img
-                        [src]="user.avatar"
-                        alt="Profile picture"
-                        height="100%"
-                        width="100%"
-                    >
-                    <div id="edit-avatar">
-                        <button
-                            (click)="changeAvatar()"
-                            class="bg-purple"
-                            mat-mini-fab
-                        >
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="container-social-media d-none d-md-block">
-                    <a
-                        *ngFor="let item of socialMedia"
-                        [style]="{ display: item.link ? 'inline-block' : 'none' }"
-                        href="{{ item.link }}"
-                        target="_blank"
-                        class="px-2"
-                    >
-                        <img src="{{ item.img }}" width="25px">
-                    </a>
-                </div>
+<div class="card border-0 bg-white shadow">
+    <!-- Images -->
+    <div class="container-images mb-5">
+        <div class="container-menu d-flex py-2">
+            <span class="spacer"></span>
+            <button class="bg-white text-purple mx-2" (click)="changeBanner()" mat-mini-fab>
+                <mat-icon>photo_camera</mat-icon>
+            </button>
+            <button class="bg-white text-purple mx-2" routerLink="/app/settings" title="Configuraciones" mat-mini-fab>
+                <mat-icon>settings</mat-icon>
+            </button>
+        </div>
+        <div class="container-banner">
+            <img [src]="user.banner ? user.banner : 'https://picsum.photos/1080/320'" style="object-fit: cover;"
+                alt="Banner image" height="100%" width="100%">
+        </div>
+        <div class="container-avatar">
+            <img [src]="user.avatar" alt="Profile picture" height="100%" width="100%">
+            <div id="edit-avatar">
+                <button (click)="changeAvatar()" class="bg-purple" mat-mini-fab>
+                    <mat-icon>edit</mat-icon>
+                </button>
             </div>
-            <!-- #End images -->
+        </div>
+    
+        <div class="container-social-media d-none d-sm-block">
+            <a *ngFor="let item of socialMedia" [style]="{ display: item.link ? 'inline-block' : 'none' }"
+                href="{{ item.link }}" target="_blank" class="px-2">
+                <img src="{{ item.img }}" width="25px">
+            </a>
+        </div>
+    </div>
+    <!-- #End images -->
 
-            <div class="container-text text-md-center">
-                <h1>
-                    <strong>{{ user.nickname }}</strong>
-                </h1>
-                <div class="row justify-content-md-center">
-                    <div class="col-12 col-md-8 col-lg-6">
-                        <p class="text-muted">{{ user.knowledgeAreas }}</p>
-                        <p>{{ user.biography }}</p>
-                    </div>
+    <div class="card-body">
+        <div class="container-text">
+            <h1><strong>{{ user.nickname }}</strong></h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-muted">{{ user.knowledgeAreas }}</p>
+                    <p>{{ user.biography }}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

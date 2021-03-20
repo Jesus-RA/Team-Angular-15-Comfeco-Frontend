@@ -62,19 +62,16 @@ p {
 }
 
 .container-text h1 {
-    font-size: 35px;
+    font-size: 25px;
 }
 
 @media screen and (min-width: 768px) {
     .container-avatar {
-        right: 0;
-        left: 0;
-        margin: auto;
-        height: 150px;
-        width: 150px;
+        height: 125px;
+        width: 125px;
     }
 
     .container-banner {
-        height: 320px;
+        height: 200px;
     }
 }

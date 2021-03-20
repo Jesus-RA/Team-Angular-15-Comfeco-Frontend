@@ -18,7 +18,11 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div class="card-body">
+    <div class="card-body pt-0">
+        <p
+            *ngIf="!items.length"
+            class="text-center text-muted"
+        >No se encuentran talleres disponibles.</p>
         <app-general-sticker
             *ngFor="let item of items"
             [sticker]="item"

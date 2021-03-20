@@ -32,7 +32,7 @@ export class AppPageComponent implements OnInit {
     this.communitiesSection.stickers.push({
       title: community.title,
       avatar: community.banner,
-      link: { content: "Unirme", url: "" }
+      link: { content: "Unirme", url: community.url }
     });
   }
 }
